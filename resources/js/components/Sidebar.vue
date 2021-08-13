@@ -4,11 +4,8 @@
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
       <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-mini">
-          CT
-        </a>
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-            SoftInsa
+        <a href="https://www.softinsa.pt/pt/" class="simple-text logo-normal">
+            <!-- <img src="./assets/logo.png"> -->Softinsa
         </a>
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">

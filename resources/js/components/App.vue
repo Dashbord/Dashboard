@@ -2,9 +2,8 @@
   <div class="wrapper ">
     <Sidebar />
     <div class="main-panel" id="main-panel">
-      <NavbarS />
-      <div class="panel-header panel-header-lg">
-        <canvas id="bigDashboardChart"></canvas>
+      <Navbar/>
+      <div class="panel-header panel-header-sm">
       </div>
       <router-view />
       <footer class="footer">
@@ -17,11 +16,11 @@
 
 <script>
 import Sidebar from './Sidebar.vue'
-import NavbarS from './Navbar.vue'
+import Navbar from './Navbar.vue'
 export default {
     components: { 
         Sidebar,
-        NavbarS,
+        Navbar,
     },
     name: "App",
 }

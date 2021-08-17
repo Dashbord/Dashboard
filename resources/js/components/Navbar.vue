@@ -38,7 +38,7 @@
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <router-link class="dropdown-item" to="reset" tag="a" >Reset Password</router-link>
+                  <router-link class="dropdown-item" to="user" tag="a" >My account</router-link>
                   <a class="dropdown-item" @click.prevent="logout()">Logout</a>
                 </div>
               </li>

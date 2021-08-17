@@ -17,8 +17,12 @@ export default new VueRouter({
         {
             path: '/User', name: 'My Account', component: User,
             meta: { title: 'My Account' }
-        }
+        },
 
+        {
+            path: '/fullcalender', name: 'fullcalender', component: User,
+            meta: { title: 'fullcalender' }
+        }
         
         
     ]

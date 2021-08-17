@@ -22,7 +22,7 @@
                     <p>Customer</p>
                 </a>
             </router-link>
-            <router-link tag="li" to="/calendar" active-class="active">
+            <router-link tag="li" to="/fullcalendar" active-class="active">
                 <a>
                     <i class="now-ui-icons design_app"></i>
                     <p>Calendar</p>

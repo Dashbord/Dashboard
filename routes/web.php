@@ -14,8 +14,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    if (Auth::check()) {
+        return view('dashboard');
+    }
     return view('welcome');
 });
+
+
+//fullcalender
+use App\Http\Controllers\FullCalenderController;
+Route::get('fullcalendar',[FullCalenderController::class, 'index']);
+Route::get('fullcalendar',[FullCalenderController::class, 'create']);
+Route::get('fullcalendar',[FullCalenderController::class, 'update']);
+Route::get('fullcalendar',[FullCalenderController::class, 'destroy']);
 
 require __DIR__.'/auth.php';
 
@@ -25,5 +36,6 @@ Route::get('{any}', function(){
     ->where('any', '.*')
     ->middleware('auth')
     ->name('dashboard');
+
 
 

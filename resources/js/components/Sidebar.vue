@@ -1,5 +1,5 @@
 <template>
-  <div class="sidebar" data-color="orange">
+  <div class="sidebar" data-color="blue">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
@@ -26,12 +26,6 @@
                 <a>
                     <i class="now-ui-icons design_app"></i>
                     <p>Calendar</p>
-                </a>
-            </router-link>
-            <router-link tag="li" to="/ticket" active-class="active">
-                <a>
-                    <i class="now-ui-icons design_app"></i>
-                    <p>Ticket</p>
                 </a>
             </router-link>
         </ul>

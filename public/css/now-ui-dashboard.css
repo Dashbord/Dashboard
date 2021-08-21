@@ -3969,7 +3969,8 @@ Created using IcoMoon - icomoon.io
 .sidebar .logo,
 .off-canvas-sidebar .logo {
   position: relative;
-  padding: 0.5rem 0.7rem;
+  text-align: center;
+  padding: 1rem 1rem;
   z-index: 4;
 }
 

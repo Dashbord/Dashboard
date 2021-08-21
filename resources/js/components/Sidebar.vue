@@ -5,7 +5,7 @@
     -->
       <div class="logo">
         <a>
-             <img src="/images/logotipo.png">
+             <img src="/images/softinsa-logo.png">
         </a>
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">

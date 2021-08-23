@@ -1,8 +1,9 @@
 <x-guest-layout>
     <x-auth-card>
+        <img src="/images/logotipo.png" alt="logotipo"/>
         <x-slot name="logo">
             <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                
             </a>
         </x-slot>
 
@@ -16,7 +17,7 @@
             @csrf
 
             <!-- Email Address -->
-            <div>
+            <div><br>
                 <x-label for="email" :value="__('Email')" />
 
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
@@ -49,6 +50,9 @@
 
                 <x-button class="ml-3">
                     {{ __('Log in') }}
+                </x-button>
+                <x-button class="ml-3">
+                    <a href="{{ route('register') }}" >Register</a>
                 </x-button>
             </div>
         </form>

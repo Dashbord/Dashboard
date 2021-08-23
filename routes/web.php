@@ -17,7 +17,7 @@ Route::get('/', function () {
     if (Auth::check()) {
         return view('dashboard');
     }
-    return view('welcome');
+    return view('auth/login');
 });
 // Rotas calendario
 Route::get('full-calender', [FullCalenderController::class, 'index']);

@@ -15,13 +15,18 @@ use App\Http\Controllers\FullCalenderController;
 
 Route::get('/', function () {
     if (Auth::check()) {
-        return view('dashboard');
+    return view('dashboard');
     }
     return view('auth/login');
 });
 // Rotas calendario
 Route::get('full-calender', [FullCalenderController::class, 'index']);
 Route::post('full-calender/action', [FullCalenderController::class, 'action']);
+
+// Rotas Customers
+Route::get('/Customers', function () {
+    return view('Customers');
+});
 
 require __DIR__.'/auth.php';
 

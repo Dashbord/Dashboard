@@ -1,10 +1,7 @@
 <x-guest-layout>
     <x-auth-card>
-        <img src="/images/logotipo.png" alt="logotipo"/>
+    <img src="/images/logotipo.png" alt="logotipo"/>
         <x-slot name="logo">
-            <a href="/">
-                
-            </a>
         </x-slot>
 
         <!-- Session Status -->

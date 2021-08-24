@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FullCalenderController;
+use App\Http\Controllers\TicketController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,6 +13,9 @@ use App\Http\Controllers\FullCalenderController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/ticket',[TicketController::class,'getAllTickets'])->name('ticket.getallticket');
+Route::get('/ticket/{queue}/{state}',[TicketController::class,'getAllType'])->name('ticket.getAllType');
+
 
 Route::get('/', function () {
     if (Auth::check()) {
@@ -19,6 +23,7 @@ Route::get('/', function () {
     }
     return view('auth/login');
 });
+
 // Rotas calendario
 Route::get('full-calender', [FullCalenderController::class, 'index']);
 Route::post('full-calender/action', [FullCalenderController::class, 'action']);
@@ -36,6 +41,5 @@ Route::get('{any}', function(){
     ->where('any', '.*')
     ->middleware('auth')
     ->name('dashboard');
-
 
 

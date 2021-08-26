@@ -16,10 +16,10 @@
                     <p>Dashboard</p>
                 </a>
             </router-link>
-            <router-link tag="li" to="/customer" active-class="active">
+            <router-link tag="li" to="/customers" active-class="active">
                 <a>
                     <i class="now-ui-icons design_app"></i>
-                    <p>Customer</p>
+                    <p>Customers</p>
                 </a>
             </router-link>
             <router-link tag="li" to="/full-calender" active-class="active">

@@ -4,6 +4,8 @@ import Dashboard from './views/Dashboard';
 import User from './views/User';
 import fullCalender from './views/fullCalender';
 import Customers from './views/Customers';
+import teste from './views/teste';
+
 Vue.use(VueRouter);
 
 export default new VueRouter({
@@ -14,7 +16,6 @@ export default new VueRouter({
             path: '/dashboard', name: 'home', component: Dashboard,
             meta: { title: 'Dashboard' }
         },
-
         {
             path: '/User', name: 'My Account', component: User,
             meta: { title: 'My Account' }
@@ -26,8 +27,11 @@ export default new VueRouter({
         {
             path: '/Customers', name: 'Customers', component: Customers,
             meta: { title: 'Customers' }        
+        },
+        {
+            path: '/teste', name: 'teste', component: teste,
+            meta: { title: 'teste' }        
         }
-        
     ]
 
 });

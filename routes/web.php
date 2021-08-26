@@ -13,6 +13,7 @@ use App\Http\Controllers\TicketController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Rotas tickets
 Route::get('/ticket',[TicketController::class,'getAllTickets'])->name('ticket.getallticket');
 Route::get('/ticket/{queue}/{state}',[TicketController::class,'getAllType'])->name('ticket.getAllType');
 
@@ -28,10 +29,6 @@ Route::get('/', function () {
 Route::get('full-calender', [FullCalenderController::class, 'index']);
 Route::post('full-calender/action', [FullCalenderController::class, 'action']);
 
-// Rotas Customers
-Route::get('/Customers', function () {
-    return view('Customers');
-});
 
 require __DIR__.'/auth.php';
 

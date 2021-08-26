@@ -27,6 +27,7 @@
         "@fullcalendar/daygrid": "^5.9.0",
         "@fullcalendar/interaction": "^5.9.0",
         "@fullcalendar/vue": "^5.9.0",
+        "cors": "^2.8.5",
         "vue.js": "^0.3.2"
     }
 }

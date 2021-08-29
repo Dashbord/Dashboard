@@ -1,4 +1,4 @@
-    <template>
+<template>
   <div class="content">
     <div class="row">
       <div class="col-md-12">
@@ -17,7 +17,18 @@
                   <th>Resolved</th>
                   <th>Total</th>
                 </thead>
-                <tbody></tbody>
+                <tbody><tr v-for="ticket in tickets" :key="ticket.id">
+                    <td>
+                      {{ticket.id}}
+                    </td>
+                    <td>
+                      {{ticket.queue}}
+                    </td>
+                    <td>
+
+                    </td>
+                    
+                  </tr></tbody>
               </table>
             </div>
             <div class="card-footer">
@@ -43,7 +54,20 @@
                   <th>Resolved Tickets</th>
                   <th>Resolution percentage</th>
                 </thead>
-                <tbody></tbody>
+                <tbody>
+                  <tr v-for="id in ticketId" :key ="id">
+                    <td>
+                      {{id}}
+                    </td>
+                    <td>
+                      
+                    </td>
+                    <td>
+
+                    </td>
+                    
+                  </tr>
+                </tbody>
               </table>
             </div>
             <div class="card-footer">
@@ -146,12 +170,21 @@
 </template>
 
 <script>
-  import axios from 'axios';
-  export default {
-    // axios.get("/ticket/Raw/new")
-    //   .then((res)=>{console.log(res);
-    // })
-  };
+import axios from "axios";
+export default {
+  data: () => ({
+    ticketId: null,
+    tickets: null,
+  }),
+  mounted() {
+    // axios.get("/ticket/Raw/new").then((res) => {
+    //   this.ticketId = res.data.TicketID;
+    // });
+    axios.get("/ticket").then((res) => {
+      this.tickets = res.data;
+    });
+  },
+};
 </script>
     
 <style>

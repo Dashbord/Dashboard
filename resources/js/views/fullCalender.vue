@@ -29,5 +29,13 @@ export default {
 }
 </script>
 <template>
+<div class="content">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
   <FullCalendar :options="calendarOptions" />
+  </div>
+  </div>
+  </div>
+  </div>
 </template>

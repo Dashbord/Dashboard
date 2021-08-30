@@ -21,8 +21,8 @@ class TicketController extends Controller
         return $tickets;
     }
     
-    public function getAllType($queue,$state){
-        $response = Http::get('http://10.175.146.2/otrs/nph-genericinterface.pl/Webservice/GenericTicketConnectorREST/Ticket?UserLogin=pvinha&Password=sET4s7JyFBaDDmQa&Queues='.$queue.'&States='.$state.'');
+    public function getState($state){
+        $response = Http::get('http://10.175.146.2/otrs/nph-genericinterface.pl/Webservice/GenericTicketConnectorREST/Ticket?UserLogin=pvinha&Password=sET4s7JyFBaDDmQa&States='.$state.'');       
         return $response->json();
     }
 }

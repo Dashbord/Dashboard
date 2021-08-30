@@ -15,7 +15,7 @@ use App\Http\Controllers\TicketController;
 */
 // Rotas tickets
 Route::get('/ticket',[TicketController::class,'getAllTickets'])->name('ticket.getallticket');
-Route::get('/ticket/{queue}/{state}',[TicketController::class,'getAllType'])->name('ticket.getAllType');
+Route::get('/ticket/{state}',[TicketController::class,'getState'])->name('ticket.getState');
 
 
 Route::get('/', function () {

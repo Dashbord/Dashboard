@@ -19,10 +19,10 @@
                 </thead>
                 <tbody><tr v-for="ticket in tickets" :key="ticket.id">
                     <td>
-                      {{ticket.id}}
+                    {{ticket.queue}}
                     </td>
                     <td>
-                      {{ticket.queue}}
+                    {{ticket.id}}
                     </td>
                     <td>
 
@@ -55,17 +55,16 @@
                   <th>Resolution percentage</th>
                 </thead>
                 <tbody>
-                  <tr v-for="id in ticketId" :key ="id">
+                  <tr>
                     <td>
-                      {{id}}
+                      {{ticketNew.length}}
                     </td>
                     <td>
-                      
+                      {{ticketClosed.length}}
                     </td>
                     <td>
-
+                      {{ticketNew.length*100/(ticketNew.length+ticketClosed.length)}}%
                     </td>
-                    
                   </tr>
                 </tbody>
               </table>
@@ -173,13 +172,17 @@
 import axios from "axios";
 export default {
   data: () => ({
-    ticketId: null,
+    ticketNew: null,
+    ticketClosed: null,
     tickets: null,
   }),
   mounted() {
-    // axios.get("/ticket/Raw/new").then((res) => {
-    //   this.ticketId = res.data.TicketID;
-    // });
+    axios.get("/ticket/new").then((res) => {
+      this.ticketNew = res.data.TicketID;
+    });
+    axios.get("/ticket/closed successful").then((res) => {
+      this.ticketClosed = res.data.TicketID;
+    });
     axios.get("/ticket").then((res) => {
       this.tickets = res.data;
     });

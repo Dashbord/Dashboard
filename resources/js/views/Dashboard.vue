@@ -1,6 +1,7 @@
 <template>
   <div class="content">
     <div class="row">
+      <!-- primeiro tabela -->
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
@@ -17,18 +18,18 @@
                   <th>Resolved</th>
                   <th>Total</th>
                 </thead>
-                <tbody><tr v-for="ticket in tickets" :key="ticket.id">
+                <tbody>
+                  <!-- <tr v-for="ticketAll in ticketsAll" :key="ticketAll.id">
                     <td>
-                    {{ticket.queue}}
+                    {{ticketAll.queue}}
                     </td>
                     <td>
-                    {{ticket.id}}
+                    {{ticketAll.id}}
                     </td>
                     <td>
-
                     </td>
-                    
-                  </tr></tbody>
+                  </tr> -->
+                  </tbody>
               </table>
             </div>
             <div class="card-footer">
@@ -41,6 +42,46 @@
           </div>
         </div>
       </div>
+      <!-- segundo tabela -->
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title">New Tickets</h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class="text-primary">
+                  <th>Ticket</th>
+                  <th>Age</th>
+                  <th>Title</th>
+                </thead>
+                <tbody>
+                  <tr v-for="ticket in tickets" :key="ticket.id">
+                    <td>
+                     {{ticket.TicketNumber}}
+                    </td>
+                    <td>
+                      {{ticket.Created}}
+                    </td>
+                    <td>
+                      {{ticket.Title}}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="card-footer">
+              <hr />
+              <div class="stats">
+                <i class="now-ui-icons loader_refresh spin"></i> Updated 3
+                minutes ago
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- terceiro tabela -->
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
@@ -79,6 +120,7 @@
           </div>
         </div>
       </div>
+      <!-- Primeiro grafico -->
       <div class="col-lg-6">
         <div class="card card-chart">
           <div class="card-header">
@@ -175,6 +217,7 @@ export default {
     ticketNew: null,
     ticketClosed: null,
     tickets: null,
+    // ticketsAll: null,
   }),
   mounted() {
     axios.get("/ticket/new").then((res) => {
@@ -186,6 +229,9 @@ export default {
     axios.get("/ticket").then((res) => {
       this.tickets = res.data;
     });
+    //  axios.get("/ticket").then((res) => {
+    //   this.ticketsAll = res.data;
+    // });
   },
 };
 </script>

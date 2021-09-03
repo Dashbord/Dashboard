@@ -1,6 +1,7 @@
 <template>
   <div class="content">
     <div class="row">
+      <!-- primeiro tabela -->
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
@@ -17,18 +18,18 @@
                   <th>Resolved</th>
                   <th>Total</th>
                 </thead>
-                <tbody><tr v-for="ticket in tickets" :key="ticket.id">
+                <tbody>
+                  <!-- <tr v-for="ticketAll in ticketsAll" :key="ticketAll.id">
                     <td>
-                      {{ticket.id}}
+                    {{ticketAll.queue}}
                     </td>
                     <td>
-                      {{ticket.queue}}
+                    {{ticketAll.id}}
                     </td>
                     <td>
-
                     </td>
-                    
-                  </tr></tbody>
+                  </tr> -->
+                  </tbody>
               </table>
             </div>
             <div class="card-footer">
@@ -41,31 +42,31 @@
           </div>
         </div>
       </div>
+      <!-- segundo tabela -->
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
-            <h4 class="card-title">Ticket Resolution percentage</h4>
+            <h4 class="card-title">New Tickets</h4>
           </div>
           <div class="card-body">
             <div class="table-responsive">
               <table class="table">
                 <thead class="text-primary">
-                  <th>Opened Tickets</th>
-                  <th>Resolved Tickets</th>
-                  <th>Resolution percentage</th>
+                  <th>Ticket</th>
+                  <th>Age</th>
+                  <th>Title</th>
                 </thead>
                 <tbody>
-                  <tr v-for="id in ticketId" :key ="id">
+                  <tr v-for="ticket in tickets" :key="ticket.id">
                     <td>
-                      {{id}}
+                     {{ticket.TicketNumber}}
                     </td>
                     <td>
-                      
+                      {{ticket.Created}}
                     </td>
                     <td>
-
+                      {{ticket.Title}}
                     </td>
-                    
                   </tr>
                 </tbody>
               </table>
@@ -80,6 +81,46 @@
           </div>
         </div>
       </div>
+      <!-- terceiro tabela -->
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title">Ticket Resolution percentage</h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class="text-primary">
+                  <th>Opened Tickets</th>
+                  <th>Resolved Tickets</th>
+                  <th>Resolution percentage</th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      {{ticketNew.length}}
+                    </td>
+                    <td>
+                      {{ticketClosed.length}}
+                    </td>
+                    <td>
+                      {{ticketNew.length*100/(ticketNew.length+ticketClosed.length)}}%
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="card-footer">
+              <hr />
+              <div class="stats">
+                <i class="now-ui-icons loader_refresh spin"></i> Updated 3
+                minutes ago
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Primeiro grafico -->
       <div class="col-lg-6">
         <div class="card card-chart">
           <div class="card-header">
@@ -173,16 +214,24 @@
 import axios from "axios";
 export default {
   data: () => ({
-    ticketId: null,
+    ticketNew: null,
+    ticketClosed: null,
     tickets: null,
+    // ticketsAll: null,
   }),
   mounted() {
-    // axios.get("/ticket/Raw/new").then((res) => {
-    //   this.ticketId = res.data.TicketID;
-    // });
+    axios.get("/ticket/new").then((res) => {
+      this.ticketNew = res.data.TicketID;
+    });
+    axios.get("/ticket/closed successful").then((res) => {
+      this.ticketClosed = res.data.TicketID;
+    });
     axios.get("/ticket").then((res) => {
       this.tickets = res.data;
     });
+    //  axios.get("/ticket").then((res) => {
+    //   this.ticketsAll = res.data;
+    // });
   },
 };
 </script>

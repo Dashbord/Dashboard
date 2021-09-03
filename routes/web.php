@@ -14,8 +14,9 @@ use App\Http\Controllers\TicketController;
 |
 */
 // Rotas tickets
-Route::get('/ticket',[TicketController::class,'getAllTickets'])->name('ticket.getallticket');
-Route::get('/ticket/{queue}/{state}',[TicketController::class,'getAllType'])->name('ticket.getAllType');
+// Route::get('/ticket',[TicketController::class,'getAllTickets'])->name('ticket.getAllTickets');
+Route::get('/ticket',[TicketController::class,'getAllTicketsNew'])->name('ticket.getAllTicketsNew');
+Route::get('/ticket/{state}',[TicketController::class,'getState'])->name('ticket.getState');
 
 
 Route::get('/', function () {
@@ -29,6 +30,9 @@ Route::get('/', function () {
 Route::get('full-calender', [FullCalenderController::class, 'index']);
 Route::post('full-calender/action', [FullCalenderController::class, 'action']);
 
+Route::get('master', function (){
+    return view('master');
+});
 
 require __DIR__.'/auth.php';
 

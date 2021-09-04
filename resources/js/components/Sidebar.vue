@@ -28,6 +28,12 @@
                     <p>Calendar</p>
                 </a>
             </router-link>
+            <router-link tag="li" to="/StatusView" active-class="active">
+                <a>
+                    <i class="now-ui-icons design_app"></i>
+                    <p>Status View</p>
+                </a>
+            </router-link>
         </ul>
       </div>
     </div>

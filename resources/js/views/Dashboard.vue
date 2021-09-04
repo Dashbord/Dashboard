@@ -57,7 +57,7 @@
                   <th>Title</th>
                 </thead>
                 <tbody>
-                  <!-- <tr v-for="ticket in tickets" :key="ticket.id">
+                  <tr v-for="ticket in tickets" :key="ticket.id">
                     <td>
                      {{ticket.TicketNumber}}
                     </td>
@@ -67,7 +67,7 @@
                     <td>
                       {{ticket.Title}}
                     </td>
-                  </tr> -->
+                  </tr>
                 </tbody>
               </table>
             </div>
@@ -97,7 +97,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <!-- <td>
+                    <td>
                       {{ticketNew.length}}
                     </td>
                     <td>
@@ -105,7 +105,7 @@
                     </td>
                     <td>
                       {{ticketNew.length*100/(ticketNew.length+ticketClosed.length)}}%
-                    </td> -->
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -313,9 +313,12 @@
 import axios from "axios";
 export default {
   data: () => ({
+    //Ticket Resolution percentage
     ticketNew: null,
     ticketClosed: null,
+    //New Tickets
     tickets: null,
+    //Ticket Overview Queue
     ticketQueueNew2: null,
     ticketQueueOpen2: null,
     ticketQueuePending2: null,
@@ -346,7 +349,7 @@ export default {
     ticketQueueNew12: null,
     ticketQueueOpen12: null,
     ticketQueuePending12: null,
-     ticketQueueNew13: null,
+    ticketQueueNew13: null,
     ticketQueueOpen13: null,
     ticketQueuePending13: null,
     // ticketsAll: null,

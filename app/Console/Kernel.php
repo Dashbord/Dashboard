@@ -24,7 +24,12 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        //$schedule->command('inspire')->hourly();
+        // $schedule->call(getAllQueues () {
+        //     DB::table('recent_users')->delete();
+        // })
+        // ->everyFiveMinutes()
+        // ->sendOutputTo($filePath);
     }
 
     /**

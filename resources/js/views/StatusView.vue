@@ -5,7 +5,7 @@
         <div class="card">
           <div class="card-header">
             <h4 class="card-title">Status View: Open tickets</h4>
-            
+            <button>Closed tickets</button>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -74,7 +74,7 @@ export default {
         tickets: null,
     }),
     mounted() {
-        axios.get("/tickets").then((res) => {
+        axios.get("/ticketOpen").then((res) => {
         this.tickets = res.data;
         });
      },

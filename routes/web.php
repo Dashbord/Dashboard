@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FullCalenderController;
 use App\Http\Controllers\TicketController;
-use App\Http\Controllers\StatusViewController;
+use App\Http\Controllers\StatusViewControllerOpen;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,7 +20,7 @@ Route::get('/ticket',[TicketController::class,'getAllTicketsNew'])->name('ticket
 Route::get('/ticket/{state}',[TicketController::class,'getState'])->name('ticket.getState');
 Route::get('/ticket/{QueueIDs}/{state}',[TicketController::class,'Teste'])->name('ticket.Teste');
 //Status view
-Route::get('/tickets',[StatusViewController::class,'getStatusViewNew'])->name('ticket.getStatusViewNew');
+Route::get('/ticketOpen',[StatusViewControllerOpen::class,'getStatusViewNew'])->name('ticket.getStatusViewNew');
 
 
 Route::get('/', function () {

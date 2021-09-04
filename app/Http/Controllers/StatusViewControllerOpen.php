@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use  Illuminate\Support\Facades\Http;
 
-class StatusViewController extends Controller
+class StatusViewControllerOpen extends Controller
 {
     // retorna o ticket number, age e title dos tickets new
     public function getStatusViewNew(){

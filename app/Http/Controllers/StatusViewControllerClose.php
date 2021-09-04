@@ -8,7 +8,7 @@ use  Illuminate\Support\Facades\Http;
 class StatusViewControllerClose extends Controller
 {
     // retorna o ticket number, age e title dos tickets new
-    public function getStatusViewNew(){
+    public function getStatusViewClose(){
         $response = Http::get('http://10.175.146.2/otrs/nph-genericinterface.pl/Webservice/GenericTicketConnectorREST/Ticket?UserLogin=sluis&Password=Szb6gwzEaEUAzsGj&States=closed successful&States=closed unsuccessful');
         $res = $response->json();
         $tickets=collect($res['TicketID'])->skip(0)->take(20)->map(function($id){

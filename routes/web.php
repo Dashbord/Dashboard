@@ -17,7 +17,7 @@ use App\Http\Controllers\TicketController;
 // Route::get('/ticket',[TicketController::class,'getAllTickets'])->name('ticket.getAllTickets');
 Route::get('/ticket',[TicketController::class,'getAllTicketsNew'])->name('ticket.getAllTicketsNew');
 Route::get('/ticket/{state}',[TicketController::class,'getState'])->name('ticket.getState');
-
+Route::get('/ticket/{QueueIDs}/{state}',[TicketController::class,'Teste'])->name('ticket.Teste');
 
 Route::get('/', function () {
     if (Auth::check()) {

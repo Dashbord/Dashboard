@@ -5,7 +5,17 @@
         <div class="card">
           <div class="card-header">
             <h4 class="card-title">QueueView:</h4>           
-            <button class="butt butt1" v-on:click="muda();" type="submit">Closed </button>
+            <button class="butt butt1" v-on:click="muda();" type="submit">Raw </button>
+            <button class="butt butt1" v-on:click="muda();" type="submit">Junk </button>
+            <button class="butt butt1" v-on:click="muda();" type="submit">Comunicações </button>
+            <button class="butt butt1" v-on:click="muda();" type="submit">ServiceDesk </button>
+            <button class="butt butt1" v-on:click="muda();" type="submit">Segurança </button>
+            <button class="butt butt1" v-on:click="muda();" type="submit">Administração de Sistemas </button>
+            <button class="butt butt1" v-on:click="muda();" type="submit">CORE </button>
+            <button class="butt butt1" v-on:click="muda();" type="submit">Suporte Informático </button>
+            <button class="butt butt1" v-on:click="muda();" type="submit">Helpdesk </button>
+            <button class="butt butt1" v-on:click="muda();" type="submit">Monitorização </button>
+            <button class="butt butt1" v-on:click="muda();" type="submit">Serviços </button>
           </div>
           <div class="card-body">
             <div class="table-responsive">

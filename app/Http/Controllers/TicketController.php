@@ -31,7 +31,7 @@ class TicketController extends Controller
                         'id' => $ticketAll ['TicketIDAll'],
                         'queue' => $ticketAll['Queue'],
                     ];
-                });
+                };
                 return $ticketsAll;
         }
         // $response = Http::get('http://10.175.146.2/otrs/nph-genericinterface.pl/Webservice/GenericTicketConnectorREST/Ticket?UserLogin=sluis&Password=Szb6gwzEaEUAzsGj');
@@ -47,7 +47,7 @@ class TicketController extends Controller
         //     ];
         // });
         // return $tickets;
-    }
+        //}
 
 
     // retorna o ticket number, age e title dos tickets new

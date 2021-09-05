@@ -4,7 +4,7 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
-            <h4 class="card-title">Status View: Open tickets</h4>           
+            <h4 class="card-title">QueueView:</h4>           
             <button class="butt butt1" v-on:click="muda();" type="submit">Closed </button>
           </div>
           <div class="card-body">
@@ -70,17 +70,47 @@
 import axios from "axios";
 export default {
     data: () => ({  
-        i:2,
+        i:8,
         tickets: null,
     }),
     mounted() {
         if(this.i==1){
-          axios.get("/ticketOpen").then((res) => {
+          axios.get("/ticketRaw").then((res) => {
           this.tickets = res.data;
           });
         }
-        else{
-          axios.get("/ticketClose").then((res) => {
+        if(this.i==2){
+          axios.get("/ticketJunk").then((res) => {
+          this.tickets = res.data;
+          });
+        }
+        if(this.i==3){
+          axios.get("/ticketComunicações").then((res) => {
+          this.tickets = res.data;
+          });
+        }
+        if(this.i==4){
+          axios.get("/ticketServiceDesk").then((res) => {
+          this.tickets = res.data;
+          });
+        }
+        if(this.i==5){
+          axios.get("/Segurança").then((res) => {
+          this.tickets = res.data;
+          });
+        }
+        if(this.i==6){
+          axios.get("/AdministraçãodeSistemas").then((res) => {
+          this.tickets = res.data;
+          });
+        }
+        if(this.i==7){
+          axios.get("/CORE").then((res) => {
+          this.tickets = res.data;
+          });
+        }
+        if(this.i==8){
+          axios.get("/SuporteInformático").then((res) => {
           this.tickets = res.data;
           });
         }

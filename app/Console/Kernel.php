@@ -25,7 +25,11 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         //$schedule->command('inspire')->hourly();
-        // $schedule->call(getAllQueues () {
+        // $schedule->call(getAllNewQueues())
+        // ->everyMinute();
+        // ->sendOutputTo($filePath);
+
+         // $schedule->call(getAllQueues () {
         //     DB::table('recent_users')->delete();
         // })
         // ->everyFiveMinutes()

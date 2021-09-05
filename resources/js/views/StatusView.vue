@@ -5,7 +5,9 @@
         <div class="card">
           <div class="card-header">
             <h4 class="card-title">Status View: Open tickets</h4>
-            <button>Closed tickets</button>
+            <form method="get" action="/StatusViewClose">
+                <button class="butt butt1" type="submit">Closed Tickets</button>
+            </form>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -81,5 +83,13 @@ export default {
 }
 </script>
 <style>
-
+.butt {
+    background-color: #2CA8FF;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+}
+.butt1 {border-radius: 12px;}
 </style>

@@ -4,10 +4,8 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
-            <h4 class="card-title">Status View: Open tickets</h4>
-            <form method="get" action="/StatusViewClose">
-                <button class="butt butt1" type="submit">Closed Tickets</button>
-            </form>
+            <h4 class="card-title">Status View: Open tickets</h4>           
+            <button class="butt butt1" v-on:click="muda();" type="submit">Closed </button>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -23,7 +21,7 @@
                   <th>Customer id</th>
                   <th>Priority</th>
                   <th>Lock</th>
-                </thead>
+                </thead>              
                 <tbody>
                   <tr v-for="ticket in tickets" :key="ticket.id">
                     <td>
@@ -73,14 +71,28 @@
 import axios from "axios";
 export default {
     data: () => ({  
+        i:2,
         tickets: null,
     }),
     mounted() {
-        axios.get("/ticketOpen").then((res) => {
-        this.tickets = res.data;
-        });
-     },
+        if(this.i==1){
+          axios.get("/ticketOpen").then((res) => {
+          this.tickets = res.data;
+          });
+        }
+        else{
+          axios.get("/ticketClose").then((res) => {
+          this.tickets = res.data;
+          });
+        }
+    },
+     methods: {
+      muda:function () {
+      this.i==2
+    }
+  }
 }
+
 </script>
 <style>
 .butt {

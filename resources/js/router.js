@@ -4,7 +4,7 @@ import Dashboard from './views/Dashboard';
 import User from './views/User';
 import Customers from './views/Customers';
 import StatusView from './views/StatusView';
-import StatusViewClose from './views/StatusViewClose';
+
 
 Vue.use(VueRouter);
 
@@ -28,10 +28,6 @@ export default new VueRouter({
             path: '/StatusView', name: 'StatusView', component: StatusView,
             meta: { title: 'StatusView' }        
         },
-        {
-            path: '/StatusViewClose', name: 'StatusViewClose', component: StatusViewClose,
-            meta: { title: 'StatusViewClose' }        
-        }
     ]
 
 });

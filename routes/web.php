@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FullCalenderController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\StatusViewControllerOpen;
-use App\Http\Controllers\StatusViewControllerClose;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,10 +20,11 @@ use App\Http\Controllers\StatusViewControllerClose;
 // Route::get('/ticket',[TicketController::class,'getAllTickets'])->name('ticket.getAllTickets');
 Route::get('/ticket',[TicketController::class,'getAllTicketsNew'])->name('ticket.getAllTicketsNew');
 Route::get('/ticket/{state}',[TicketController::class,'getState'])->name('ticket.getState');
-Route::get('/ticket/{QueueIDs}/{state}',[TicketController::class,'Teste'])->name('ticket.Teste');
+Route::get('/ticket/{QueueIDs}/{state}',[TicketController::class,'getQueueStatee'])->name('ticket.getQueueStatee');
 //Status view
 Route::get('/ticketOpen',[StatusViewControllerOpen::class,'getStatusViewNew'])->name('ticket.getStatusViewNew');
-Route::get('/ticketClose',[StatusViewControllerClose::class,'getStatusViewClose'])->name('ticket.getStatusViewClose');
+Route::get('/ticketClose',[StatusViewControllerOpen::class,'getStatusViewClose'])->name('ticket.getStatusViewClose');
+
 
 
 Route::get('/', function () {

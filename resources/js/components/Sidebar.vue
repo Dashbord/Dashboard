@@ -16,6 +16,12 @@
                     <p>Dashboard</p>
                 </a>
             </router-link>
+            <router-link tag="li" to="/StatusView" active-class="active">
+                <a>
+                    <i class="now-ui-icons design_app"></i>
+                    <p>Status View</p>
+                </a>
+            </router-link>
             <router-link tag="li" to="/customers" active-class="active">
                 <a>
                     <i class="now-ui-icons design_app"></i>
@@ -26,12 +32,6 @@
                 <a>
                     <i class="now-ui-icons design_app"></i>
                     <p>Calendar</p>
-                </a>
-            </router-link>
-            <router-link tag="li" to="/StatusView" active-class="active">
-                <a>
-                    <i class="now-ui-icons design_app"></i>
-                    <p>Status View</p>
                 </a>
             </router-link>
         </ul>

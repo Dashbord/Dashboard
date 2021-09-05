@@ -70,7 +70,7 @@
 import axios from "axios";
 export default {
     data: () => ({  
-        i:8,
+        i:11,
         tickets: null,
     }),
     mounted() {
@@ -111,6 +111,21 @@ export default {
         }
         if(this.i==8){
           axios.get("/SuporteInformático").then((res) => {
+          this.tickets = res.data;
+          });
+        }
+        if(this.i==9){
+          axios.get("/Helpdesk").then((res) => {
+          this.tickets = res.data;
+          });
+        }
+        if(this.i==10){
+          axios.get("/Monitorização").then((res) => {
+          this.tickets = res.data;
+          });
+        }
+        if(this.i==11){
+          axios.get("/Serviços").then((res) => {
           this.tickets = res.data;
           });
         }

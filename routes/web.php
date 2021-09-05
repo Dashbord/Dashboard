@@ -33,6 +33,10 @@ Route::get('/Segurança',[QueueViewController::class,'getSegurança'])->name('ti
 Route::get('/AdministraçãodeSistemas',[QueueViewController::class,'getAdministraçãodeSistemas'])->name('ticket.getAdministraçãodeSistemas');
 Route::get('/CORE',[QueueViewController::class,'getCORE'])->name('ticket.getCORE');
 Route::get('/SuporteInformático',[QueueViewController::class,'getSuporteInformático'])->name('ticket.getSuporteInformático');
+Route::get('/Helpdesk',[QueueViewController::class,'getHelpdesk'])->name('ticket.getHelpdesk');
+Route::get('/Monitorização',[QueueViewController::class,'getMonitorização'])->name('ticket.getMonitorização');
+Route::get('/Serviços',[QueueViewController::class,'getServiços'])->name('ticket.getServiços');
+
 
 
 Route::get('/', function () {

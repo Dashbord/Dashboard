@@ -1,0 +1,161 @@
+<template>
+    <div class="content">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title">QueueView:</h4>           
+            <button class="butt butt1" v-on:click="muda();" type="submit">Raw </button>
+            <button class="butt butt1" v-on:click="muda();" type="submit">Junk </button>
+            <button class="butt butt1" v-on:click="muda();" type="submit">Comunicações </button>
+            <button class="butt butt1" v-on:click="muda();" type="submit">ServiceDesk </button>
+            <button class="butt butt1" v-on:click="muda();" type="submit">Segurança </button>
+            <button class="butt butt1" v-on:click="muda();" type="submit">Administração de Sistemas </button>
+            <button class="butt butt1" v-on:click="muda();" type="submit">CORE </button>
+            <button class="butt butt1" v-on:click="muda();" type="submit">Suporte Informático </button>
+            <button class="butt butt1" v-on:click="muda();" type="submit">Helpdesk </button>
+            <button class="butt butt1" v-on:click="muda();" type="submit">Monitorização </button>
+            <button class="butt butt1" v-on:click="muda();" type="submit">Serviços </button>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class="text-primary">
+                  <th>Ticket Number</th>
+                  <th>Title</th>
+                  <th>Created</th>
+                  <th>Changed</th>
+                  <th>State</th>
+                  <th>Queue</th>
+                  <th>Owner</th>
+                  <th>Customer id</th>
+                  <th>Priority</th>
+                  <th>Lock</th>
+                </thead>              
+                <tbody>
+                  <tr v-for="ticket in tickets" :key="ticket.id">
+                    <td>
+                     {{ticket.TicketNumber}}
+                    </td> 
+                    <td>
+                      {{ticket.Title}}
+                    </td>
+                    <td>
+                      {{ticket.Created}}
+                    </td>
+                    <td>
+                      {{ticket.Changed}}
+                    </td>
+                    <td>
+                      {{ticket.StateType}}
+                    </td>
+                     <td>
+                      {{ticket.Queue}}
+                    </td>
+                    <td>
+                      {{ticket.Owner}}
+                    </td>
+                    <td>
+                      {{ticket.CustomerUserID}}
+                    </td>
+                    <td>
+                      {{ticket.Priority}}
+                    </td>
+                     <td>
+                      {{ticket.Lock}}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="card-footer">              
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</template>
+<script>
+import axios from "axios";
+export default {
+    data: () => ({  
+        i:11,
+        tickets: null,
+    }),
+    mounted() {
+        if(this.i==1){
+          axios.get("/ticketRaw").then((res) => {
+          this.tickets = res.data;
+          });
+        }
+        if(this.i==2){
+          axios.get("/ticketJunk").then((res) => {
+          this.tickets = res.data;
+          });
+        }
+        if(this.i==3){
+          axios.get("/ticketComunicações").then((res) => {
+          this.tickets = res.data;
+          });
+        }
+        if(this.i==4){
+          axios.get("/ticketServiceDesk").then((res) => {
+          this.tickets = res.data;
+          });
+        }
+        if(this.i==5){
+          axios.get("/Segurança").then((res) => {
+          this.tickets = res.data;
+          });
+        }
+        if(this.i==6){
+          axios.get("/AdministraçãodeSistemas").then((res) => {
+          this.tickets = res.data;
+          });
+        }
+        if(this.i==7){
+          axios.get("/CORE").then((res) => {
+          this.tickets = res.data;
+          });
+        }
+        if(this.i==8){
+          axios.get("/SuporteInformático").then((res) => {
+          this.tickets = res.data;
+          });
+        }
+        if(this.i==9){
+          axios.get("/Helpdesk").then((res) => {
+          this.tickets = res.data;
+          });
+        }
+        if(this.i==10){
+          axios.get("/Monitorização").then((res) => {
+          this.tickets = res.data;
+          });
+        }
+        if(this.i==11){
+          axios.get("/Serviços").then((res) => {
+          this.tickets = res.data;
+          });
+        }
+    },
+     methods: {
+      muda:function () {
+      this.i==2
+    }
+  }
+}
+
+</script>
+<style>
+.butt {
+    background-color: #2CA8FF;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+}
+.butt1 {border-radius: 12px;}
+</style>

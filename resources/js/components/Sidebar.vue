@@ -16,6 +16,18 @@
                     <p>Dashboard</p>
                 </a>
             </router-link>
+            <router-link tag="li" to="/StatusView" active-class="active">
+                <a>
+                    <i class="now-ui-icons design_app"></i>
+                    <p>Status View</p>
+                </a>
+            </router-link>
+            <router-link tag="li" to="/QueueView" active-class="active">
+                <a>
+                    <i class="now-ui-icons design_app"></i>
+                    <p>Queue View</p>
+                </a>
+            </router-link>
             <router-link tag="li" to="/customers" active-class="active">
                 <a>
                     <i class="now-ui-icons design_app"></i>

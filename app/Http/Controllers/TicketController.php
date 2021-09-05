@@ -72,4 +72,9 @@ class TicketController extends Controller
         $response = Http::get('http://10.175.146.2/otrs/nph-genericinterface.pl/Webservice/GenericTicketConnectorREST/Ticket?UserLogin=pvinha&Password=sET4s7JyFBaDDmQa&States='.$state.'');       
         return $response->json();
     }
+    // retorna os tickets dependendo do parametro state e QueueIDs
+    public function getQueueStatee($QueueIDs,$state){
+        $response = Http::get('http://10.175.146.2/otrs/nph-genericinterface.pl/Webservice/GenericTicketConnectorREST/Ticket?UserLogin=sluis&Password=Szb6gwzEaEUAzsGj&QueueIDs='.$QueueIDs.'&States='.$state.'');       
+        return $response->json();
+    }
 }

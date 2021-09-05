@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>How to Use Fullcalendar in Laravel 8</title>
     
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
@@ -15,7 +14,7 @@
   
 <div class="container">
     <form method="get" action="/dashboard">
-        <button type="submit">Back</button>
+        <button class="butt butt1" type="submit">Back</button>
     </form>
     <div id="calendar"></div>
 
@@ -140,6 +139,15 @@ $(document).ready(function () {
 });
   
 </script>
-  
+<style>.butt {
+    background-color: #2CA8FF;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+}
+.butt1 {border-radius: 12px;}
+</style>
 </body>
 </html>

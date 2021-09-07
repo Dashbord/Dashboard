@@ -70,7 +70,7 @@
 import axios from "axios";
 export default {
     data: () => ({  
-        i:2,
+        i:1,
         tickets: null,
     }),
     mounted() {

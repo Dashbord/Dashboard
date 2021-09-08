@@ -5,7 +5,7 @@ import User from './views/User';
 import Customers from './views/Customers';
 import StatusView from './views/StatusView';
 import QueueView from './views/QueueView';
-
+import teste from './views/teste';
 
 Vue.use(VueRouter);
 
@@ -32,6 +32,10 @@ export default new VueRouter({
         {
             path: '/QueueView', name: 'QueueView', component: QueueView,
             meta: { title: 'QueueView' }        
+        },
+        {
+            path: '/teste', name: 'teste', component: teste,
+            meta: { title: 'teste' }        
         },
     ]
 

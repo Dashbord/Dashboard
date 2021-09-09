@@ -23,6 +23,7 @@ class TicketController extends Controller
     // }
 
     public function getAllQueues(){
+<<<<<<< HEAD
         $response = Http::get('http://10.175.146.2/otrs/nph-genericinterface.pl/Webservice/GenericTicketConnectorREST/Ticket?UserLogin=sluis&Password=Szb6gwzEaEUAzsGj');
         $res = $response->json();
         $count =count($response);
@@ -37,6 +38,33 @@ class TicketController extends Controller
         });
         return $tickets;
     }
+=======
+        $queues = DB::table('queues')->get();
+        foreach ($queues as $queue){
+                    $response = Http::get('http://10.175.146.2/otrs/nph-genericinterface.pl/Webservice/GenericTicketConnectorREST/Ticket?UserLogin=pvinha&Password=sET4s7JyFBaDDmQa&Queues='.$queue.'');
+                    $ticketAll = $response->json()['TicketAll'][0];
+                    return [
+                        'id' => $ticketAll ['TicketIDAll'],
+                        'queue' => $ticketAll['Queue'],
+                    ];
+                };
+                return $ticketsAll;
+        }
+        // $response = Http::get('http://10.175.146.2/otrs/nph-genericinterface.pl/Webservice/GenericTicketConnectorREST/Ticket?UserLogin=sluis&Password=Szb6gwzEaEUAzsGj');
+        // $res = $response->json();
+        // $count =count($response);
+        // dd($count);
+        // $tickets=collect($res['TicketID'])->skip(0)->take(10)->map(function($id){
+        //     $response = Http::get('http://10.175.146.2/otrs/nph-genericinterface.pl/Webservice/GenericTicketConnectorREST/Ticket/'.$id.'?UserLogin=pvinha&Password=sET4s7JyFBaDDmQa&AllArticles=1&DynamicFields=1');
+        //     $ticket = $response->json()['Ticket'][0];
+        //     return [
+        //         'id' => $ticket ['TicketID'],
+        //         'queue' => $ticket['Queue'],
+        //     ];
+        // });
+        // return $tickets;
+        //}
+>>>>>>> f6844d1a6cbb0e6a00aae6a8829c22ad4eebb595
 
 
     // retorna o ticket number, age e title dos tickets new

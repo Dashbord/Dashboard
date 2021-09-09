@@ -4,16 +4,17 @@ import Dashboard from './views/Dashboard';
 import User from './views/User';
 import Customers from './views/Customers';
 import StatusView from './views/StatusView/StatusView';
-import StatusViewClose from './views/StatusView/StatusViewClose';Raw
+import StatusViewClose from './views/StatusView/StatusViewClose';
 import QueueView from './views/QueueView';
 import Raw from './views/QueueView/Raw';
 import Junk from './views/QueueView/Junk';
 import Com from './views/QueueView/Com';
-import ServiceDesk from './views/QueueView/ServiceDesk';AdSistemas
+import ServiceDesk from './views/QueueView/ServiceDesk';
 import Seguranca from './views/QueueView/Seguranca';
 import AdSistemas from './views/QueueView/AdSistemas';
 import CORE from './views/QueueView/CORE';
 import SupInformatico from './views/QueueView/SupInformatico';
+import HelpDesk from './views/QueueView/HelpDesk';
 import teste from './views/teste';
 
 Vue.use(VueRouter);
@@ -77,6 +78,10 @@ export default new VueRouter({
         {
             path: '/SupInformatico', name: 'SupInformatico', component: SupInformatico,
             meta: { title: 'SupInformatico' }        
+        },
+        {
+            path: '/HelpDesk', name: 'HelpDesk', component: HelpDesk,
+            meta: { title: 'HelpDesk' }        
         },
         {
             path: '/teste', name: 'teste', component: teste,

@@ -3,36 +3,62 @@
     <div class="row">
       <div class="col-md-12">
         <div class="card">
-          <button class="butt butt1" v-on:click="muda()" type="submit">
-            Junk
-          </button>
-          <button class="butt butt1" v-on:click="muda()" type="submit">
-            Comunicações
-          </button>
-          <button class="butt butt1" v-on:click="muda()" type="submit">
-            ServiceDesk
-          </button>
-          <button class="butt butt1" v-on:click="muda()" type="submit">
-            Segurança
-          </button>
-          <button class="butt butt1" v-on:click="muda()" type="submit">
-            Administração de Sistemas
-          </button>
-          <button class="butt butt1" v-on:click="muda()" type="submit">
-            CORE
-          </button>
-          <button class="butt butt1" v-on:click="muda()" type="submit">
-            Suporte Informático
-          </button>
-          <button class="butt butt1" v-on:click="muda()" type="submit">
-            Helpdesk
-          </button>
-          <button class="butt butt1" v-on:click="muda()" type="submit">
-            Monitorização
-          </button>
-          <button class="butt butt1" v-on:click="muda()" type="submit">
-            Serviços
-          </button>
+          <tr>
+            <th>
+              <form method="get" action="/Junk">
+                <button class="butt butt1" type="submit">Junk</button>
+              </form>
+            </th>
+            <th>
+              <form method="get" action="/Com">
+                <button class="butt butt1" type="submit">Comunicações</button>
+              </form>
+            </th>
+            <th>
+              <form method="get" action="/ServiceDesk">
+                <button class="butt butt1" type="submit">Service Desk</button>
+              </form>
+            </th>
+            <th>
+              <form method="get" action="/Seguranca">
+                <button class="butt butt1" type="submit">Segurança</button>
+              </form>
+            </th>
+            <th>
+              <form method="get" action="/core">
+                <button class="butt butt1" type="submit">CORE</button>
+              </form>
+            </th>
+            <th>
+              <form method="get" action="/SupInformatico">
+                <button class="butt butt1" type="submit">
+                  Suporte Informático
+                </button>
+              </form>
+            </th>
+            <th>
+              <form method="get" action="/HelpDesk">
+                <button class="butt butt1" type="submit">Helpdesk</button>
+              </form>
+            </th>
+            <th>
+              <form method="get" action="/Monitorizacao">
+                <button class="butt butt1" type="submit">Monitorização</button>
+              </form>
+            </th>
+            <th>
+              <form method="get" action="/Servicos">
+                <button class="butt butt1" type="submit">Serviços</button>
+              </form>
+            </th>
+            <th>
+              <form method="get" action="/AdSistemas">
+                <button class="butt butt1" type="submit">
+                  Administração de Sistemas
+                </button>
+              </form>
+            </th>
+          </tr>
           <div class="card-header">
             <h4 class="card-title">QueueView:Raw</h4>
             <button class="butt butt1" v-on:click="muda1()" type="submit">

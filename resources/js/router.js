@@ -5,7 +5,6 @@ import User from './views/User';
 import Customers from './views/Customers';
 import StatusView from './views/StatusView/StatusView';
 import StatusViewClose from './views/StatusView/StatusViewClose';
-import QueueView from './views/QueueView';
 import Raw from './views/QueueView/Raw';
 import Junk from './views/QueueView/Junk';
 import Com from './views/QueueView/Com';
@@ -17,7 +16,7 @@ import SupInformatico from './views/QueueView/SupInformatico';
 import HelpDesk from './views/QueueView/HelpDesk';
 import Monitorizacao from './views/QueueView/Monitorizacao';
 import Servicos from './views/QueueView/Servicos';
-import teste from './views/teste';
+
 
 Vue.use(VueRouter);
 
@@ -46,10 +45,6 @@ export default new VueRouter({
             meta: { title: 'StatusViewClose' }        
         },
         {
-            path: '/QueueView', name: 'QueueView', component: QueueView,
-            meta: { title: 'QueueView' }        
-        },
-        {
             path: '/Raw', name: 'Raw', component: Raw,
             meta: { title: 'Raw' }        
         },
@@ -74,7 +69,7 @@ export default new VueRouter({
             meta: { title: 'AdSistemas' }        
         },
         {
-            path: '/CORE', name: 'CORE', component: CORE,
+            path: '/core', name: 'CORE', component: CORE,
             meta: { title: 'CORE' }        
         },
         {
@@ -92,10 +87,6 @@ export default new VueRouter({
         {
             path: '/Servicos', name: 'Servicos', component: Servicos,
             meta: { title: 'Servicos' }        
-        },
-        {
-            path: '/teste', name: 'teste', component: teste,
-            meta: { title: 'teste' }        
         },
     ]
 

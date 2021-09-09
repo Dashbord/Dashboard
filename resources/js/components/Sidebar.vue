@@ -22,7 +22,7 @@
                     <p>Status View</p>
                 </a>
             </router-link>
-            <router-link tag="li" to="/QueueView" active-class="active">
+            <router-link tag="li" to="/Raw" active-class="active">
                 <a>
                     <i class="now-ui-icons design_app"></i>
                     <p>Queue View</p>

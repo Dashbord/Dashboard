@@ -21,13 +21,19 @@ use App\Http\Controllers\QueueViewController;
 Route::get('/ticket',[TicketController::class,'getAllTicketsNew'])->name('ticket.getAllTicketsNew');
 Route::get('/ticket/{state}',[TicketController::class,'getState'])->name('ticket.getState');
 Route::get('/ticket/{QueueIDs}/{state}',[TicketController::class,'getQueueStatee'])->name('ticket.getQueueStatee');
+
 //Status view
 Route::get('/ticketOpen',[StatusViewControllerOpen::class,'getStatusViewNew'])->name('ticket.getStatusViewNew');
 Route::get('/ticketOpen2',[StatusViewControllerOpen::class,'getStatusViewNew2'])->name('ticket.getStatusViewNew2');
 Route::get('/ticketOpen3',[StatusViewControllerOpen::class,'getStatusViewNew3'])->name('ticket.getStatusViewNew3');
 Route::get('/ticketOpen4',[StatusViewControllerOpen::class,'getStatusViewNew4'])->name('ticket.getStatusViewNew4');
+
 //Status view close
 Route::get('/ticketClose',[StatusViewControllerOpen::class,'getStatusViewClose'])->name('ticket.getStatusViewClose');
+Route::get('/ticketClose2',[StatusViewControllerOpen::class,'getStatusViewClose2'])->name('ticket.getStatusViewClose2');
+Route::get('/ticketClose3',[StatusViewControllerOpen::class,'getStatusViewClose3'])->name('ticket.getStatusViewClose3');
+Route::get('/ticketClose4',[StatusViewControllerOpen::class,'getStatusViewClose4'])->name('ticket.getStatusViewClose4');
+
 //Queue view
 Route::get('/ticketRaw',[QueueViewController::class,'getRaw'])->name('ticket.getRaw');
 Route::get('/ticketJunk',[QueueViewController::class,'getJunk'])->name('ticket.getJunk');

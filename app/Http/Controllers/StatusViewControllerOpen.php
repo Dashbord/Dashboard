@@ -119,4 +119,67 @@ class StatusViewControllerOpen extends Controller
         });
         return $tickets;
     }
+    public function getStatusViewClose2(){
+        $response = Http::get('http://10.175.146.2/otrs/nph-genericinterface.pl/Webservice/GenericTicketConnectorREST/Ticket?UserLogin=sluis&Password=Szb6gwzEaEUAzsGj&States=closed successful&States=closed unsuccessful');
+        $res = $response->json();
+        $tickets=collect($res['TicketID'])->skip(20)->take(20)->map(function($id){
+            $response = Http::get('http://10.175.146.2/otrs/nph-genericinterface.pl/Webservice/GenericTicketConnectorREST/Ticket/'.$id.'?UserLogin=sluis&Password=Szb6gwzEaEUAzsGj&AllArticles=1&DynamicFields=1');
+            $ticket = $response->json()['Ticket'][0];
+            return [
+                'Title' => $ticket ['Title'],                
+                'Created' => $ticket['Created'],
+                'TicketNumber' => $ticket['TicketNumber'],
+                'Owner' => $ticket['Owner'],
+                'CustomerUserID' => $ticket['CustomerUserID'],
+                'Priority' => $ticket['Priority'],
+                'Changed' => $ticket['Changed'],
+                'Lock' => $ticket['Lock'],
+                'StateType' => $ticket['StateType'],
+                'Queue' => $ticket['Queue'],
+            ];
+        });
+        return $tickets;
+    }
+    public function getStatusViewClose3(){
+        $response = Http::get('http://10.175.146.2/otrs/nph-genericinterface.pl/Webservice/GenericTicketConnectorREST/Ticket?UserLogin=sluis&Password=Szb6gwzEaEUAzsGj&States=closed successful&States=closed unsuccessful');
+        $res = $response->json();
+        $tickets=collect($res['TicketID'])->skip(40)->take(20)->map(function($id){
+            $response = Http::get('http://10.175.146.2/otrs/nph-genericinterface.pl/Webservice/GenericTicketConnectorREST/Ticket/'.$id.'?UserLogin=sluis&Password=Szb6gwzEaEUAzsGj&AllArticles=1&DynamicFields=1');
+            $ticket = $response->json()['Ticket'][0];
+            return [
+                'Title' => $ticket ['Title'],                
+                'Created' => $ticket['Created'],
+                'TicketNumber' => $ticket['TicketNumber'],
+                'Owner' => $ticket['Owner'],
+                'CustomerUserID' => $ticket['CustomerUserID'],
+                'Priority' => $ticket['Priority'],
+                'Changed' => $ticket['Changed'],
+                'Lock' => $ticket['Lock'],
+                'StateType' => $ticket['StateType'],
+                'Queue' => $ticket['Queue'],
+            ];
+        });
+        return $tickets;
+    }
+    public function getStatusViewClose4(){
+        $response = Http::get('http://10.175.146.2/otrs/nph-genericinterface.pl/Webservice/GenericTicketConnectorREST/Ticket?UserLogin=sluis&Password=Szb6gwzEaEUAzsGj&States=closed successful&States=closed unsuccessful');
+        $res = $response->json();
+        $tickets=collect($res['TicketID'])->skip(60)->take(20)->map(function($id){
+            $response = Http::get('http://10.175.146.2/otrs/nph-genericinterface.pl/Webservice/GenericTicketConnectorREST/Ticket/'.$id.'?UserLogin=sluis&Password=Szb6gwzEaEUAzsGj&AllArticles=1&DynamicFields=1');
+            $ticket = $response->json()['Ticket'][0];
+            return [
+                'Title' => $ticket ['Title'],                
+                'Created' => $ticket['Created'],
+                'TicketNumber' => $ticket['TicketNumber'],
+                'Owner' => $ticket['Owner'],
+                'CustomerUserID' => $ticket['CustomerUserID'],
+                'Priority' => $ticket['Priority'],
+                'Changed' => $ticket['Changed'],
+                'Lock' => $ticket['Lock'],
+                'StateType' => $ticket['StateType'],
+                'Queue' => $ticket['Queue'],
+            ];
+        });
+        return $tickets;
+    }
 }

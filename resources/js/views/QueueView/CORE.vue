@@ -19,7 +19,7 @@
            Segurança
           </button>
           <button class="butt butt1" v-on:click="muda()" type="submit">
-            CORE
+            Administração de Sistemas
           </button>
           <button class="butt butt1" v-on:click="muda()" type="submit">
             Suporte Informático
@@ -34,7 +34,7 @@
             Serviços
           </button>
           <div class="card-header">
-            <h4 class="card-title">QueueView: Administração de Sistemas</h4>
+            <h4 class="card-title">QueueView: CORE</h4>
             <button class="butt butt1" v-on:click="muda1()" type="submit">
               1
             </button>
@@ -181,13 +181,13 @@ export default {
     tickets3: null,
   }),
   mounted() {
-    axios.get("/AdministraçãodeSistemas").then((res) => {
+    axios.get("/CORE").then((res) => {
       this.tickets = res.data;
     });
-    axios.get("/AdministraçãodeSistemas2").then((res) => {
+    axios.get("/CORE2").then((res) => {
       this.tickets2 = res.data;
     });
-    axios.get("/AdministraçãodeSistemas3").then((res) => {
+    axios.get("/CORE3").then((res) => {
       this.tickets3 = res.data;
     });
   },

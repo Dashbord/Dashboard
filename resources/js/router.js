@@ -12,6 +12,7 @@ import Com from './views/QueueView/Com';
 import ServiceDesk from './views/QueueView/ServiceDesk';AdSistemas
 import Seguranca from './views/QueueView/Seguranca';
 import AdSistemas from './views/QueueView/AdSistemas';
+import CORE from './views/QueueView/CORE';
 import teste from './views/teste';
 
 Vue.use(VueRouter);
@@ -67,6 +68,10 @@ export default new VueRouter({
         {
             path: '/AdSistemas', name: 'AdSistemas', component: AdSistemas,
             meta: { title: 'AdSistemas' }        
+        },
+        {
+            path: '/CORE', name: 'CORE', component: CORE,
+            meta: { title: 'CORE' }        
         },
         {
             path: '/teste', name: 'teste', component: teste,

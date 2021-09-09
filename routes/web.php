@@ -60,6 +60,8 @@ Route::get('/AdministraçãodeSistemas2',[QueueViewController::class,'getAdminis
 Route::get('/AdministraçãodeSistemas3',[QueueViewController::class,'getAdministraçãodeSistemas3'])->name('ticket.getAdministraçãodeSistemas3');
 
 Route::get('/CORE',[QueueViewController::class,'getCORE'])->name('ticket.getCORE');
+Route::get('/CORE2',[QueueViewController::class,'getCORE2'])->name('ticket.getCORE2');
+Route::get('/CORE3',[QueueViewController::class,'getCORE3'])->name('ticket.getCORE3');
 
 Route::get('/SuporteInformático',[QueueViewController::class,'getSuporteInformático'])->name('ticket.getSuporteInformático');
 Route::get('/Helpdesk',[QueueViewController::class,'getHelpdesk'])->name('ticket.getHelpdesk');

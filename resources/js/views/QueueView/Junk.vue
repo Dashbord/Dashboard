@@ -4,7 +4,7 @@
       <div class="col-md-12">
         <div class="card">
           <button class="butt butt1" v-on:click="muda()" type="submit">
-            Junk
+            Raw
           </button>
           <button class="butt butt1" v-on:click="muda()" type="submit">
             Comunicações
@@ -34,7 +34,7 @@
             Serviços
           </button>
           <div class="card-header">
-            <h4 class="card-title">QueueView:Raw</h4>
+            <h4 class="card-title">QueueView: Junk</h4>
             <button class="butt butt1" v-on:click="muda1()" type="submit">
               1
             </button>
@@ -181,13 +181,13 @@ export default {
     tickets3: null,
   }),
   mounted() {
-    axios.get("/ticketRaw").then((res) => {
+    axios.get("/ticketJunk").then((res) => {
       this.tickets = res.data;
     });
-    axios.get("/ticketRaw2").then((res) => {
+    axios.get("/ticketJunk2").then((res) => {
       this.tickets2 = res.data;
     });
-    axios.get("/ticketRaw3").then((res) => {
+    axios.get("/ticketJunk3").then((res) => {
       this.tickets3 = res.data;
     });
   },

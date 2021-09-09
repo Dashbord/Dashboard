@@ -7,6 +7,7 @@ import StatusView from './views/StatusView/StatusView';
 import StatusViewClose from './views/StatusView/StatusViewClose';Raw
 import QueueView from './views/QueueView';
 import Raw from './views/QueueView/Raw';
+import Junk from './views/QueueView/Junk';
 import teste from './views/teste';
 
 Vue.use(VueRouter);
@@ -42,6 +43,10 @@ export default new VueRouter({
         {
             path: '/Raw', name: 'Raw', component: Raw,
             meta: { title: 'Raw' }        
+        },
+        {
+            path: '/Junk', name: 'Junk', component: Junk,
+            meta: { title: 'Junk' }        
         },
         {
             path: '/teste', name: 'teste', component: teste,

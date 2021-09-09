@@ -13,7 +13,7 @@
             Comunicações
           </button>
           <button class="butt butt1" v-on:click="muda()" type="submit">
-            Segurança
+            Comunicações
           </button>
           <button class="butt butt1" v-on:click="muda()" type="submit">
             Administração de Sistemas
@@ -34,7 +34,7 @@
             Serviços
           </button>
           <div class="card-header">
-            <h4 class="card-title">QueueView:ServiceDesk</h4>
+            <h4 class="card-title">QueueView:Segurança</h4>
             <button class="butt butt1" v-on:click="muda1()" type="submit">
               1
             </button>
@@ -181,13 +181,13 @@ export default {
     tickets3: null,
   }),
   mounted() {
-    axios.get("/ticketServiceDesk").then((res) => {
+    axios.get("/Segurança").then((res) => {
       this.tickets = res.data;
     });
-    axios.get("/ticketServiceDesk2").then((res) => {
+    axios.get("/Segurança2").then((res) => {
       this.tickets2 = res.data;
     });
-    axios.get("/ticketServiceDesk3").then((res) => {
+    axios.get("/Segurança3").then((res) => {
       this.tickets3 = res.data;
     });
   },

@@ -48,10 +48,12 @@ Route::get('/ticketComunicações2',[QueueViewController::class,'getComunicaçõ
 Route::get('/ticketComunicações3',[QueueViewController::class,'getComunicações3'])->name('ticket.getComunicações3');
 
 Route::get('/ticketServiceDesk',[QueueViewController::class,'getServiceDesk'])->name('ticket.getServiceDesk');
-Route::get('/ticketServiceDesk2',[QueueViewController::class,'getServiceDesk'])->name('ticket.getServiceDesk');
-Route::get('/ticketServiceDesk3',[QueueViewController::class,'getServiceDesk'])->name('ticket.getServiceDesk');
+Route::get('/ticketServiceDesk2',[QueueViewController::class,'getServiceDesk2'])->name('ticket.getServiceDesk2');
+Route::get('/ticketServiceDesk3',[QueueViewController::class,'getServiceDesk3'])->name('ticket.getServiceDesk3');
 
 Route::get('/Segurança',[QueueViewController::class,'getSegurança'])->name('ticket.getSegurança');
+Route::get('/Segurança2',[QueueViewController::class,'getSegurança2'])->name('ticket.getSegurança2');
+Route::get('/Segurança3',[QueueViewController::class,'getSegurança3'])->name('ticket.getSegurança3');
 
 Route::get('/AdministraçãodeSistemas',[QueueViewController::class,'getAdministraçãodeSistemas'])->name('ticket.getAdministraçãodeSistemas');
 

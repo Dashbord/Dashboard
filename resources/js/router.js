@@ -9,6 +9,7 @@ import QueueView from './views/QueueView';
 import Raw from './views/QueueView/Raw';
 import Junk from './views/QueueView/Junk';
 import Com from './views/QueueView/Com';
+import ServiceDesk from './views/QueueView/ServiceDesk';
 import teste from './views/teste';
 
 Vue.use(VueRouter);
@@ -52,6 +53,10 @@ export default new VueRouter({
         {
             path: '/Com', name: 'Com', component: Com,
             meta: { title: 'Com' }        
+        },
+        {
+            path: '/ServiceDesk', name: 'ServiceDesk', component: ServiceDesk,
+            meta: { title: 'ServiceDesk' }        
         },
         {
             path: '/teste', name: 'teste', component: teste,

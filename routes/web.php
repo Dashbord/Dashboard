@@ -36,6 +36,8 @@ Route::get('/ticketClose4',[StatusViewControllerOpen::class,'getStatusViewClose4
 
 //Queue view
 Route::get('/ticketRaw',[QueueViewController::class,'getRaw'])->name('ticket.getRaw');
+Route::get('/ticketRaw2',[QueueViewController::class,'getRaw2'])->name('ticket.getRaw2');
+Route::get('/ticketRaw3',[QueueViewController::class,'getRaw3'])->name('ticket.getRaw3');
 Route::get('/ticketJunk',[QueueViewController::class,'getJunk'])->name('ticket.getJunk');
 Route::get('/ticketComunicações',[QueueViewController::class,'getComunicações'])->name('ticket.getComunicações');
 Route::get('/ticketServiceDesk',[QueueViewController::class,'getServiceDesk'])->name('ticket.getServiceDesk');

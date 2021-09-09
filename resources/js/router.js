@@ -4,8 +4,9 @@ import Dashboard from './views/Dashboard';
 import User from './views/User';
 import Customers from './views/Customers';
 import StatusView from './views/StatusView/StatusView';
-import StatusViewClose from './views/StatusView/StatusViewClose';
+import StatusViewClose from './views/StatusView/StatusViewClose';Raw
 import QueueView from './views/QueueView';
+import Raw from './views/QueueView/Raw';
 import teste from './views/teste';
 
 Vue.use(VueRouter);
@@ -37,6 +38,10 @@ export default new VueRouter({
         {
             path: '/QueueView', name: 'QueueView', component: QueueView,
             meta: { title: 'QueueView' }        
+        },
+        {
+            path: '/Raw', name: 'Raw', component: Raw,
+            meta: { title: 'Raw' }        
         },
         {
             path: '/teste', name: 'teste', component: teste,

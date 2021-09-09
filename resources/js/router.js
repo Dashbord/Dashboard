@@ -3,7 +3,8 @@ import VueRouter from 'vue-router';
 import Dashboard from './views/Dashboard';
 import User from './views/User';
 import Customers from './views/Customers';
-import StatusView from './views/StatusView';
+import StatusView from './views/StatusView/StatusView';
+import StatusViewClose from './views/StatusView/StatusViewClose';
 import QueueView from './views/QueueView';
 import teste from './views/teste';
 
@@ -28,6 +29,10 @@ export default new VueRouter({
         {
             path: '/StatusView', name: 'StatusView', component: StatusView,
             meta: { title: 'StatusView' }        
+        },
+        {
+            path: '/StatusViewClose', name: 'StatusViewClose', component: StatusViewClose,
+            meta: { title: 'StatusViewClose' }        
         },
         {
             path: '/QueueView', name: 'QueueView', component: QueueView,

@@ -23,6 +23,10 @@ Route::get('/ticket/{state}',[TicketController::class,'getState'])->name('ticket
 Route::get('/ticket/{QueueIDs}/{state}',[TicketController::class,'getQueueStatee'])->name('ticket.getQueueStatee');
 //Status view
 Route::get('/ticketOpen',[StatusViewControllerOpen::class,'getStatusViewNew'])->name('ticket.getStatusViewNew');
+Route::get('/ticketOpen2',[StatusViewControllerOpen::class,'getStatusViewNew2'])->name('ticket.getStatusViewNew2');
+Route::get('/ticketOpen3',[StatusViewControllerOpen::class,'getStatusViewNew3'])->name('ticket.getStatusViewNew3');
+Route::get('/ticketOpen4',[StatusViewControllerOpen::class,'getStatusViewNew4'])->name('ticket.getStatusViewNew4');
+//Status view close
 Route::get('/ticketClose',[StatusViewControllerOpen::class,'getStatusViewClose'])->name('ticket.getStatusViewClose');
 //Queue view
 Route::get('/ticketRaw',[QueueViewController::class,'getRaw'])->name('ticket.getRaw');

@@ -37,10 +37,10 @@ class getAllNewQueues extends Command
      */
     public function handle()
     {
-        respo
-        $Queues = DB::table('queues')->get();
+        // respo
+        // $Queues = DB::table('queues')->get();
         //$Queues = queues::where('');
         
-        return 0;
+        // return 0;
     }
 }

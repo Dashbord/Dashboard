@@ -142,7 +142,7 @@ export default {
     },
      methods: {
       muda:function () {
-      this.i==2
+      this.i=2
     }
   }
 }

@@ -62,7 +62,7 @@
                       {{ ticket.TicketNumber }}
                     </td>
                     <td>
-                      {{ ticket.Created }}
+                      {{(ticket.Age*0.000116 /10).toFixed(1) }} Dias.Horas
                     </td>
                     <td>
                       {{ ticket.Title }}
@@ -218,8 +218,8 @@
                     </td>
                     <td>
                       {{
-                        (ticketNew.length * 100) /
-                        (ticketNew.length + ticketClosed.length)
+                        ((ticketNew.length * 100) /
+                        (ticketNew.length + ticketClosed.length)).toFixed(1)
                       }}%
                     </td>
                   </tr>

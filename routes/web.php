@@ -64,12 +64,20 @@ Route::get('/CORE2',[QueueViewController::class,'getCORE2'])->name('ticket.getCO
 Route::get('/CORE3',[QueueViewController::class,'getCORE3'])->name('ticket.getCORE3');
 
 Route::get('/SuporteInformático',[QueueViewController::class,'getSuporteInformático'])->name('ticket.getSuporteInformático');
+Route::get('/SuporteInformático2',[QueueViewController::class,'getSuporteInformático2'])->name('ticket.getSuporteInformático2');
+Route::get('/SuporteInformático3',[QueueViewController::class,'getSuporteInformático3'])->name('ticket.getSuporteInformático3');
+
 Route::get('/Helpdesk',[QueueViewController::class,'getHelpdesk'])->name('ticket.getHelpdesk');
+Route::get('/Helpdesk2',[QueueViewController::class,'getHelpdesk2'])->name('ticket.getHelpdesk2');
+Route::get('/Helpdesk3',[QueueViewController::class,'getHelpdesk3'])->name('ticket.getHelpdesk3');
 
 Route::get('/Monitorização',[QueueViewController::class,'getMonitorização'])->name('ticket.getMonitorização');
+Route::get('/Monitorização2',[QueueViewController::class,'getMonitorização2'])->name('ticket.getMonitorização2');
+Route::get('/Monitorização3',[QueueViewController::class,'getMonitorização3'])->name('ticket.getMonitorização3');
 
 Route::get('/Serviços',[QueueViewController::class,'getServiços'])->name('ticket.getServiços');
-
+Route::get('/Serviços2',[QueueViewController::class,'getServiços2'])->name('ticket.getServiços2');
+Route::get('/Serviços3',[QueueViewController::class,'getServiços3'])->name('ticket.getServiços3');
 
 
 Route::get('/', function () {

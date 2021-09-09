@@ -13,6 +13,7 @@ import ServiceDesk from './views/QueueView/ServiceDesk';AdSistemas
 import Seguranca from './views/QueueView/Seguranca';
 import AdSistemas from './views/QueueView/AdSistemas';
 import CORE from './views/QueueView/CORE';
+import SupInformatico from './views/QueueView/SupInformatico';
 import teste from './views/teste';
 
 Vue.use(VueRouter);
@@ -72,6 +73,10 @@ export default new VueRouter({
         {
             path: '/CORE', name: 'CORE', component: CORE,
             meta: { title: 'CORE' }        
+        },
+        {
+            path: '/SupInformatico', name: 'SupInformatico', component: SupInformatico,
+            meta: { title: 'SupInformatico' }        
         },
         {
             path: '/teste', name: 'teste', component: teste,

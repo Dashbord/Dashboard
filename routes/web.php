@@ -56,6 +56,8 @@ Route::get('/Segurança2',[QueueViewController::class,'getSegurança2'])->name('
 Route::get('/Segurança3',[QueueViewController::class,'getSegurança3'])->name('ticket.getSegurança3');
 
 Route::get('/AdministraçãodeSistemas',[QueueViewController::class,'getAdministraçãodeSistemas'])->name('ticket.getAdministraçãodeSistemas');
+Route::get('/AdministraçãodeSistemas2',[QueueViewController::class,'getAdministraçãodeSistemas2'])->name('ticket.getAdministraçãodeSistemas2');
+Route::get('/AdministraçãodeSistemas3',[QueueViewController::class,'getAdministraçãodeSistemas3'])->name('ticket.getAdministraçãodeSistemas3');
 
 Route::get('/CORE',[QueueViewController::class,'getCORE'])->name('ticket.getCORE');
 

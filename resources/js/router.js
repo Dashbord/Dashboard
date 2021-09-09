@@ -9,8 +9,9 @@ import QueueView from './views/QueueView';
 import Raw from './views/QueueView/Raw';
 import Junk from './views/QueueView/Junk';
 import Com from './views/QueueView/Com';
-import ServiceDesk from './views/QueueView/ServiceDesk';
+import ServiceDesk from './views/QueueView/ServiceDesk';AdSistemas
 import Seguranca from './views/QueueView/Seguranca';
+import AdSistemas from './views/QueueView/AdSistemas';
 import teste from './views/teste';
 
 Vue.use(VueRouter);
@@ -62,6 +63,10 @@ export default new VueRouter({
         {
             path: '/Seguranca', name: 'Seguranca', component: Seguranca,
             meta: { title: 'Seguranca' }        
+        },
+        {
+            path: '/AdSistemas', name: 'AdSistemas', component: AdSistemas,
+            meta: { title: 'AdSistemas' }        
         },
         {
             path: '/teste', name: 'teste', component: teste,

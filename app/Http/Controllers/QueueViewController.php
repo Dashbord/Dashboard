@@ -616,7 +616,7 @@ public function getComunicações3(){
     public function getMonitorização(){
         $response = Http::get('http://10.175.146.2/otrs/nph-genericinterface.pl/Webservice/GenericTicketConnectorREST/Ticket?UserLogin=sluis&Password=Szb6gwzEaEUAzsGj&QueueIDs=12');
         $res = $response->json();
-        $tickets=collect($res['TicketID'])->skip(40)->take(20)->map(function($id){
+        $tickets=collect($res['TicketID'])->skip(0)->take(20)->map(function($id){
             $response = Http::get('http://10.175.146.2/otrs/nph-genericinterface.pl/Webservice/GenericTicketConnectorREST/Ticket/'.$id.'?UserLogin=sluis&Password=Szb6gwzEaEUAzsGj&AllArticles=1&DynamicFields=1');
             $ticket = $response->json()['Ticket'][0];
             return [

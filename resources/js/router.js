@@ -15,6 +15,8 @@ import AdSistemas from './views/QueueView/AdSistemas';
 import CORE from './views/QueueView/CORE';
 import SupInformatico from './views/QueueView/SupInformatico';
 import HelpDesk from './views/QueueView/HelpDesk';
+import Monitorizacao from './views/QueueView/Monitorizacao';
+import Servicos from './views/QueueView/Servicos';
 import teste from './views/teste';
 
 Vue.use(VueRouter);
@@ -82,6 +84,14 @@ export default new VueRouter({
         {
             path: '/HelpDesk', name: 'HelpDesk', component: HelpDesk,
             meta: { title: 'HelpDesk' }        
+        },
+        {
+            path: '/Monitorizacao', name: 'Monitorizacao', component: Monitorizacao,
+            meta: { title: 'Monitorizacao' }        
+        },
+        {
+            path: '/Servicos', name: 'Servicos', component: Servicos,
+            meta: { title: 'Servicos' }        
         },
         {
             path: '/teste', name: 'teste', component: teste,

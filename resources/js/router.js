@@ -8,6 +8,7 @@ import StatusViewClose from './views/StatusView/StatusViewClose';Raw
 import QueueView from './views/QueueView';
 import Raw from './views/QueueView/Raw';
 import Junk from './views/QueueView/Junk';
+import Com from './views/QueueView/Com';
 import teste from './views/teste';
 
 Vue.use(VueRouter);
@@ -47,6 +48,10 @@ export default new VueRouter({
         {
             path: '/Junk', name: 'Junk', component: Junk,
             meta: { title: 'Junk' }        
+        },
+        {
+            path: '/Com', name: 'Com', component: Com,
+            meta: { title: 'Com' }        
         },
         {
             path: '/teste', name: 'teste', component: teste,

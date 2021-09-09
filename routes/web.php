@@ -42,7 +42,11 @@ Route::get('/ticketRaw3',[QueueViewController::class,'getRaw3'])->name('ticket.g
 Route::get('/ticketJunk',[QueueViewController::class,'getJunk'])->name('ticket.getJunk');
 Route::get('/ticketJunk2',[QueueViewController::class,'getJunk2'])->name('ticket.getJunk2');
 Route::get('/ticketJunk3',[QueueViewController::class,'getJunk3'])->name('ticket.getJunk3');
+
 Route::get('/ticketComunicações',[QueueViewController::class,'getComunicações'])->name('ticket.getComunicações');
+Route::get('/ticketComunicações2',[QueueViewController::class,'getComunicações2'])->name('ticket.getComunicações2');
+Route::get('/ticketComunicações3',[QueueViewController::class,'getComunicações3'])->name('ticket.getComunicações3');
+
 Route::get('/ticketServiceDesk',[QueueViewController::class,'getServiceDesk'])->name('ticket.getServiceDesk');
 Route::get('/Segurança',[QueueViewController::class,'getSegurança'])->name('ticket.getSegurança');
 Route::get('/AdministraçãodeSistemas',[QueueViewController::class,'getAdministraçãodeSistemas'])->name('ticket.getAdministraçãodeSistemas');

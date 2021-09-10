@@ -62,7 +62,7 @@
                       {{ ticket.TicketNumber }}
                     </td>
                     <td>
-                      {{(ticket.Age*0.000116 /10).toFixed(1) }} Dias.Horas
+                      {{ ((ticket.Age * 0.000116) / 10).toFixed(1) }} Dias.Horas
                     </td>
                     <td>
                       {{ ticket.Title }}
@@ -99,88 +99,89 @@
                 <tbody>
                   <tr>
                     <td>RAW</td>
-                    <td>{{ ticketQueueNew2.length }}</td>
-                    <td>{{ ticketQueueOpen2 }}</td>
-                    <td>{{ ticketQueuePending2 }}</td>
+                    <td>{{ticketQueueNew2.length}}</td>
+                    <td v-if="ticketQueueOpen2 == null">0</td>
+                    <td v-else>{{ ticketQueueOpen2.length }}</td>
+                    <td v-if="ticketQueuePending2 == null">0</td>
+                    <td v-else>{{ ticketQueuePending2.length }}</td>
                   </tr>
                   <tr>
                     <td>JUNK</td>
                     <td>{{ ticketQueueNew3.length }}</td>
-                    <td>{{ ticketQueueOpen3 }}</td>
-                    <td>{{ ticketQueuePending3 }}</td>
+                    <td v-if="ticketQueueOpen3 == null">0</td>
+                    <td v-else>{{ ticketQueueOpen3.length }}</td>
+                    <td v-if="ticketQueuePending3 == null">0</td>
+                    <td v-else>{{ ticketQueuePending3.length }}</td>
                   </tr>
                   <tr>
                     <td>COMUNICAÇÕES</td>
                     <td>{{ ticketQueueNew5.length }}</td>
-                    <td>{{ ticketQueueOpen5 }}</td>
-                    <td>{{ ticketQueuePending5 }}</td>
+                    <td v-if="ticketQueueOpen5 == null">0</td>
+                    <td v-else>{{ ticketQueueOpen5.length }}</td>
+                    <td v-if="ticketQueuePending5 == null">0</td>
+                    <td v-else>{{ ticketQueuePending5.length }}</td>
                   </tr>
-                  <tr>
+                   <tr>
                     <td>SERVICE DESK</td>
                     <td>{{ ticketQueueNew6.length }}</td>
-                    <td>{{ ticketQueueOpen6 }}</td>
-                    <td>{{ ticketQueuePending6 }}</td>
+                    <td v-if="ticketQueueOpen6 == null">0</td>
+                    <td v-else>{{ ticketQueueOpen6.length }}</td>
+                    <td v-if="ticketQueuePending6 == null">0</td>
+                    <td v-else>{{ ticketQueuePending6.length }}</td>
                   </tr>
                   <tr>
                     <td>SEGURANÇA</td>
                     <td>{{ ticketQueueNew7.length }}</td>
-                    <td>{{ ticketQueueOpen7 }}</td>
-                    <td>{{ ticketQueuePending7 }}</td>
+                    <td v-if="ticketQueueOpen7 == null">0</td>
+                    <td v-else>{{ ticketQueueOpen7.length }}</td>
+                    <td v-if="ticketQueuePending7 == null">0</td>
+                    <td v-else>{{ ticketQueuePending7.length }}</td>
                   </tr>
                   <tr>
                     <td>Administração de Sistemas</td>
                     <td>{{ ticketQueueNew8.length }}</td>
                     <td>{{ ticketQueueOpen8.length }}</td>
-                    <td>{{ ticketQueuePending8 }}</td>
+                    <td v-if="ticketQueuePending8 == null">0</td>
+                    <td v-else>{{ ticketQueuePending8.length }}</td>
                   </tr>
                   <tr>
                     <td>CORE</td>
                     <td>{{ ticketQueueNew9.length }}</td>
-                    <td>{{ ticketQueueOpen9 }}</td>
+                    <td v-if="ticketQueueOpen9 == null">0</td>
+                    <td v-else>{{ ticketQueueOpen9.length }}</td>
                     <td>{{ ticketQueuePending9.length }}</td>
                   </tr>
                   <tr>
                     <td>Suporte Informático</td>
                     <td>{{ ticketQueueNew10.length }}</td>
-                    <td>{{ ticketQueueOpen10 }}</td>
-                    <td>{{ ticketQueuePending10 }}</td>
+                    <td v-if="ticketQueueOpen10 == null">0</td>
+                    <td v-else>{{ ticketQueueOpen10.length }}</td>
+                    <td v-if="ticketQueuePending10 == null">0</td>
+                    <td v-else>{{ ticketQueuePending10.length }}</td>
                   </tr>
                   <tr>
                     <td>Helpdesk</td>
                     <td>{{ ticketQueueNew11.length }}</td>
-                    <td>{{ ticketQueueOpen11 }}</td>
+                    <td v-if="ticketQueueOpen11 == null">0</td>
+                    <td v-else>{{ ticketQueueOpen11.length }}</td>
                     <td>{{ ticketQueuePending11.length }}</td>
                   </tr>
                   <tr>
                     <td>Monitorização</td>
                     <td>{{ ticketQueueNew12.length }}</td>
-                    <td>{{ ticketQueueOpen12 }}</td>
-                    <td>{{ ticketQueuePending12 }}</td>
+                    <td v-if="ticketQueueOpen12 == null">0</td>
+                    <td v-else>{{ ticketQueueOpen12.length }}</td>
+                    <td v-if="ticketQueuePending12 == null">0</td>
+                    <td v-else>{{ ticketQueuePending12.length }}</td>
                   </tr>
                   <tr>
                     <td>Serviços</td>
                     <td>{{ ticketQueueNew13.length }}</td>
-                    <td>{{ ticketQueueOpen13 }}</td>
-                    <td>{{ ticketQueuePending13 }}</td>
-                  </tr>
-                  <tr>
-                    <td>Total</td>
-                    <td>
-                      {{
-                        ticketQueueNew13.length +
-                        ticketQueueNew12.length +
-                        ticketQueueNew11.length +
-                        ticketQueueNew10.length +
-                        ticketQueueNew9.length +
-                        ticketQueueNew8.length +
-                        ticketQueueNew7.length +
-                        ticketQueueNew6.length +
-                        ticketQueueNew5.length +
-                        ticketQueueNew3.length +
-                        ticketQueueNew2.length
-                      }}
-                    </td>
-                  </tr>
+                    <td v-if="ticketQueueOpen13 == null">0</td>
+                    <td v-else>{{ ticketQueueOpen13.length }}</td>
+                    <td v-if="ticketQueuePending13 == null">0</td>
+                    <td v-else>{{ ticketQueuePending13.length }}</td>
+                  </tr>                  
                 </tbody>
               </table>
             </div>

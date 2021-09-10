@@ -25,6 +25,10 @@ export default new VueRouter({
 
     routes: [
         {
+            path: '/', name: 'home', component: Dashboard,
+            meta: { title: 'Dashboard' }
+        },
+        {
             path: '/dashboard', name: 'home', component: Dashboard,
             meta: { title: 'Dashboard' }
         },

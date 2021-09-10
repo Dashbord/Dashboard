@@ -19,6 +19,8 @@ use App\Http\Controllers\QueueViewController;
 // Rotas tickets
 // Route::get('/ticket',[TicketController::class,'getAllTickets'])->name('ticket.getAllTickets');
 Route::get('/ticket',[TicketController::class,'getAllTicketsNew'])->name('ticket.getAllTicketsNew');
+Route::get('/ticket2',[TicketController::class,'getAllTicketsNew2'])->name('ticket.getAllTicketsNew2');
+Route::get('/ticket3',[TicketController::class,'getAllTicketsNew3'])->name('ticket.getAllTicketsNew3');
 Route::get('/ticket/{state}',[TicketController::class,'getState'])->name('ticket.getState');
 Route::get('/ticket/{QueueIDs}/{state}',[TicketController::class,'getQueueStatee'])->name('ticket.getQueueStatee');
 
@@ -82,7 +84,7 @@ Route::get('/Serviços3',[QueueViewController::class,'getServiços3'])->name('ti
 
 Route::get('/', function () {
     if (Auth::check()) {
-    return view('dashboard');
+    // return view('dashboard');
     }
     return view('auth/login');
 });

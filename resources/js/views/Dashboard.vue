@@ -5,48 +5,16 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
-            <h4 class="card-title">Ticket Queue Overview</h4>
-          </div>
-          <div class="card-body">
-            <div class="table-responsive">
-              <table class="table">
-                <thead class="text-primary">
-                  <th>Queue ids</th>
-                  <th>In Progress</th>
-                  <th>Open Tickets</th>
-                  <th>Pending Customers</th>
-                  <th>Resolved</th>
-                  <th>Total</th>
-                </thead>
-                <tbody>
-                  <!-- <tr v-for="ticketAll in ticketsAll" :key="ticketAll.id">
-                    <td>
-                    {{ticketAll.queue}}
-                    </td>
-                    <td>
-                    {{ticketAll.id}}
-                    </td>
-                    <td>
-                    </td>
-                  </tr> -->
-                </tbody>
-              </table>
-            </div>
-            <div class="card-footer">
-              <hr />
-              <div class="stats">
-                <i class="now-ui-icons loader_refresh spin"></i> Updated 3
-                minutes ago
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- segundo tabela -->
-      <div class="col-md-12">
-        <div class="card">
-          <div class="card-header">
-            <h4 class="card-title">New Tickets</h4>
+            <h4 class="card-title">Reminder Tickets</h4>
+            <button class="butt butt1" v-on:click="muda1()" type="submit">
+              1
+            </button>
+            <button class="butt butt1" v-on:click="muda2()" type="submit">
+              2
+            </button>
+            <button class="butt butt1" v-on:click="muda3()" type="submit">
+              3
+            </button>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -56,8 +24,34 @@
                   <th>Age</th>
                   <th>Title</th>
                 </thead>
-                <tbody>
+                <tbody v-if="this.i == 1">
                   <tr v-for="ticket in tickets" :key="ticket.id">
+                    <td>
+                      {{ ticket.TicketNumber }}
+                    </td>
+                    <td>
+                      {{ ((ticket.Age * 0.000116) / 10).toFixed(1) }} Dias.Horas
+                    </td>
+                    <td>
+                      {{ ticket.Title }}
+                    </td>
+                  </tr>
+                </tbody>
+                <tbody v-if="this.i == 2">
+                  <tr v-for="ticket in tickets2" :key="ticket.id">
+                    <td>
+                      {{ ticket.TicketNumber }}
+                    </td>
+                    <td>
+                      {{ ((ticket.Age * 0.000116) / 10).toFixed(1) }} Dias.Horas
+                    </td>
+                    <td>
+                      {{ ticket.Title }}
+                    </td>
+                  </tr>
+                </tbody>
+                <tbody v-if="this.i == 3">
+                  <tr v-for="ticket in tickets3" :key="ticket.id">
                     <td>
                       {{ ticket.TicketNumber }}
                     </td>
@@ -99,7 +93,7 @@
                 <tbody>
                   <tr>
                     <td>RAW</td>
-                    <td>{{ticketQueueNew2.length}}</td>
+                    <td>{{ ticketQueueNew2.length }}</td>
                     <td v-if="ticketQueueOpen2 == null">0</td>
                     <td v-else>{{ ticketQueueOpen2.length }}</td>
                     <td v-if="ticketQueuePending2 == null">0</td>
@@ -121,7 +115,7 @@
                     <td v-if="ticketQueuePending5 == null">0</td>
                     <td v-else>{{ ticketQueuePending5.length }}</td>
                   </tr>
-                   <tr>
+                  <tr>
                     <td>SERVICE DESK</td>
                     <td>{{ ticketQueueNew6.length }}</td>
                     <td v-if="ticketQueueOpen6 == null">0</td>
@@ -181,7 +175,7 @@
                     <td v-else>{{ ticketQueueOpen13.length }}</td>
                     <td v-if="ticketQueuePending13 == null">0</td>
                     <td v-else>{{ ticketQueuePending13.length }}</td>
-                  </tr>                  
+                  </tr>
                 </tbody>
               </table>
             </div>
@@ -219,8 +213,10 @@
                     </td>
                     <td>
                       {{
-                        ((ticketNew.length * 100) /
-                        (ticketNew.length + ticketClosed.length)).toFixed(1)
+                        (
+                          (ticketNew.length * 100) /
+                          (ticketNew.length + ticketClosed.length)
+                        ).toFixed(1)
                       }}%
                     </td>
                   </tr>
@@ -283,11 +279,14 @@
 import axios from "axios";
 export default {
   data: () => ({
+    i: 1,
     //Ticket Resolution percentage
     ticketNew: null,
     ticketClosed: null,
-    //New Tickets
+    //pending Tickets
     tickets: null,
+    tickets2: null,
+    tickets3: null,
     //Ticket Overview Queue
     ticketQueueNew2: null,
     ticketQueueOpen2: null,
@@ -334,9 +333,12 @@ export default {
     axios.get("/ticket").then((res) => {
       this.tickets = res.data;
     });
-    //  axios.get("/ticket").then((res) => {
-    //   this.ticketsAll = res.data;
-    // });
+    axios.get("/ticket2").then((res) => {
+      this.tickets2 = res.data;
+    });
+    axios.get("/ticket3").then((res) => {
+      this.tickets3 = res.data;
+    });
     axios.get("/ticket/2/new").then((res) => {
       this.ticketQueueNew2 = res.data.TicketID;
     });
@@ -436,6 +438,17 @@ export default {
     axios.get("/ticket/13/pending reminder").then((res) => {
       this.ticketQueuePending13 = res.data.TicketID;
     });
+  },
+  methods: {
+    muda1: function () {
+      this.i = 1;
+    },
+    muda2: function () {
+      this.i = 2;
+    },
+    muda3: function () {
+      this.i = 3;
+    },
   },
 };
 </script>

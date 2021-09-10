@@ -236,6 +236,7 @@ export default {
   padding: 10px 25px;
   text-align: center;
   text-decoration: none;
+  font-size: 13.5px;
 }
 .butt1 {
   border-radius: 12px;

@@ -92,6 +92,7 @@ export default new VueRouter({
             path: '/Servicos', name: 'Servicos', component: Servicos,
             meta: { title: 'Servicos' }        
         },
+
     ]
 
 });

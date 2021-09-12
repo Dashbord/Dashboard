@@ -6,54 +6,54 @@
           <tr>
             <th>
               <form method="get" action="/Junk">
-                <button class="butt butt1" type="submit">Junk</button>
+                <button class="butt2 butt1" type="submit">Junk</button>
               </form>
             </th>
             <th>
               <form method="get" action="/Com">
-                <button class="butt butt1" type="submit">Comunicações</button>
+                <button class="butt2 butt1" type="submit">Comunicações</button>
               </form>
             </th>
             <th>
               <form method="get" action="/ServiceDesk">
-                <button class="butt butt1" type="submit">Service Desk</button>
+                <button class="butt2 butt1" type="submit">Service Desk</button>
               </form>
             </th>
             <th>
               <form method="get" action="/Seguranca">
-                <button class="butt butt1" type="submit">Segurança</button>
+                <button class="butt2 butt1" type="submit">Segurança</button>
               </form>
             </th>
             <th>
               <form method="get" action="/core">
-                <button class="butt butt1" type="submit">CORE</button>
+                <button class="butt2 butt1" type="submit">CORE</button>
               </form>
             </th>
             <th>
               <form method="get" action="/SupInformatico">
-                <button class="butt butt1" type="submit">
+                <button class="butt2 butt1" type="submit">
                   Suporte Informático
                 </button>
               </form>
             </th>
             <th>
               <form method="get" action="/HelpDesk">
-                <button class="butt butt1" type="submit">Helpdesk</button>
+                <button class="butt2 butt1" type="submit">Helpdesk</button>
               </form>
             </th>
             <th>
               <form method="get" action="/Monitorizacao">
-                <button class="butt butt1" type="submit">Monitorização</button>
+                <button class="butt2 butt1" type="submit">Monitorização</button>
               </form>
             </th>
             <th>
               <form method="get" action="/Servicos">
-                <button class="butt butt1" type="submit">Serviços</button>
+                <button class="butt2 butt1" type="submit">Serviços</button>
               </form>
             </th>
             <th>
               <form method="get" action="/AdSistemas">
-                <button class="butt butt1" type="submit">
+                <button class="butt2 butt1" type="submit">
                   Administração de Sistemas
                 </button>
               </form>
@@ -231,14 +231,14 @@ export default {
 };
 </script>
 <style>
-.butt {
+.butt2 {
   background-color: #2ca8ff;
   color: white;
   border: none;
   padding: 10px 25px;
   text-align: center;
   text-decoration: none;
-  font-size: 13.5px;
+  font-size: 13px;
 }
 .butt1 {
   border-radius: 12px;

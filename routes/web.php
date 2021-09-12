@@ -6,6 +6,8 @@ use App\Http\Controllers\TicketController;
 use App\Http\Controllers\StatusViewControllerOpen;
 use App\Http\Controllers\QueueViewController;
 
+use App\Http\Controllers\Admin\UserController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -82,28 +84,37 @@ Route::get('/Serviços2',[QueueViewController::class,'getServiços2'])->name('ti
 Route::get('/Serviços3',[QueueViewController::class,'getServiços3'])->name('ticket.getServiços3');
 
 
+Route::prefix('admin')->name('admin.')->group(function(){
+    Route::resource('/users',UserController::class);
+    
+});
+
+
+
+//Pagina inicial
 Route::get('/', function () {
     if (Auth::check()) {
-    // return view('dashboard');
+    
     }
     return view('auth/login');
 });
 
-// Rotas calendario
-Route::get('full-calender', [FullCalenderController::class, 'index']);
-Route::post('full-calender/action', [FullCalenderController::class, 'action']);
+// rotas autenticação
+Route::get('register', [RegisteredUserController::class, 'create']);
 
-Route::get('master', function (){
-    return view('master');
-});
+
+// Rotas calendario
+Route::get('/full-calender', [FullCalenderController::class, 'index']);
+Route::post('/full-calender/action', [FullCalenderController::class, 'action']);
+
+
+
+// Route::get('master', function (){
+//     return view('master');
+// });
+
+
 
 require __DIR__.'/auth.php';
-
-Route::get('{any}', function(){
-    return view('dashboard');
-})
-    ->where('any', '.*')
-    ->middleware('auth')
-    ->name('dashboard');
 
 

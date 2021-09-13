@@ -84,7 +84,7 @@ Route::get('/Serviços2',[QueueViewController::class,'getServiços2'])->name('ti
 Route::get('/Serviços3',[QueueViewController::class,'getServiços3'])->name('ticket.getServiços3');
 
 
-Route::prefix('admin')->name('admin.')->group(function(){
+Route::prefix('admin')->middleware('auth')->name('admin.')->group(function(){
     Route::resource('/users',UserController::class);
     
 });
@@ -116,5 +116,12 @@ Route::post('/full-calender/action', [FullCalenderController::class, 'action']);
 
 
 require __DIR__.'/auth.php';
+
+Route::get('{any}', function(){
+    return view('dashboard');
+})
+    ->where('any', '.*')
+    ->middleware('auth')
+    ->name('dashboard');
 
 

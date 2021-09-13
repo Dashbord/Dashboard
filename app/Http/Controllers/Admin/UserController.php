@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Role;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Validation\Rules;
+use Illuminate\Support\Facades\Hash;
 
 
 class UserController extends Controller
@@ -17,8 +20,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        
-        return view('admin.users.index',['users' => User::paginate(10)]);
+        if(Gate::allows('is-admin')){
+            return view('admin.users.index',['users' => User::paginate(10)]); 
+        }
+        return view('/dashboard');
     }
 
     /**
@@ -28,7 +33,10 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('admin.users.create', ['roles' =>Role::all()]); 
+        if(Gate::allows('is-admin')){
+            return view('admin.users.create', ['roles' =>Role::all()]); 
+        }
+        return view('/dashboard');
     }
 
     /**
@@ -40,11 +48,18 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'name'=>'required|max:255',
-            'email'=>'required|max:255|unique:users',
-            'password'=>'required|min:8|max:255'
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
-        $user = User::create($validatedData);
+        
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+
+
 
         $user->roles()->sync($request->roles);
         
@@ -71,11 +86,15 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.users.edit', 
-        [
+
+        if(Gate::allows('is-admin')){
+            return view('admin.users.edit', 
+            [
             'roles' =>Role::all(),
             'user' =>User::find($id)
-        ]); 
+            ]);  
+        }
+        return view('/dashboard');       
     }
 
     /**
@@ -106,7 +125,10 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        User::destroy($id);
+        if(Gate::allows('is-admin')){
+              User::destroy($id);
         return redirect(route('admin.users.index'));
+        }
+        return view('/dashboard');    
     }
 }

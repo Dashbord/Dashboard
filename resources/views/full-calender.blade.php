@@ -11,11 +11,25 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
 </head>
 <body>
-  
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/dashboard">Back</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <br><br><br>  
 <div class="container">
-    <form method="get" action="/dashboard">
+    {{-- <form method="get" action="/dashboard">
         <button class="butt butt1" type="submit">Back</button>
-    </form>
+    </form> --}}
     <div id="calendar"></div>
 
 </div>

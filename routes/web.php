@@ -94,7 +94,7 @@ Route::prefix('admin')->middleware('auth')->name('admin.')->group(function(){
 //Pagina inicial
 Route::get('/', function () {
     if (Auth::check()) {
-    
+        
     }
     return view('auth/login');
 });
@@ -109,9 +109,9 @@ Route::post('/full-calender/action', [FullCalenderController::class, 'action']);
 
 
 
-// Route::get('master', function (){
-//     return view('master');
-// });
+Route::get('master', function (){
+    return view('master');
+});
 
 
 

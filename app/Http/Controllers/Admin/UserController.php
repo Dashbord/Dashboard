@@ -63,8 +63,9 @@ class UserController extends Controller
 
         $user->roles()->sync($request->roles);
         
-        // $request->session()->flash('success','you have created the user');
-        return redirect(route('admin.users.index'));
+       
+        return redirect(route('admin.users.index')); 
+        
     }
 
     /**
@@ -106,13 +107,29 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
         $user = User::findOrfail($id);
+        
+        //validate post data
+        $this->validate($request, [
+            'name'  =>'required|string|max:255',
+            'email' => 'required|email',
+            'password' => 'required|min:6',
+        ]);
+
+        $request->all();
+        $request['name'] = $request['name'];
+        $request['email'] = $request['email'];
+        $request['password'] = Hash::make($request['password']);
+
+
+        $postData = [$request['name'] , $request['email'], $request['password']];
+
 
         $user->update($request->except(['_token','roles']));
         $user->roles()->sync($request->roles);
  
         return redirect(route('admin.users.index'));
+        
     }
 
     

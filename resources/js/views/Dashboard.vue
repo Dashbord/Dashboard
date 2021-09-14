@@ -6,15 +6,15 @@
         <div class="card">
           <div class="card-header">
             <h4 class="card-title">Reminder Tickets</h4>
-            <button class="butt butt1" v-on:click="muda1()" type="submit">
-              1
-            </button>
-            <button class="butt butt1" v-on:click="muda2()" type="submit">
-              2
-            </button>
-            <button class="butt butt1" v-on:click="muda3()" type="submit">
-              3
-            </button>
+            <button style='float: right;' class="butt butt1" v-on:click="muda3()" type="submit">
+                3
+              </button>
+              <button style='float: right;' class="butt butt1" v-on:click="muda2()" type="submit">
+                2
+              </button>
+              <button style='float: right;' class="butt butt1" v-on:click="muda1()" type="submit">
+                1
+              </button>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -66,11 +66,6 @@
               </table>
             </div>
             <div class="card-footer">
-              <hr />
-              <div class="stats">
-                <i class="now-ui-icons loader_refresh spin"></i> Updated 3
-                minutes ago
-              </div>
             </div>
           </div>
         </div>
@@ -180,11 +175,6 @@
               </table>
             </div>
             <div class="card-footer">
-              <hr />
-              <div class="stats">
-                <i class="now-ui-icons loader_refresh spin"></i> Updated 3
-                minutes ago
-              </div>
             </div>
           </div>
         </div>
@@ -224,11 +214,6 @@
               </table>
             </div>
             <div class="card-footer">
-              <hr />
-              <div class="stats">
-                <i class="now-ui-icons loader_refresh spin"></i> Updated 3
-                minutes ago
-              </div>
             </div>
           </div>
         </div>
@@ -246,6 +231,7 @@
             ]"
           >
           </pie-chart>
+          <br><br>
         </div>
       </div>
       <!-- Segundo grafico -->
@@ -269,6 +255,7 @@
               ['RAW', ticketQueueNew2.length],
             ]"
           ></pie-chart>
+          <br><br>
         </div>
       </div>
     </div>

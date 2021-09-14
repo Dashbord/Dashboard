@@ -8,10 +8,10 @@
           </form>
           <div class="card-header">
             <h4 class="card-title">Status View: Close tickets</h4>
-            <button class="butt butt1" v-on:click="muda1()" type="submit"> 1 </button>
-            <button class="butt butt1" v-on:click="muda2()" type="submit"> 2 </button>
-            <button class="butt butt1" v-on:click="muda3()" type="submit"> 3 </button>
-            <button class="butt butt1" v-on:click="muda4()" type="submit"> 4 </button>
+            <button style='float: right;' class="butt butt1" v-on:click="muda4()" type="submit"> 4 </button>
+            <button style='float: right;' class="butt butt1" v-on:click="muda3()" type="submit"> 3 </button>
+            <button style='float: right;' class="butt butt1" v-on:click="muda2()" type="submit"> 2 </button>
+            <button style='float: right;' class="butt butt1" v-on:click="muda1()" type="submit"> 1 </button>
           </div>
           <div class="card-body">
             <div class="table-responsive">

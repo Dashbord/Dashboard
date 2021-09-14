@@ -321,7 +321,6 @@ export default {
     ticketQueueNew13: null,
     ticketQueueOpen13: null,
     ticketQueuePending13: null,
-    // ticketsAll: null,
   }),
   mounted() {
     axios.get("/ticket/new").then((res) => {

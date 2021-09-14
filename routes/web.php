@@ -5,7 +5,7 @@ use App\Http\Controllers\FullCalenderController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\StatusViewControllerOpen;
 use App\Http\Controllers\QueueViewController;
-
+use App\Http\Controllers\DetailsController;
 use App\Http\Controllers\Admin\UserController;
 
 /*
@@ -18,8 +18,10 @@ use App\Http\Controllers\Admin\UserController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Details
+Route::get('/Details/{id}',[DetailsController::class,'getId'])->name('Details.getId');
+
 // Rotas tickets
-// Route::get('/ticket',[TicketController::class,'getAllTickets'])->name('ticket.getAllTickets');
 Route::get('/ticket',[TicketController::class,'getAllTicketsNew'])->name('ticket.getAllTicketsNew');
 Route::get('/ticket2',[TicketController::class,'getAllTicketsNew2'])->name('ticket.getAllTicketsNew2');
 Route::get('/ticket3',[TicketController::class,'getAllTicketsNew3'])->name('ticket.getAllTicketsNew3');

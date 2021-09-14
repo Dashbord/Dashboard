@@ -16,6 +16,7 @@ import SupInformatico from './views/QueueView/SupInformatico';
 import HelpDesk from './views/QueueView/HelpDesk';
 import Monitorizacao from './views/QueueView/Monitorizacao';
 import Servicos from './views/QueueView/Servicos';
+import Details from './views/Details';
 
 
 Vue.use(VueRouter);
@@ -91,6 +92,16 @@ export default new VueRouter({
         {
             path: '/Servicos', name: 'Servicos', component: Servicos,
             meta: { title: 'Servicos' }        
+        },
+        {
+            path: '/Details', name: 'Details', component: Details, children: [
+                {
+                  path: 'id',
+                  name: 'Details.id',
+                  component: Details,
+                },
+              ],
+            meta: { title: 'Details' }        
         },
 
     ]

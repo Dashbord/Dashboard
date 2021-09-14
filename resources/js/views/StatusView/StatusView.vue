@@ -29,9 +29,9 @@
                   <th>Lock</th>
                 </thead>
                 <tbody v-if="this.i == 1">
-                  <tr v-for="ticket in tickets" :key="ticket.id">
+                  <tr v-for="ticket in tickets" :key="ticket.id" >
                     <td>
-                      {{ ticket.TicketNumber }}
+                      <a :href="`/Details/${ticket.TicketID}`">{{ ticket.TicketNumber}}</a>
                     </td>
                     <td>
                       {{ ticket.Title }}
@@ -65,7 +65,7 @@
                 <tbody v-if="this.i == 2">
                   <tr v-for="ticket in tickets2" :key="ticket.id">
                     <td>
-                      {{ ticket.TicketNumber }}
+                      <a :href="`/Details/${ticket.TicketID}`">{{ ticket.TicketNumber}}</a>
                     </td>
                     <td>
                       {{ ticket.Title }}
@@ -99,7 +99,7 @@
                 <tbody v-if="this.i == 3">
                   <tr v-for="ticket in tickets3" :key="ticket.id">
                     <td>
-                      {{ ticket.TicketNumber }}
+                      <a :href="`/Details/${ticket.TicketID}`">{{ ticket.TicketNumber}}</a>
                     </td>
                     <td>
                       {{ ticket.Title }}
@@ -133,7 +133,7 @@
                 <tbody v-if="this.i == 4">
                   <tr v-for="ticket in tickets4" :key="ticket.id">
                     <td>
-                      {{ ticket.TicketNumber }}
+                      <a :href="`/Details/${ticket.TicketID}`">{{ ticket.TicketNumber}}</a>
                     </td>
                     <td>
                       {{ ticket.Title }}

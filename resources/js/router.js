@@ -21,6 +21,12 @@ import Details from './views/Details';
 
 Vue.use(VueRouter);
 
+const Details2 = {
+    template: '<div>Details {{ $route.params.id }}</div>'
+  }
+
+
+
 export default new VueRouter({
     mode: 'history',
 
@@ -39,71 +45,64 @@ export default new VueRouter({
         },
         {
             path: '/Customers', name: 'Customers', component: Customers,
-            meta: { title: 'Customers' }        
+            meta: { title: 'Customers' }
         },
         {
             path: '/StatusView', name: 'StatusView', component: StatusView,
-            meta: { title: 'StatusView' }        
+            meta: { title: 'StatusView' }
         },
         {
             path: '/StatusViewClose', name: 'StatusViewClose', component: StatusViewClose,
-            meta: { title: 'StatusViewClose' }        
+            meta: { title: 'StatusViewClose' }
         },
         {
             path: '/Raw', name: 'Raw', component: Raw,
-            meta: { title: 'Raw' }        
+            meta: { title: 'Raw' }
         },
         {
             path: '/Junk', name: 'Junk', component: Junk,
-            meta: { title: 'Junk' }        
+            meta: { title: 'Junk' }
         },
         {
             path: '/Com', name: 'Com', component: Com,
-            meta: { title: 'Com' }        
+            meta: { title: 'Com' }
         },
         {
             path: '/ServiceDesk', name: 'ServiceDesk', component: ServiceDesk,
-            meta: { title: 'ServiceDesk' }        
+            meta: { title: 'ServiceDesk' }
         },
         {
             path: '/Seguranca', name: 'Seguranca', component: Seguranca,
-            meta: { title: 'Seguranca' }        
+            meta: { title: 'Seguranca' }
         },
         {
             path: '/AdSistemas', name: 'AdSistemas', component: AdSistemas,
-            meta: { title: 'AdSistemas' }        
+            meta: { title: 'AdSistemas' }
         },
         {
             path: '/core', name: 'CORE', component: CORE,
-            meta: { title: 'CORE' }        
+            meta: { title: 'CORE' }
         },
         {
             path: '/SupInformatico', name: 'SupInformatico', component: SupInformatico,
-            meta: { title: 'SupInformatico' }        
+            meta: { title: 'SupInformatico' }
         },
         {
             path: '/HelpDesk', name: 'HelpDesk', component: HelpDesk,
-            meta: { title: 'HelpDesk' }        
+            meta: { title: 'HelpDesk' }
         },
         {
             path: '/Monitorizacao', name: 'Monitorizacao', component: Monitorizacao,
-            meta: { title: 'Monitorizacao' }        
+            meta: { title: 'Monitorizacao' }
         },
         {
             path: '/Servicos', name: 'Servicos', component: Servicos,
-            meta: { title: 'Servicos' }        
+            meta: { title: 'Servicos' }
         },
         {
-            path: '/Details', name: 'Details', component: Details, children: [
-                {
-                  path: 'id',
-                  name: 'Details.id',
-                  component: Details,
-                },
-              ],
-            meta: { title: 'Details' }        
+            path: '/Details/:id', name: 'Details', component: Details, props:true,
+            
         },
-
     ]
 
 });

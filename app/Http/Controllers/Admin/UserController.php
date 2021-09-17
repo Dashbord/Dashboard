@@ -59,10 +59,7 @@ class UserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-
-
         $user->roles()->sync($request->roles);
-        
        
         return redirect(route('admin.users.index')); 
         

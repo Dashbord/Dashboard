@@ -1,10 +1,10 @@
 <template>
-      <div class="content">
+  <div class="content">
     <div class="row">
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
-            <h4 class="card-title">Details</h4>
+            <h4 class="card-title">Details de {{id}} </h4>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -59,22 +59,32 @@
       </div>
     </div>
   </div>
-
 </template>
 
 <script>
 export default {
-    data: () => ({
+  props:['id'],
+  data: () => ({
     tickets: null,
+    // id: this.$route.params.id,
   }),
-   mounted() {
-    axios.get("/Details/1").then((res) => {
+  //  mounted() {
+  //   axios.get(`/details/${{id}}`).then((res) => {
+  //     this.tickets = res.data;
+  //   });
+  // mounted() {
+  //   axios.get("/details",this.$router.params.id).then((res) => {
+  //     this.tickets = res.data;
+  //   });
+    mounted() {
+    axios.get('/details/'+ this.id).then((res) => {
       this.tickets = res.data;
     });
+
    }
-}
+};
+
 </script>
 
 <style>
-
 </style>

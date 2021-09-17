@@ -27,7 +27,7 @@
       </nav>
       <br>
     <h1>Users List</h1>
-    <br><br><br><br><br><br>
+    <br><br><br>
     <div class="container">    
         <a class="btn btn-sm btn-success float-right" href="{{route('admin.users.create')}}"_role="button">create</a>
         <div class="card" >

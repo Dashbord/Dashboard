@@ -19,7 +19,7 @@ use App\Http\Controllers\Admin\UserController;
 |
 */
 // Details
-Route::get('/Details/{id}',[DetailsController::class,'getId'])->name('Details.getId');
+Route::get('/details/{id}',[DetailsController::class,'getId'])->name('details.getId');
 
 // Rotas tickets
 Route::get('/ticket',[TicketController::class,'getAllTicketsNew'])->name('ticket.getAllTicketsNew');

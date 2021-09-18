@@ -17,13 +17,8 @@ class StatusViewControllerOpen extends Controller
             return [
                 'TicketID' => $ticket['TicketID'],
                 'Title' => $ticket ['Title'],                
-                'Created' => $ticket['Created'],
                 'TicketNumber' => $ticket['TicketNumber'],
-                'Owner' => $ticket['Owner'],
-                'CustomerUserID' => $ticket['CustomerUserID'],
                 'Priority' => $ticket['Priority'],
-                'Changed' => $ticket['Changed'],
-                'Lock' => $ticket['Lock'],
                 'StateType' => $ticket['StateType'],
                 'Queue' => $ticket['Queue'],
             ];
@@ -40,16 +35,10 @@ class StatusViewControllerOpen extends Controller
             return [
                 'TicketID' => $ticket['TicketID'],
                 'Title' => $ticket ['Title'],                
-                'Created' => $ticket['Created'],
                 'TicketNumber' => $ticket['TicketNumber'],
-                'Owner' => $ticket['Owner'],
-                'CustomerUserID' => $ticket['CustomerUserID'],
                 'Priority' => $ticket['Priority'],
-                'Changed' => $ticket['Changed'],
-                'Lock' => $ticket['Lock'],
                 'StateType' => $ticket['StateType'],
-                'Queue' => $ticket['Queue'],
-            ];
+                'Queue' => $ticket['Queue'],            ];
         });
         return $tickets;
     }
@@ -63,16 +52,10 @@ class StatusViewControllerOpen extends Controller
             return [
                 'TicketID' => $ticket['TicketID'],
                 'Title' => $ticket ['Title'],                
-                'Created' => $ticket['Created'],
                 'TicketNumber' => $ticket['TicketNumber'],
-                'Owner' => $ticket['Owner'],
-                'CustomerUserID' => $ticket['CustomerUserID'],
                 'Priority' => $ticket['Priority'],
-                'Changed' => $ticket['Changed'],
-                'Lock' => $ticket['Lock'],
                 'StateType' => $ticket['StateType'],
-                'Queue' => $ticket['Queue'],
-            ];
+                'Queue' => $ticket['Queue'],            ];
         });
         return $tickets;
     }
@@ -86,16 +69,10 @@ class StatusViewControllerOpen extends Controller
             return [
                 'TicketID' => $ticket['TicketID'],
                 'Title' => $ticket ['Title'],                
-                'Created' => $ticket['Created'],
                 'TicketNumber' => $ticket['TicketNumber'],
-                'Owner' => $ticket['Owner'],
-                'CustomerUserID' => $ticket['CustomerUserID'],
                 'Priority' => $ticket['Priority'],
-                'Changed' => $ticket['Changed'],
-                'Lock' => $ticket['Lock'],
                 'StateType' => $ticket['StateType'],
-                'Queue' => $ticket['Queue'],
-            ];
+                'Queue' => $ticket['Queue'],            ];
         });
         return $tickets;
     }
@@ -111,16 +88,10 @@ class StatusViewControllerOpen extends Controller
             return [
                 'TicketID' => $ticket['TicketID'],
                 'Title' => $ticket ['Title'],                
-                'Created' => $ticket['Created'],
                 'TicketNumber' => $ticket['TicketNumber'],
-                'Owner' => $ticket['Owner'],
-                'CustomerUserID' => $ticket['CustomerUserID'],
                 'Priority' => $ticket['Priority'],
-                'Changed' => $ticket['Changed'],
-                'Lock' => $ticket['Lock'],
                 'StateType' => $ticket['StateType'],
-                'Queue' => $ticket['Queue'],
-            ];
+                'Queue' => $ticket['Queue'],            ];
         });
         return $tickets;
     }
@@ -133,16 +104,10 @@ class StatusViewControllerOpen extends Controller
             return [
                 'TicketID' => $ticket['TicketID'],
                 'Title' => $ticket ['Title'],                
-                'Created' => $ticket['Created'],
                 'TicketNumber' => $ticket['TicketNumber'],
-                'Owner' => $ticket['Owner'],
-                'CustomerUserID' => $ticket['CustomerUserID'],
                 'Priority' => $ticket['Priority'],
-                'Changed' => $ticket['Changed'],
-                'Lock' => $ticket['Lock'],
                 'StateType' => $ticket['StateType'],
-                'Queue' => $ticket['Queue'],
-            ];
+                'Queue' => $ticket['Queue'],            ];
         });
         return $tickets;
     }
@@ -155,16 +120,10 @@ class StatusViewControllerOpen extends Controller
             return [
                 'TicketID' => $ticket['TicketID'],
                 'Title' => $ticket ['Title'],                
-                'Created' => $ticket['Created'],
                 'TicketNumber' => $ticket['TicketNumber'],
-                'Owner' => $ticket['Owner'],
-                'CustomerUserID' => $ticket['CustomerUserID'],
                 'Priority' => $ticket['Priority'],
-                'Changed' => $ticket['Changed'],
-                'Lock' => $ticket['Lock'],
                 'StateType' => $ticket['StateType'],
-                'Queue' => $ticket['Queue'],
-            ];
+                'Queue' => $ticket['Queue'],            ];
         });
         return $tickets;
     }
@@ -177,16 +136,10 @@ class StatusViewControllerOpen extends Controller
             return [
                 'TicketID' => $ticket['TicketID'],
                 'Title' => $ticket ['Title'],                
-                'Created' => $ticket['Created'],
                 'TicketNumber' => $ticket['TicketNumber'],
-                'Owner' => $ticket['Owner'],
-                'CustomerUserID' => $ticket['CustomerUserID'],
                 'Priority' => $ticket['Priority'],
-                'Changed' => $ticket['Changed'],
-                'Lock' => $ticket['Lock'],
                 'StateType' => $ticket['StateType'],
-                'Queue' => $ticket['Queue'],
-            ];
+                'Queue' => $ticket['Queue'],            ];
         });
         return $tickets;
     }

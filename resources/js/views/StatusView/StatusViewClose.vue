@@ -19,28 +19,17 @@
                 <thead class="text-primary">
                   <th>Ticket Number</th>
                   <th>Title</th>
-                  <th>Created</th>
-                  <th>Changed</th>
                   <th>State</th>
                   <th>Queue</th>
-                  <th>Owner</th>
-                  <th>Customer id</th>
                   <th>Priority</th>
-                  <th>Lock</th>
                 </thead>
                 <tbody v-if="this.i == 1">
                   <tr v-for="ticket in tickets" :key="ticket.id">
-                    <td>
+                   <td>
                       <a :href="`/Details/${ticket.TicketID}`">{{ ticket.TicketNumber}}</a>
                     </td>
                     <td>
                       {{ ticket.Title }}
-                    </td>
-                    <td>
-                      {{ ticket.Created }}
-                    </td>
-                    <td>
-                      {{ ticket.Changed }}
                     </td>
                     <td>
                       {{ ticket.StateType }}
@@ -49,32 +38,17 @@
                       {{ ticket.Queue }}
                     </td>
                     <td>
-                      {{ ticket.Owner }}
-                    </td>
-                    <td>
-                      {{ ticket.CustomerUserID }}
-                    </td>
-                    <td>
                       {{ ticket.Priority }}
-                    </td>
-                    <td>
-                      {{ ticket.Lock }}
                     </td>
                   </tr>
                 </tbody>
                 <tbody v-if="this.i == 2">
                   <tr v-for="ticket in tickets2" :key="ticket.id">
-                    <td>
+                   <td>
                       <a :href="`/Details/${ticket.TicketID}`">{{ ticket.TicketNumber}}</a>
                     </td>
                     <td>
                       {{ ticket.Title }}
-                    </td>
-                    <td>
-                      {{ ticket.Created }}
-                    </td>
-                    <td>
-                      {{ ticket.Changed }}
                     </td>
                     <td>
                       {{ ticket.StateType }}
@@ -83,32 +57,17 @@
                       {{ ticket.Queue }}
                     </td>
                     <td>
-                      {{ ticket.Owner }}
-                    </td>
-                    <td>
-                      {{ ticket.CustomerUserID }}
-                    </td>
-                    <td>
                       {{ ticket.Priority }}
-                    </td>
-                    <td>
-                      {{ ticket.Lock }}
                     </td>
                   </tr>
                 </tbody>
                 <tbody v-if="this.i == 3">
                   <tr v-for="ticket in tickets3" :key="ticket.id">
-                    <td>
+                   <td>
                       <a :href="`/Details/${ticket.TicketID}`">{{ ticket.TicketNumber}}</a>
                     </td>
                     <td>
                       {{ ticket.Title }}
-                    </td>
-                    <td>
-                      {{ ticket.Created }}
-                    </td>
-                    <td>
-                      {{ ticket.Changed }}
                     </td>
                     <td>
                       {{ ticket.StateType }}
@@ -117,32 +76,17 @@
                       {{ ticket.Queue }}
                     </td>
                     <td>
-                      {{ ticket.Owner }}
-                    </td>
-                    <td>
-                      {{ ticket.CustomerUserID }}
-                    </td>
-                    <td>
                       {{ ticket.Priority }}
-                    </td>
-                    <td>
-                      {{ ticket.Lock }}
                     </td>
                   </tr>
                 </tbody>
                 <tbody v-if="this.i == 4">
                   <tr v-for="ticket in tickets4" :key="ticket.id">
-                    <td>
+                   <td>
                       <a :href="`/Details/${ticket.TicketID}`">{{ ticket.TicketNumber}}</a>
                     </td>
                     <td>
                       {{ ticket.Title }}
-                    </td>
-                    <td>
-                      {{ ticket.Created }}
-                    </td>
-                    <td>
-                      {{ ticket.Changed }}
                     </td>
                     <td>
                       {{ ticket.StateType }}
@@ -151,16 +95,7 @@
                       {{ ticket.Queue }}
                     </td>
                     <td>
-                      {{ ticket.Owner }}
-                    </td>
-                    <td>
-                      {{ ticket.CustomerUserID }}
-                    </td>
-                    <td>
                       {{ ticket.Priority }}
-                    </td>
-                    <td>
-                      {{ ticket.Lock }}
                     </td>
                   </tr>
                 </tbody>

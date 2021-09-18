@@ -27,6 +27,4 @@ class DetailsController extends Controller
             'Queue' => $ticket['Queue'],
         ];
     } 
-                              
-
 }

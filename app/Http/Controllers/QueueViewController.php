@@ -17,16 +17,10 @@ use  Illuminate\Support\Facades\Http;
             return [
                 'TicketID' => $ticket['TicketID'],
                 'Title' => $ticket ['Title'],                
-                'Created' => $ticket['Created'],
                 'TicketNumber' => $ticket['TicketNumber'],
-                'Owner' => $ticket['Owner'],
-                'CustomerUserID' => $ticket['CustomerUserID'],
                 'Priority' => $ticket['Priority'],
-                'Changed' => $ticket['Changed'],
-                'Lock' => $ticket['Lock'],
                 'StateType' => $ticket['StateType'],
-                'Queue' => $ticket['Queue'],
-            ];
+                'Queue' => $ticket['Queue'],            ];
         });
         return $tickets;
     }
@@ -40,16 +34,10 @@ use  Illuminate\Support\Facades\Http;
             return [
                 'TicketID' => $ticket['TicketID'],
                 'Title' => $ticket ['Title'],                
-                'Created' => $ticket['Created'],
                 'TicketNumber' => $ticket['TicketNumber'],
-                'Owner' => $ticket['Owner'],
-                'CustomerUserID' => $ticket['CustomerUserID'],
                 'Priority' => $ticket['Priority'],
-                'Changed' => $ticket['Changed'],
-                'Lock' => $ticket['Lock'],
                 'StateType' => $ticket['StateType'],
-                'Queue' => $ticket['Queue'],
-            ];
+                'Queue' => $ticket['Queue'],            ];
         });
         return $tickets;
     }
@@ -63,16 +51,10 @@ use  Illuminate\Support\Facades\Http;
             return [
                 'TicketID' => $ticket['TicketID'],
                 'Title' => $ticket ['Title'],                
-                'Created' => $ticket['Created'],
                 'TicketNumber' => $ticket['TicketNumber'],
-                'Owner' => $ticket['Owner'],
-                'CustomerUserID' => $ticket['CustomerUserID'],
                 'Priority' => $ticket['Priority'],
-                'Changed' => $ticket['Changed'],
-                'Lock' => $ticket['Lock'],
                 'StateType' => $ticket['StateType'],
-                'Queue' => $ticket['Queue'],
-            ];
+                'Queue' => $ticket['Queue'],            ];
         });
         return $tickets;
     }
@@ -87,16 +69,10 @@ use  Illuminate\Support\Facades\Http;
             return [
                 'TicketID' => $ticket['TicketID'],
                 'Title' => $ticket ['Title'],                
-                'Created' => $ticket['Created'],
                 'TicketNumber' => $ticket['TicketNumber'],
-                'Owner' => $ticket['Owner'],
-                'CustomerUserID' => $ticket['CustomerUserID'],
                 'Priority' => $ticket['Priority'],
-                'Changed' => $ticket['Changed'],
-                'Lock' => $ticket['Lock'],
                 'StateType' => $ticket['StateType'],
-                'Queue' => $ticket['Queue'],
-            ];
+                'Queue' => $ticket['Queue'],            ];
         });
         return $tickets;
     }
@@ -110,16 +86,10 @@ use  Illuminate\Support\Facades\Http;
             return [
                 'TicketID' => $ticket['TicketID'],
                 'Title' => $ticket ['Title'],                
-                'Created' => $ticket['Created'],
                 'TicketNumber' => $ticket['TicketNumber'],
-                'Owner' => $ticket['Owner'],
-                'CustomerUserID' => $ticket['CustomerUserID'],
                 'Priority' => $ticket['Priority'],
-                'Changed' => $ticket['Changed'],
-                'Lock' => $ticket['Lock'],
                 'StateType' => $ticket['StateType'],
-                'Queue' => $ticket['Queue'],
-            ];
+                'Queue' => $ticket['Queue'],            ];
         });
         return $tickets;
     }
@@ -133,16 +103,10 @@ use  Illuminate\Support\Facades\Http;
             return [
                 'TicketID' => $ticket['TicketID'],
                 'Title' => $ticket ['Title'],                
-                'Created' => $ticket['Created'],
                 'TicketNumber' => $ticket['TicketNumber'],
-                'Owner' => $ticket['Owner'],
-                'CustomerUserID' => $ticket['CustomerUserID'],
                 'Priority' => $ticket['Priority'],
-                'Changed' => $ticket['Changed'],
-                'Lock' => $ticket['Lock'],
                 'StateType' => $ticket['StateType'],
-                'Queue' => $ticket['Queue'],
-            ];
+                'Queue' => $ticket['Queue'],            ];
         });
         return $tickets;
     }
@@ -157,16 +121,10 @@ use  Illuminate\Support\Facades\Http;
             return [
                 'TicketID' => $ticket['TicketID'],
                 'Title' => $ticket ['Title'],                
-                'Created' => $ticket['Created'],
                 'TicketNumber' => $ticket['TicketNumber'],
-                'Owner' => $ticket['Owner'],
-                'CustomerUserID' => $ticket['CustomerUserID'],
                 'Priority' => $ticket['Priority'],
-                'Changed' => $ticket['Changed'],
-                'Lock' => $ticket['Lock'],
                 'StateType' => $ticket['StateType'],
-                'Queue' => $ticket['Queue'],
-            ];
+                'Queue' => $ticket['Queue'],            ];
         });
         return $tickets;
     }
@@ -180,16 +138,10 @@ use  Illuminate\Support\Facades\Http;
             return [
                 'TicketID' => $ticket['TicketID'],
                 'Title' => $ticket ['Title'],                
-                'Created' => $ticket['Created'],
                 'TicketNumber' => $ticket['TicketNumber'],
-                'Owner' => $ticket['Owner'],
-                'CustomerUserID' => $ticket['CustomerUserID'],
                 'Priority' => $ticket['Priority'],
-                'Changed' => $ticket['Changed'],
-                'Lock' => $ticket['Lock'],
                 'StateType' => $ticket['StateType'],
-                'Queue' => $ticket['Queue'],
-            ];
+                'Queue' => $ticket['Queue'],            ];
         });
         return $tickets;
     }
@@ -203,16 +155,10 @@ public function getComunicações3(){
         return [
             'TicketID' => $ticket['TicketID'],
             'Title' => $ticket ['Title'],                
-            'Created' => $ticket['Created'],
             'TicketNumber' => $ticket['TicketNumber'],
-            'Owner' => $ticket['Owner'],
-            'CustomerUserID' => $ticket['CustomerUserID'],
             'Priority' => $ticket['Priority'],
-            'Changed' => $ticket['Changed'],
-            'Lock' => $ticket['Lock'],
             'StateType' => $ticket['StateType'],
-            'Queue' => $ticket['Queue'],
-        ];
+            'Queue' => $ticket['Queue'],        ];
     });
     return $tickets;
 }
@@ -227,16 +173,10 @@ public function getComunicações3(){
             return [
                 'TicketID' => $ticket['TicketID'],
                 'Title' => $ticket ['Title'],                
-                'Created' => $ticket['Created'],
                 'TicketNumber' => $ticket['TicketNumber'],
-                'Owner' => $ticket['Owner'],
-                'CustomerUserID' => $ticket['CustomerUserID'],
                 'Priority' => $ticket['Priority'],
-                'Changed' => $ticket['Changed'],
-                'Lock' => $ticket['Lock'],
                 'StateType' => $ticket['StateType'],
-                'Queue' => $ticket['Queue'],
-            ];
+                'Queue' => $ticket['Queue'],            ];
         });
         return $tickets;
     }
@@ -250,16 +190,10 @@ public function getComunicações3(){
             return [
                 'TicketID' => $ticket['TicketID'],
                 'Title' => $ticket ['Title'],                
-                'Created' => $ticket['Created'],
                 'TicketNumber' => $ticket['TicketNumber'],
-                'Owner' => $ticket['Owner'],
-                'CustomerUserID' => $ticket['CustomerUserID'],
                 'Priority' => $ticket['Priority'],
-                'Changed' => $ticket['Changed'],
-                'Lock' => $ticket['Lock'],
                 'StateType' => $ticket['StateType'],
-                'Queue' => $ticket['Queue'],
-            ];
+                'Queue' => $ticket['Queue'],            ];
         });
         return $tickets;
     }
@@ -273,16 +207,10 @@ public function getComunicações3(){
             return [
                 'TicketID' => $ticket['TicketID'],
                 'Title' => $ticket ['Title'],                
-                'Created' => $ticket['Created'],
                 'TicketNumber' => $ticket['TicketNumber'],
-                'Owner' => $ticket['Owner'],
-                'CustomerUserID' => $ticket['CustomerUserID'],
                 'Priority' => $ticket['Priority'],
-                'Changed' => $ticket['Changed'],
-                'Lock' => $ticket['Lock'],
                 'StateType' => $ticket['StateType'],
-                'Queue' => $ticket['Queue'],
-            ];
+                'Queue' => $ticket['Queue'],            ];
         });
         return $tickets;
     }
@@ -297,16 +225,10 @@ public function getComunicações3(){
             return [
                 'TicketID' => $ticket['TicketID'],
                 'Title' => $ticket ['Title'],                
-                'Created' => $ticket['Created'],
                 'TicketNumber' => $ticket['TicketNumber'],
-                'Owner' => $ticket['Owner'],
-                'CustomerUserID' => $ticket['CustomerUserID'],
                 'Priority' => $ticket['Priority'],
-                'Changed' => $ticket['Changed'],
-                'Lock' => $ticket['Lock'],
                 'StateType' => $ticket['StateType'],
-                'Queue' => $ticket['Queue'],
-            ];
+                'Queue' => $ticket['Queue'],            ];
         });
         return $tickets;
     }
@@ -320,16 +242,10 @@ public function getComunicações3(){
             return [
                 'TicketID' => $ticket['TicketID'],
                 'Title' => $ticket ['Title'],                
-                'Created' => $ticket['Created'],
                 'TicketNumber' => $ticket['TicketNumber'],
-                'Owner' => $ticket['Owner'],
-                'CustomerUserID' => $ticket['CustomerUserID'],
                 'Priority' => $ticket['Priority'],
-                'Changed' => $ticket['Changed'],
-                'Lock' => $ticket['Lock'],
                 'StateType' => $ticket['StateType'],
-                'Queue' => $ticket['Queue'],
-            ];
+                'Queue' => $ticket['Queue'],            ];
         });
         return $tickets;
     }
@@ -343,16 +259,10 @@ public function getComunicações3(){
             return [
                 'TicketID' => $ticket['TicketID'],
                 'Title' => $ticket ['Title'],                
-                'Created' => $ticket['Created'],
                 'TicketNumber' => $ticket['TicketNumber'],
-                'Owner' => $ticket['Owner'],
-                'CustomerUserID' => $ticket['CustomerUserID'],
                 'Priority' => $ticket['Priority'],
-                'Changed' => $ticket['Changed'],
-                'Lock' => $ticket['Lock'],
                 'StateType' => $ticket['StateType'],
-                'Queue' => $ticket['Queue'],
-            ];
+                'Queue' => $ticket['Queue'],            ];
         });
         return $tickets;
     }
@@ -367,16 +277,10 @@ public function getComunicações3(){
             return [
                 'TicketID' => $ticket['TicketID'],
                 'Title' => $ticket ['Title'],                
-                'Created' => $ticket['Created'],
                 'TicketNumber' => $ticket['TicketNumber'],
-                'Owner' => $ticket['Owner'],
-                'CustomerUserID' => $ticket['CustomerUserID'],
                 'Priority' => $ticket['Priority'],
-                'Changed' => $ticket['Changed'],
-                'Lock' => $ticket['Lock'],
                 'StateType' => $ticket['StateType'],
-                'Queue' => $ticket['Queue'],
-            ];
+                'Queue' => $ticket['Queue'],            ];
         });
         return $tickets;
     }
@@ -391,16 +295,10 @@ public function getComunicações3(){
             return [
                 'TicketID' => $ticket['TicketID'],
                 'Title' => $ticket ['Title'],                
-                'Created' => $ticket['Created'],
                 'TicketNumber' => $ticket['TicketNumber'],
-                'Owner' => $ticket['Owner'],
-                'CustomerUserID' => $ticket['CustomerUserID'],
                 'Priority' => $ticket['Priority'],
-                'Changed' => $ticket['Changed'],
-                'Lock' => $ticket['Lock'],
                 'StateType' => $ticket['StateType'],
-                'Queue' => $ticket['Queue'],
-            ];
+                'Queue' => $ticket['Queue'],            ];
         });
         return $tickets;
     }
@@ -414,16 +312,10 @@ public function getComunicações3(){
             return [
                 'TicketID' => $ticket['TicketID'],
                 'Title' => $ticket ['Title'],                
-                'Created' => $ticket['Created'],
                 'TicketNumber' => $ticket['TicketNumber'],
-                'Owner' => $ticket['Owner'],
-                'CustomerUserID' => $ticket['CustomerUserID'],
                 'Priority' => $ticket['Priority'],
-                'Changed' => $ticket['Changed'],
-                'Lock' => $ticket['Lock'],
                 'StateType' => $ticket['StateType'],
-                'Queue' => $ticket['Queue'],
-            ];
+                'Queue' => $ticket['Queue'],            ];
         });
         return $tickets;
     }
@@ -438,16 +330,10 @@ public function getComunicações3(){
             return [
                 'TicketID' => $ticket['TicketID'],
                 'Title' => $ticket ['Title'],                
-                'Created' => $ticket['Created'],
                 'TicketNumber' => $ticket['TicketNumber'],
-                'Owner' => $ticket['Owner'],
-                'CustomerUserID' => $ticket['CustomerUserID'],
                 'Priority' => $ticket['Priority'],
-                'Changed' => $ticket['Changed'],
-                'Lock' => $ticket['Lock'],
                 'StateType' => $ticket['StateType'],
-                'Queue' => $ticket['Queue'],
-            ];
+                'Queue' => $ticket['Queue'],            ];
         });
         return $tickets;
     }
@@ -462,16 +348,10 @@ public function getComunicações3(){
             return [
                 'TicketID' => $ticket['TicketID'],
                 'Title' => $ticket ['Title'],                
-                'Created' => $ticket['Created'],
                 'TicketNumber' => $ticket['TicketNumber'],
-                'Owner' => $ticket['Owner'],
-                'CustomerUserID' => $ticket['CustomerUserID'],
                 'Priority' => $ticket['Priority'],
-                'Changed' => $ticket['Changed'],
-                'Lock' => $ticket['Lock'],
                 'StateType' => $ticket['StateType'],
-                'Queue' => $ticket['Queue'],
-            ];
+                'Queue' => $ticket['Queue'],            ];
         });
         return $tickets;
     }
@@ -485,16 +365,10 @@ public function getComunicações3(){
             return [
                 'TicketID' => $ticket['TicketID'],
                 'Title' => $ticket ['Title'],                
-                'Created' => $ticket['Created'],
                 'TicketNumber' => $ticket['TicketNumber'],
-                'Owner' => $ticket['Owner'],
-                'CustomerUserID' => $ticket['CustomerUserID'],
                 'Priority' => $ticket['Priority'],
-                'Changed' => $ticket['Changed'],
-                'Lock' => $ticket['Lock'],
                 'StateType' => $ticket['StateType'],
-                'Queue' => $ticket['Queue'],
-            ];
+                'Queue' => $ticket['Queue'],            ];
         });
         return $tickets;
     }
@@ -509,16 +383,10 @@ public function getComunicações3(){
             return [
                 'TicketID' => $ticket['TicketID'],
                 'Title' => $ticket ['Title'],                
-                'Created' => $ticket['Created'],
                 'TicketNumber' => $ticket['TicketNumber'],
-                'Owner' => $ticket['Owner'],
-                'CustomerUserID' => $ticket['CustomerUserID'],
                 'Priority' => $ticket['Priority'],
-                'Changed' => $ticket['Changed'],
-                'Lock' => $ticket['Lock'],
                 'StateType' => $ticket['StateType'],
-                'Queue' => $ticket['Queue'],
-            ];
+                'Queue' => $ticket['Queue'],            ];
         });
         return $tickets;
     }
@@ -532,16 +400,10 @@ public function getComunicações3(){
             return [
                 'TicketID' => $ticket['TicketID'],
                 'Title' => $ticket ['Title'],                
-                'Created' => $ticket['Created'],
                 'TicketNumber' => $ticket['TicketNumber'],
-                'Owner' => $ticket['Owner'],
-                'CustomerUserID' => $ticket['CustomerUserID'],
                 'Priority' => $ticket['Priority'],
-                'Changed' => $ticket['Changed'],
-                'Lock' => $ticket['Lock'],
                 'StateType' => $ticket['StateType'],
-                'Queue' => $ticket['Queue'],
-            ];
+                'Queue' => $ticket['Queue'],            ];
         });
         return $tickets;
     }
@@ -555,16 +417,10 @@ public function getComunicações3(){
             return [
                 'TicketID' => $ticket['TicketID'],
                 'Title' => $ticket ['Title'],                
-                'Created' => $ticket['Created'],
                 'TicketNumber' => $ticket['TicketNumber'],
-                'Owner' => $ticket['Owner'],
-                'CustomerUserID' => $ticket['CustomerUserID'],
                 'Priority' => $ticket['Priority'],
-                'Changed' => $ticket['Changed'],
-                'Lock' => $ticket['Lock'],
                 'StateType' => $ticket['StateType'],
-                'Queue' => $ticket['Queue'],
-            ];
+                'Queue' => $ticket['Queue'],            ];
         });
         return $tickets;
     }
@@ -579,16 +435,10 @@ public function getComunicações3(){
             return [
                 'TicketID' => $ticket['TicketID'],
                 'Title' => $ticket ['Title'],                
-                'Created' => $ticket['Created'],
                 'TicketNumber' => $ticket['TicketNumber'],
-                'Owner' => $ticket['Owner'],
-                'CustomerUserID' => $ticket['CustomerUserID'],
                 'Priority' => $ticket['Priority'],
-                'Changed' => $ticket['Changed'],
-                'Lock' => $ticket['Lock'],
                 'StateType' => $ticket['StateType'],
-                'Queue' => $ticket['Queue'],
-            ];
+                'Queue' => $ticket['Queue'],            ];
         });
         return $tickets;
     }
@@ -603,16 +453,10 @@ public function getComunicações3(){
             return [
                 'TicketID' => $ticket['TicketID'],
                 'Title' => $ticket ['Title'],                
-                'Created' => $ticket['Created'],
                 'TicketNumber' => $ticket['TicketNumber'],
-                'Owner' => $ticket['Owner'],
-                'CustomerUserID' => $ticket['CustomerUserID'],
                 'Priority' => $ticket['Priority'],
-                'Changed' => $ticket['Changed'],
-                'Lock' => $ticket['Lock'],
                 'StateType' => $ticket['StateType'],
-                'Queue' => $ticket['Queue'],
-            ];
+                'Queue' => $ticket['Queue'],            ];
         });
         return $tickets;
     }
@@ -626,16 +470,10 @@ public function getComunicações3(){
             return [
                 'TicketID' => $ticket['TicketID'],
                 'Title' => $ticket ['Title'],                
-                'Created' => $ticket['Created'],
                 'TicketNumber' => $ticket['TicketNumber'],
-                'Owner' => $ticket['Owner'],
-                'CustomerUserID' => $ticket['CustomerUserID'],
                 'Priority' => $ticket['Priority'],
-                'Changed' => $ticket['Changed'],
-                'Lock' => $ticket['Lock'],
                 'StateType' => $ticket['StateType'],
-                'Queue' => $ticket['Queue'],
-            ];
+                'Queue' => $ticket['Queue'],            ];
         });
         return $tickets;
     }
@@ -649,16 +487,10 @@ public function getComunicações3(){
             return [
                 'TicketID' => $ticket['TicketID'],
                 'Title' => $ticket ['Title'],                
-                'Created' => $ticket['Created'],
                 'TicketNumber' => $ticket['TicketNumber'],
-                'Owner' => $ticket['Owner'],
-                'CustomerUserID' => $ticket['CustomerUserID'],
                 'Priority' => $ticket['Priority'],
-                'Changed' => $ticket['Changed'],
-                'Lock' => $ticket['Lock'],
                 'StateType' => $ticket['StateType'],
-                'Queue' => $ticket['Queue'],
-            ];
+                'Queue' => $ticket['Queue'],            ];
         });
         return $tickets;
     }
@@ -672,16 +504,10 @@ public function getComunicações3(){
             return [
                 'TicketID' => $ticket['TicketID'],
                 'Title' => $ticket ['Title'],                
-                'Created' => $ticket['Created'],
                 'TicketNumber' => $ticket['TicketNumber'],
-                'Owner' => $ticket['Owner'],
-                'CustomerUserID' => $ticket['CustomerUserID'],
                 'Priority' => $ticket['Priority'],
-                'Changed' => $ticket['Changed'],
-                'Lock' => $ticket['Lock'],
                 'StateType' => $ticket['StateType'],
-                'Queue' => $ticket['Queue'],
-            ];
+                'Queue' => $ticket['Queue'],            ];
         });
         return $tickets;
     }
@@ -696,16 +522,10 @@ public function getComunicações3(){
             return [
                 'TicketID' => $ticket['TicketID'],
                 'Title' => $ticket ['Title'],                
-                'Created' => $ticket['Created'],
                 'TicketNumber' => $ticket['TicketNumber'],
-                'Owner' => $ticket['Owner'],
-                'CustomerUserID' => $ticket['CustomerUserID'],
                 'Priority' => $ticket['Priority'],
-                'Changed' => $ticket['Changed'],
-                'Lock' => $ticket['Lock'],
                 'StateType' => $ticket['StateType'],
-                'Queue' => $ticket['Queue'],
-            ];
+                'Queue' => $ticket['Queue'],            ];
         });
         return $tickets;
     }
@@ -720,16 +540,10 @@ public function getComunicações3(){
             return [
                 'TicketID' => $ticket['TicketID'],
                 'Title' => $ticket ['Title'],                
-                'Created' => $ticket['Created'],
                 'TicketNumber' => $ticket['TicketNumber'],
-                'Owner' => $ticket['Owner'],
-                'CustomerUserID' => $ticket['CustomerUserID'],
                 'Priority' => $ticket['Priority'],
-                'Changed' => $ticket['Changed'],
-                'Lock' => $ticket['Lock'],
                 'StateType' => $ticket['StateType'],
-                'Queue' => $ticket['Queue'],
-            ];
+                'Queue' => $ticket['Queue'],            ];
         });
         return $tickets;
     }
@@ -744,16 +558,10 @@ public function getComunicações3(){
             return [
                 'TicketID' => $ticket['TicketID'],
                 'Title' => $ticket ['Title'],                
-                'Created' => $ticket['Created'],
                 'TicketNumber' => $ticket['TicketNumber'],
-                'Owner' => $ticket['Owner'],
-                'CustomerUserID' => $ticket['CustomerUserID'],
                 'Priority' => $ticket['Priority'],
-                'Changed' => $ticket['Changed'],
-                'Lock' => $ticket['Lock'],
                 'StateType' => $ticket['StateType'],
-                'Queue' => $ticket['Queue'],
-            ];
+                'Queue' => $ticket['Queue'],            ];
         });
         return $tickets;
     }
@@ -767,16 +575,10 @@ public function getComunicações3(){
             return [
                 'TicketID' => $ticket['TicketID'],
                 'Title' => $ticket ['Title'],                
-                'Created' => $ticket['Created'],
                 'TicketNumber' => $ticket['TicketNumber'],
-                'Owner' => $ticket['Owner'],
-                'CustomerUserID' => $ticket['CustomerUserID'],
                 'Priority' => $ticket['Priority'],
-                'Changed' => $ticket['Changed'],
-                'Lock' => $ticket['Lock'],
                 'StateType' => $ticket['StateType'],
-                'Queue' => $ticket['Queue'],
-            ];
+                'Queue' => $ticket['Queue'],            ];
         });
         return $tickets;
     }

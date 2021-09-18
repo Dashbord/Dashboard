@@ -25,6 +25,8 @@ class DetailsController extends Controller
             'Lock' => $ticket['Lock'],
             'StateType' => $ticket['StateType'],
             'Queue' => $ticket['Queue'],
+            'Age' => $ticket['Age'],
+            'Responsible' => $ticket['Responsible'],
         ];
     } 
 }

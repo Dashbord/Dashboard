@@ -4,7 +4,7 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
-            <h4 class="card-title">Details de {{id}} </h4>
+            <h4 class="card-title">Ticket {{id}}ID details</h4>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -19,6 +19,8 @@
                   <th>Owner</th>
                   <th>Priority</th>
                   <th>Lock</th>
+                  <th>Age</th>
+                  <th>Responsible</th>
                 </thead>
                 <tbody>
                   <tr>
@@ -49,6 +51,12 @@
                     <td>
                       {{ tickets.Lock }}
                     </td>
+                    <td>
+                      {{ ((tickets.Age * 0.000116) / 10).toFixed(1) }} D/H
+                    </td>
+                    <td>
+                      {{ tickets.Responsible }}
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -66,16 +74,7 @@ export default {
   props:['id'],
   data: () => ({
     tickets: null,
-    // id: this.$route.params.id,
   }),
-  //  mounted() {
-  //   axios.get(`/details/${{id}}`).then((res) => {
-  //     this.tickets = res.data;
-  //   });
-  // mounted() {
-  //   axios.get("/details",this.$router.params.id).then((res) => {
-  //     this.tickets = res.data;
-  //   });
     mounted() {
     axios.get('/details/'+ this.id).then((res) => {
       this.tickets = res.data;

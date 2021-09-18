@@ -66,14 +66,9 @@
                 <thead class="text-primary">
                   <th>Ticket Number</th>
                   <th>Title</th>
-                  <th>Created</th>
-                  <th>Changed</th>
                   <th>State</th>
                   <th>Queue</th>
-                  <th>Owner</th>
-                  <th>Customer id</th>
                   <th>Priority</th>
-                  <th>Lock</th>
                 </thead>
                 <tbody v-if="this.i == 1">
                   <tr v-for="ticket in tickets" :key="ticket.id">
@@ -84,28 +79,13 @@
                       {{ ticket.Title }}
                     </td>
                     <td>
-                      {{ ticket.Created }}
-                    </td>
-                    <td>
-                      {{ ticket.Changed }}
-                    </td>
-                    <td>
                       {{ ticket.StateType }}
                     </td>
                     <td>
                       {{ ticket.Queue }}
                     </td>
                     <td>
-                      {{ ticket.Owner }}
-                    </td>
-                    <td>
-                      {{ ticket.CustomerUserID }}
-                    </td>
-                    <td>
                       {{ ticket.Priority }}
-                    </td>
-                    <td>
-                      {{ ticket.Lock }}
                     </td>
                   </tr>
                 </tbody>
@@ -118,28 +98,13 @@
                       {{ ticket.Title }}
                     </td>
                     <td>
-                      {{ ticket.Created }}
-                    </td>
-                    <td>
-                      {{ ticket.Changed }}
-                    </td>
-                    <td>
                       {{ ticket.StateType }}
                     </td>
                     <td>
                       {{ ticket.Queue }}
                     </td>
                     <td>
-                      {{ ticket.Owner }}
-                    </td>
-                    <td>
-                      {{ ticket.CustomerUserID }}
-                    </td>
-                    <td>
                       {{ ticket.Priority }}
-                    </td>
-                    <td>
-                      {{ ticket.Lock }}
                     </td>
                   </tr>
                 </tbody>
@@ -152,28 +117,13 @@
                       {{ ticket.Title }}
                     </td>
                     <td>
-                      {{ ticket.Created }}
-                    </td>
-                    <td>
-                      {{ ticket.Changed }}
-                    </td>
-                    <td>
                       {{ ticket.StateType }}
                     </td>
                     <td>
                       {{ ticket.Queue }}
                     </td>
                     <td>
-                      {{ ticket.Owner }}
-                    </td>
-                    <td>
-                      {{ ticket.CustomerUserID }}
-                    </td>
-                    <td>
                       {{ ticket.Priority }}
-                    </td>
-                    <td>
-                      {{ ticket.Lock }}
                     </td>
                   </tr>
                 </tbody>

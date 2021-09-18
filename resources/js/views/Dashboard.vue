@@ -27,7 +27,7 @@
                 <tbody v-if="this.i == 1">
                   <tr v-for="ticket in tickets" :key="ticket.id">
                     <td>
-                      {{ ticket.TicketNumber }}
+                      <a :href="`/Details/${ticket.TicketID}`">{{ ticket.TicketNumber}}</a>
                     </td>
                     <td>
                       {{ ((ticket.Age * 0.000116) / 10).toFixed(1) }} Dias.Horas
@@ -40,7 +40,7 @@
                 <tbody v-if="this.i == 2">
                   <tr v-for="ticket in tickets2" :key="ticket.id">
                     <td>
-                      {{ ticket.TicketNumber }}
+                      <a :href="`/Details/${ticket.TicketID}`">{{ ticket.TicketNumber}}</a>
                     </td>
                     <td>
                       {{ ((ticket.Age * 0.000116) / 10).toFixed(1) }} Dias.Horas
@@ -53,7 +53,7 @@
                 <tbody v-if="this.i == 3">
                   <tr v-for="ticket in tickets3" :key="ticket.id">
                     <td>
-                      {{ ticket.TicketNumber }}
+                      <a :href="`/Details/${ticket.TicketID}`">{{ ticket.TicketNumber}}</a>
                     </td>
                     <td>
                       {{ ((ticket.Age * 0.000116) / 10).toFixed(1) }} Dias.Horas
@@ -87,7 +87,9 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>RAW</td>
+                    <td>
+                      <a :href="`/Raw`">RAW</a>
+                    </td>
                     <td>{{ ticketQueueNew2.length }}</td>
                     <td v-if="ticketQueueOpen2 == null">0</td>
                     <td v-else>{{ ticketQueueOpen2.length }}</td>
@@ -95,7 +97,9 @@
                     <td v-else>{{ ticketQueuePending2.length }}</td>
                   </tr>
                   <tr>
-                    <td>JUNK</td>
+                    <td>
+                      <a :href="`/Junk`">JUNK</a>
+                    </td>
                     <td>{{ ticketQueueNew3.length }}</td>
                     <td v-if="ticketQueueOpen3 == null">0</td>
                     <td v-else>{{ ticketQueueOpen3.length }}</td>
@@ -103,7 +107,9 @@
                     <td v-else>{{ ticketQueuePending3.length }}</td>
                   </tr>
                   <tr>
-                    <td>COMUNICAÇÕES</td>
+                    <td>
+                      <a :href="`/Com`">COMUNICAÇÕES</a>
+                    </td>
                     <td>{{ ticketQueueNew5.length }}</td>
                     <td v-if="ticketQueueOpen5 == null">0</td>
                     <td v-else>{{ ticketQueueOpen5.length }}</td>
@@ -111,7 +117,9 @@
                     <td v-else>{{ ticketQueuePending5.length }}</td>
                   </tr>
                   <tr>
-                    <td>SERVICE DESK</td>
+                    <td>
+                      <a :href="`/ServiceDesk`">SERVICE DESK</a>
+                    </td>
                     <td>{{ ticketQueueNew6.length }}</td>
                     <td v-if="ticketQueueOpen6 == null">0</td>
                     <td v-else>{{ ticketQueueOpen6.length }}</td>
@@ -119,7 +127,9 @@
                     <td v-else>{{ ticketQueuePending6.length }}</td>
                   </tr>
                   <tr>
-                    <td>SEGURANÇA</td>
+                     <td>
+                      <a :href="`/Seguranca`">SEGURANÇA</a>
+                    </td>
                     <td>{{ ticketQueueNew7.length }}</td>
                     <td v-if="ticketQueueOpen7 == null">0</td>
                     <td v-else>{{ ticketQueueOpen7.length }}</td>
@@ -127,21 +137,27 @@
                     <td v-else>{{ ticketQueuePending7.length }}</td>
                   </tr>
                   <tr>
-                    <td>Administração de Sistemas</td>
+                     <td>
+                      <a :href="`/AdSistemas`">Administração de Sistemas</a>
+                    </td>
                     <td>{{ ticketQueueNew8.length }}</td>
                     <td>{{ ticketQueueOpen8.length }}</td>
                     <td v-if="ticketQueuePending8 == null">0</td>
                     <td v-else>{{ ticketQueuePending8.length }}</td>
                   </tr>
                   <tr>
-                    <td>CORE</td>
+                     <td>
+                      <a :href="`/core`">CORE</a>
+                    </td>
                     <td>{{ ticketQueueNew9.length }}</td>
                     <td v-if="ticketQueueOpen9 == null">0</td>
                     <td v-else>{{ ticketQueueOpen9.length }}</td>
                     <td>{{ ticketQueuePending9.length }}</td>
                   </tr>
                   <tr>
-                    <td>Suporte Informático</td>
+                     <td>
+                      <a :href="`/SupInformatico`">Suporte Informático</a>
+                    </td>
                     <td>{{ ticketQueueNew10.length }}</td>
                     <td v-if="ticketQueueOpen10 == null">0</td>
                     <td v-else>{{ ticketQueueOpen10.length }}</td>
@@ -149,14 +165,18 @@
                     <td v-else>{{ ticketQueuePending10.length }}</td>
                   </tr>
                   <tr>
-                    <td>Helpdesk</td>
+                     <td>
+                      <a :href="`/Helpdesk`">Helpdesk</a>
+                    </td>
                     <td>{{ ticketQueueNew11.length }}</td>
                     <td v-if="ticketQueueOpen11 == null">0</td>
                     <td v-else>{{ ticketQueueOpen11.length }}</td>
                     <td>{{ ticketQueuePending11.length }}</td>
                   </tr>
                   <tr>
-                    <td>Monitorização</td>
+                     <td>
+                      <a :href="`/Monitorizacao`">Monitorização</a>
+                    </td>
                     <td>{{ ticketQueueNew12.length }}</td>
                     <td v-if="ticketQueueOpen12 == null">0</td>
                     <td v-else>{{ ticketQueueOpen12.length }}</td>
@@ -164,7 +184,9 @@
                     <td v-else>{{ ticketQueuePending12.length }}</td>
                   </tr>
                   <tr>
-                    <td>Serviços</td>
+                     <td>
+                      <a :href="`/Servicos`">Serviços</a>
+                    </td>
                     <td>{{ ticketQueueNew13.length }}</td>
                     <td v-if="ticketQueueOpen13 == null">0</td>
                     <td v-else>{{ ticketQueueOpen13.length }}</td>

@@ -18,31 +18,32 @@
         </router-link>
         <router-link tag="li" to="/StatusView" active-class="active">
           <a>
-            <i class="now-ui-icons design_app"></i>
+            <i class="now-ui-icons design_bullet-list-67"></i>
             <p>Status View</p>
           </a>
         </router-link>
         <router-link tag="li" to="/Raw" active-class="active">
           <a>
-            <i class="now-ui-icons design_app"></i>
+            <i class="now-ui-icons design_bullet-list-67"></i>
             <p>Queue View</p>
           </a>
         </router-link>
-        <router-link tag="li" to="/customers" active-class="active">
+        <!-- <router-link tag="li" to="/customers" active-class="active">
           <a>
             <i class="now-ui-icons design_app"></i>
             <p>Customers</p>
-          </a>
-        </router-link>        
+          </a> 
+        </router-link>-->        
         <li class="">
             <a href="./full-calender">
-              <i class="now-ui-icons design_app"></i>
+              <i class="now-ui-icons education_agenda-bookmark"></i>
               <p>Calendar</p>
             </a>
         </li>
+        
         <li class="">
             <a href="./admin/users">
-              <i class="now-ui-icons design_app"></i>
+              <i class="now-ui-icons users_circle-08"></i>
               <p>Users</p>
             </a>
         </li>

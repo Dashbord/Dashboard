@@ -32,6 +32,7 @@ class TicketController extends Controller
             $response = Http::get('http://10.175.146.2/otrs/nph-genericinterface.pl/Webservice/GenericTicketConnectorREST/Ticket/'.$id.'?UserLogin=sluis&Password=Szb6gwzEaEUAzsGj&AllArticles=1&DynamicFields=1');
             $ticket = $response->json()['Ticket'][0];           
             return [
+                'TicketID' => $ticket['TicketID'],
                 'Title' => $ticket ['Title'],                
                 'Age' => $ticket['Age'],
                 'TicketNumber' => $ticket['TicketNumber'],
@@ -47,6 +48,7 @@ class TicketController extends Controller
             $response = Http::get('http://10.175.146.2/otrs/nph-genericinterface.pl/Webservice/GenericTicketConnectorREST/Ticket/'.$id.'?UserLogin=sluis&Password=Szb6gwzEaEUAzsGj&AllArticles=1&DynamicFields=1');
             $ticket = $response->json()['Ticket'][0];           
             return [
+                'TicketID' => $ticket['TicketID'],
                 'Title' => $ticket ['Title'],                
                 'Age' => $ticket['Age'],
                 'TicketNumber' => $ticket['TicketNumber'],
@@ -62,6 +64,7 @@ class TicketController extends Controller
             $response = Http::get('http://10.175.146.2/otrs/nph-genericinterface.pl/Webservice/GenericTicketConnectorREST/Ticket/'.$id.'?UserLogin=sluis&Password=Szb6gwzEaEUAzsGj&AllArticles=1&DynamicFields=1');
             $ticket = $response->json()['Ticket'][0];           
             return [
+                'TicketID' => $ticket['TicketID'],
                 'Title' => $ticket ['Title'],                
                 'Age' => $ticket['Age'],
                 'TicketNumber' => $ticket['TicketNumber'],

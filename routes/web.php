@@ -96,7 +96,7 @@ Route::prefix('admin')->middleware('auth')->name('admin.')->group(function(){
 //Pagina inicial
 Route::get('/', function () {
     if (Auth::check()) {
-        
+     return view('dashboard');
     }
     return view('auth/login');
 });

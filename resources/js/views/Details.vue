@@ -4,7 +4,7 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
-            <h4 class="card-title">Ticket {{id}}ID details</h4>
+            <h4 class="card-title">Details:Ticket{{id}}ID </h4>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -52,7 +52,7 @@
                       {{ tickets.Lock }}
                     </td>
                     <td>
-                      {{ ((tickets.Age * 0.000116) / 10).toFixed(1) }} D/H
+                      {{ ((tickets.Age * 0.000116) / 10).toFixed(1) }} D.H
                     </td>
                     <td>
                       {{ tickets.Responsible }}

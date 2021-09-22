@@ -7,6 +7,8 @@ use  Illuminate\Support\Facades\Http;
 
 class TicketController extends Controller
 {
+
+    //ver se isto funciona
     public function getAllQueues(){
         $response = Http::get('http://10.175.146.2/otrs/nph-genericinterface.pl/Webservice/GenericTicketConnectorREST/Ticket?UserLogin=sluis&Password=Szb6gwzEaEUAzsGj');
         $res = $response->json();

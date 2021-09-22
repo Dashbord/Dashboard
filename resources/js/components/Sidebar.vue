@@ -33,19 +33,19 @@
             <i class="now-ui-icons design_app"></i>
             <p>Customers</p>
           </a> 
-        </router-link>-->        
+        </router-link>-->
         <li class="">
-            <a href="./full-calender">
-              <i class="now-ui-icons education_agenda-bookmark"></i>
-              <p>Calendar</p>
-            </a>
+          <a href="./full-calender">
+            <i class="now-ui-icons education_agenda-bookmark"></i>
+            <p>Calendar</p>
+          </a>
         </li>
-        
+
         <li class="">
-            <a href="./admin/users">
-              <i class="now-ui-icons users_circle-08"></i>
-              <p>Users</p>
-            </a>
+          <a href="./admin/users">
+            <i class="now-ui-icons users_circle-08"></i>
+            <p>Users</p>
+          </a>
         </li>
       </ul>
     </div>

@@ -1,6 +1,6 @@
 <x-guest-layout>
     <x-auth-card>
-    <img src="/images/logotipo.png" alt="logotipo"/>
+    <img src="/images/Kyndryl_logo.png" alt="logotipo"/>
         <x-slot name="logo">
         </x-slot>
 

@@ -11,15 +11,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-custom">
         <div class="container-fluid">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/dashboard">Back</a>
+                <a class="nav-link active" aria-current="page" href="/dashboard" style="color:#000000">Back</a>
               </li>
             </ul>
           </div>
@@ -73,7 +70,11 @@
 <style>
     h1 {
   text-align: center;
-}
+    }
+    .navbar-custom {
+            background-color: #ff6f2c;
+
+        }
 </style>
 </body>
 </html>

@@ -174,7 +174,7 @@ export default {
 </script>
 <style>
 .butt {
-  background-color: #2ca8ff;
+  background-color: #ff6f2c;
   color: white;
   border: none;
   padding: 10px 25px;

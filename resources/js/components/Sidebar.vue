@@ -1,11 +1,11 @@
 <template>
-  <div class="sidebar" data-color="blue">
+  <div class="sidebar" data-color="orange">
     <!--
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
     <div class="logo">
       <a>
-        <img src="/images/softinsa-logo.png" />
+        <img src="/images/Kyntech_orange_on_White.png" />
       </a>
     </div>
     <div class="sidebar-wrapper" id="sidebar-wrapper">

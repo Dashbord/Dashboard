@@ -7,25 +7,6 @@ use  Illuminate\Support\Facades\Http;
 
 class TicketController extends Controller
 {
-
-    //ver se isto funciona
-    public function getAllQueues(){
-        $response = Http::get('http://10.175.146.2/otrs/nph-genericinterface.pl/Webservice/GenericTicketConnectorREST/Ticket?UserLogin=sluis&Password=Szb6gwzEaEUAzsGj');
-        $res = $response->json();
-        $count =count($response);
-        dd($count);
-        $tickets=collect($res['TicketID'])->skip(0)->take(10)->map(function($id){
-            $response = Http::get('http://10.175.146.2/otrs/nph-genericinterface.pl/Webservice/GenericTicketConnectorREST/Ticket/'.$id.'?UserLogin=pvinha&Password=sET4s7JyFBaDDmQa&AllArticles=1&DynamicFields=1');
-            $ticket = $response->json()['Ticket'][0];
-            return [
-                'id' => $ticket ['TicketID'],
-                'queue' => $ticket['Queue'],
-            ];
-        });
-        return $tickets;
-    }
-
-
     // retorna o ticket number, age e title dos tickets new
     public function getAllTicketsNew(){
         $response = Http::get('http://10.175.146.2/otrs/nph-genericinterface.pl/Webservice/GenericTicketConnectorREST/Ticket?UserLogin=sluis&Password=Szb6gwzEaEUAzsGj&States=pending reminder');

@@ -1,9 +1,9 @@
 # Dashboard
-A dashboard created to be used has a tool in Softinsa's day to day  written in Laravel.
+A dashboard created to be used has a tool in Softinsa's day to day work written in Laravel.
 
 ## Requisites
  * MySQL Server
- * PHP >= 7.2
+ * PHP 
 
  *Note: A simple way to quickly install both of these (for a development environment) is with [xampp](https://www.apachefriends.org/index.html)*
 
@@ -30,22 +30,26 @@ php artisan key:generate
 7. Edit the `.env` file to contain the database info
 8. Run the database migrations
 ```
-php artisan migrate --seed
+php artisan migrate:refresh –seed
 ```
 
-This also creates 3 test users:
+This also creates 1 test user1:
 | Email                | Password    |
 |----------------------|-------------|
-| user@wrongdisc.com   | password123 |
-| editor@wrongdisc.com | password123 |
-| admin@wrongdisc.com  | password123 |
+| admin@admin.com      | qwertyui    |
 
-10. Create a symbolic link to expose public storage
-```
-php artisan storage:link
-```
-11. Run the development server
+9. Run the development server
 ```
 php artisan serve
 ```
+11.Open a new terminal
+12. Install npm dependencies
+```
+npm install
+```
+13. Serve para compilar o código.
+```
+npm run hot
+```
+
 12. Access the app at http://localhost:8000

@@ -17,6 +17,7 @@ import HelpDesk from './views/QueueView/HelpDesk';
 import Monitorizacao from './views/QueueView/Monitorizacao';
 import Servicos from './views/QueueView/Servicos';
 import Details from './views/Details';
+import Search1 from './views/Search/Search1';
 
 
 Vue.use(VueRouter);
@@ -102,6 +103,21 @@ export default new VueRouter({
         {
             path: '/Details/:id', name: 'Details', component: Details, props:true,
             
+        },
+        {
+            path: '/Search1', name: 'search', component: Search1,           
+        },
+        {
+            path: '/Search2', name: 'search', component: Search1,           
+        },
+        {
+            path: '/Search3', name: 'search', component: Search1,           
+        },
+        {
+            path: '/Search4', name: 'search', component: Search1,           
+        },
+        {
+            path: '/Search5', name: 'search', component: Search1,           
         },
     ]
 

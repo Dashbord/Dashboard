@@ -28,12 +28,12 @@
             <p>Queue View</p>
           </a>
         </router-link>
-        <!-- <router-link tag="li" to="/customers" active-class="active">
+        <router-link tag="li" to="/Search1" active-class="active">
           <a>
-            <i class="now-ui-icons design_app"></i>
-            <p>Customers</p>
+            <i class="now-ui-icons design_bullet-list-67"></i>
+            <p>Search</p>
           </a> 
-        </router-link>-->
+        </router-link>
         <li class="">
           <a href="./full-calender">
             <i class="now-ui-icons education_agenda-bookmark"></i>

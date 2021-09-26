@@ -51,14 +51,40 @@
             </th>
             <th>
               <form method="get" action="/AdSistemas">
-                <button class="butt butt1" type="submit">Administração de Sistemas</button>
+                <button class="butt butt1" type="submit">
+                  Administração de Sistemas
+                </button>
               </form>
             </th>
-          </tr>          <div class="card-header">
+          </tr>
+          <div class="card-header">
             <h4 class="card-title">QueueView: Suporte Informático</h4>
-            <button style='float: right;' class="butt butt1" v-on:click="muda3()" type="submit"> 3 </button>
-            <button style='float: right;' class="butt butt1" v-on:click="muda2()" type="submit"> 2 </button>
-            <button style='float: right;' class="butt butt1" v-on:click="muda1()" type="submit"> 1 </button> 
+            <br />
+            <input type="text" v-model="search" placeholder="search titles" />
+            <button
+              style="float: right"
+              class="butt butt1"
+              v-on:click="muda3()"
+              type="submit"
+            >
+              3
+            </button>
+            <button
+              style="float: right"
+              class="butt butt1"
+              v-on:click="muda2()"
+              type="submit"
+            >
+              2
+            </button>
+            <button
+              style="float: right"
+              class="butt butt1"
+              v-on:click="muda1()"
+              type="submit"
+            >
+              1
+            </button>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -71,9 +97,11 @@
                   <th>Priority</th>
                 </thead>
                 <tbody v-if="this.i == 1">
-                  <tr v-for="ticket in tickets" :key="ticket.id">
+                  <tr v-for="ticket in filteredTicket1" :key="ticket.id">
                     <td>
-                      <a :href="`/Details/${ticket.TicketID}`">{{ ticket.TicketNumber}}</a>
+                      <a :href="`/Details/${ticket.TicketID}`">{{
+                        ticket.TicketNumber
+                      }}</a>
                     </td>
                     <td>
                       {{ ticket.Title }}
@@ -92,7 +120,9 @@
                 <tbody v-if="this.i == 2">
                   <tr v-for="ticket in tickets2" :key="ticket.id">
                     <td>
-                      <a :href="`/Details/${ticket.TicketID}`">{{ ticket.TicketNumber}}</a>
+                      <a :href="`/Details/${ticket.TicketID}`">{{
+                        ticket.TicketNumber
+                      }}</a>
                     </td>
                     <td>
                       {{ ticket.Title }}
@@ -111,7 +141,9 @@
                 <tbody v-if="this.i == 3">
                   <tr v-for="ticket in tickets3" :key="ticket.id">
                     <td>
-                      <a :href="`/Details/${ticket.TicketID}`">{{ ticket.TicketNumber}}</a>
+                      <a :href="`/Details/${ticket.TicketID}`">{{
+                        ticket.TicketNumber
+                      }}</a>
                     </td>
                     <td>
                       {{ ticket.Title }}
@@ -141,7 +173,8 @@ import axios from "axios";
 export default {
   data: () => ({
     i: 1,
-    tickets: null,
+    search: "",
+    tickets: [],
     tickets2: null,
     tickets3: null,
   }),
@@ -165,6 +198,13 @@ export default {
     },
     muda3: function () {
       this.i = 3;
+    },
+  },
+  computed: {
+    filteredTicket1: function () {
+      return this.tickets.filter((ticket) => {
+        return ticket.Title.match(this.search);
+      });
     },
   },
 };

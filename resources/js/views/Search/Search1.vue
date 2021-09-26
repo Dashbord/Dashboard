@@ -3,35 +3,10 @@
     <div class="row">
       <div class="col-md-12">
         <div class="card">
-          <br />
-          <input type="text" v-model="search" placeholder="search titles" />
           <div class="card-header">
             <h4 class="card-title">Search:</h4>
-            <form method="get" action="/Search5">
-              <button style="float: right" class="butt butt1" type="submit">
-                5
-              </button>
-            </form>
-            <form method="get" action="/Search4">
-              <button style="float: right" class="butt butt1" type="submit">
-                4
-              </button>
-            </form>
-            <form method="get" action="/Search3">
-              <button style="float: right" class="butt butt1" type="submit">
-                3
-              </button>
-            </form>
-            <form method="get" action="/Search2">
-              <button style="float: right" class="butt butt1" type="submit">
-                2
-              </button>
-            </form>
-            <form method="get" action="/Search1">
-              <button style="float: right" class="butt butt1" type="submit">
-                1
-              </button>
-            </form>
+             <br />
+          <input type="text" v-model="search" placeholder="search titles" />
           </div>
           <div class="card-body">
             <div class="table-responsive">

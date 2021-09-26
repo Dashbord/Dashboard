@@ -24,11 +24,6 @@ Route::get('/details/{id}',[DetailsController::class,'getId'])->name('details.ge
 
 // search
 Route::get('/search1',[SeachController::class,'getallTickets'])->name('SeachController.getallTickets');
-Route::get('/search2',[SeachController::class,'getallTickets2'])->name('SeachController.getallTickets2');
-Route::get('/search3',[SeachController::class,'getallTickets3'])->name('SeachController.getallTickets3');
-Route::get('/search4',[SeachController::class,'getallTickets4'])->name('SeachController.getallTickets4');
-Route::get('/search5',[SeachController::class,'getallTickets5'])->name('SeachController.getallTickets5');
-
 // Rotas tickets
 Route::get('/ticket',[TicketController::class,'getAllTicketsNew'])->name('ticket.getAllTicketsNew');
 Route::get('/ticket2',[TicketController::class,'getAllTicketsNew2'])->name('ticket.getAllTicketsNew2');

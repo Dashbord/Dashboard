@@ -1,8 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Dashboard from './views/Dashboard';
-import User from './views/User';
-import Customers from './views/Customers';
 import StatusView from './views/StatusView/StatusView';
 import StatusViewClose from './views/StatusView/StatusViewClose';
 import Raw from './views/QueueView/Raw';
@@ -39,14 +37,6 @@ export default new VueRouter({
         {
             path: '/dashboard', name: 'home', component: Dashboard,
             meta: { title: 'Dashboard' }
-        },
-        {
-            path: '/User', name: 'My Account', component: User,
-            meta: { title: 'My Account' }
-        },
-        {
-            path: '/Customers', name: 'Customers', component: Customers,
-            meta: { title: 'Customers' }
         },
         {
             path: '/StatusView', name: 'StatusView', component: StatusView,
@@ -105,19 +95,7 @@ export default new VueRouter({
             
         },
         {
-            path: '/Search1', name: 'search', component: Search1,           
-        },
-        {
-            path: '/Search2', name: 'search', component: Search1,           
-        },
-        {
-            path: '/Search3', name: 'search', component: Search1,           
-        },
-        {
-            path: '/Search4', name: 'search', component: Search1,           
-        },
-        {
-            path: '/Search5', name: 'search', component: Search1,           
+            path: '/Search1', name: 'search1', component: Search1,           
         },
     ]
 

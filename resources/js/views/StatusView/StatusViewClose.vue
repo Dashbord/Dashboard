@@ -6,10 +6,10 @@
           <form method="get" action="/StatusView">
             <button class="butt butt1" type="submit">Open Tickets</button>
           </form>
-          <br />
-          <input type="text" v-model="search" placeholder="search titles" />
           <div class="card-header">
             <h4 class="card-title">Status View: Close tickets</h4>
+            <br />
+            <input type="text" v-model="search" placeholder="search titles" />
             <button
               style="float: right"
               class="butt butt1"
@@ -150,7 +150,7 @@
 import axios from "axios";
 export default {
   data: () => ({
-    search:"",
+    search: "",
     tickets: [],
     tickets2: null,
     tickets3: null,

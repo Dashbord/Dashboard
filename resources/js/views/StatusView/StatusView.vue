@@ -6,10 +6,10 @@
           <form method="get" action="/StatusViewClose">
             <button class="butt butt1" type="submit">Closed Tickets</button>
           </form>
-          <br />
-          <input type="text" v-model="search" placeholder="search titles" />
           <div class="card-header">
             <h4 class="card-title">Status View: Open tickets</h4>
+            <br />
+            <input type="text" v-model="search" placeholder="search titles" />
             <button
               style="float: right"
               class="butt butt1"
@@ -150,7 +150,7 @@
 import axios from "axios";
 export default {
   data: () => ({
-    search:"",
+    search: "",
     tickets: [],
     tickets2: [],
     tickets3: [],
@@ -184,15 +184,14 @@ export default {
     muda4: function () {
       this.i = 4;
     },
-    
   },
   computed: {
-    filteredTicket1:function(){
-      return this.tickets.filter((ticket)=>{
+    filteredTicket1: function () {
+      return this.tickets.filter((ticket) => {
         return ticket.Title.match(this.search);
-      })
+      });
     },
-  }
+  },
 };
 </script>
 <style>

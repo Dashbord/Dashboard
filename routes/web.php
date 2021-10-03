@@ -112,14 +112,6 @@ Route::get('register', [RegisteredUserController::class, 'create']);
 Route::get('/full-calender', [FullCalenderController::class, 'index']);
 Route::post('/full-calender/action', [FullCalenderController::class, 'action']);
 
-
-
-Route::get('master', function (){
-    return view('master');
-});
-
-
-
 require __DIR__.'/auth.php';
 
 Route::get('{any}', function(){

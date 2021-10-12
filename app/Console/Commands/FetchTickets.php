@@ -40,34 +40,54 @@ class FetchTickets extends Command
     public function handle()
     {
         $this->getAllTicketsNew();
-        $this->getAllTicketsNew2();
-        $this->getAllTicketsNew3();
+        //$this->getAllTicketsNew2();
+        //$this->getAllTicketsNew3();
         // $this->getState();
         // $this->getQueueStatee();
     }
     // retorna o ticket number, age e title dos tickets new
     public function getAllTicketsNew(){
         Ticket::truncate();
-        $response = Http::get('http://10.175.146.2/otrs/nph-genericinterface.pl/Webservice/GenericTicketConnectorREST/Ticket?UserLogin=sluis&Password=Szb6gwzEaEUAzsGj&States=pending reminder');
+        $response = Http::get('http://10.175.146.2/otrs/nph-genericinterface.pl/Webservice/GenericTicketConnectorREST/Ticket?UserLogin=sluis&Password=Szb6gwzEaEUAzsGj');
         $res = $response->json();
-        $tickets=collect($res['TicketID'])->skip(0)->take(10)->map(function($id){
-            $response = Http::get('http://10.175.146.2/otrs/nph-genericinterface.pl/Webservice/GenericTicketConnectorREST/Ticket/'.$id.'?UserLogin=sluis&Password=Szb6gwzEaEUAzsGj&AllArticles=1&DynamicFields=1');
-            $ticket = $response->json()['Ticket'][0];           
-            return [
-                'TicketID' => $ticket['TicketID'],
-                'Title' => $ticket ['Title'],                
-                'Age' => $ticket['Age'],
-                'TicketNumber' => $ticket['TicketNumber'],
-            ];
-        });
-        $tickets->each(function($ticket){
-            $t= new Ticket();
-            $t-> ticket_id = $ticket["TicketID"];
-            $t-> title = $ticket["Title"];
-            $t-> age = $ticket["Age"];
-            $t-> ticket_number = $ticket["TicketNumber"];
-            $t-> save();
-        });
+        for ($i=0; $i <50; $i++) { 
+
+            $tickets=collect($res['TicketID'])->skip($i*100)->take(100)->map(function($id){
+                $response = Http::get('http://10.175.146.2/otrs/nph-genericinterface.pl/Webservice/GenericTicketConnectorREST/Ticket/'.$id.'?UserLogin=sluis&Password=Szb6gwzEaEUAzsGj&AllArticles=1&DynamicFields=1');
+                $ticket = $response->json()['Ticket'][0];           
+                return [
+                    'TicketID' => $ticket['TicketID'],
+                    'Title' => $ticket ['Title'],                
+                    'Age' => $ticket['Age'],
+                    'TicketNumber' => $ticket['TicketNumber'],
+                    'StateType' => $ticket['StateType'],
+                    'Created' => $ticket['Created'],
+                    'Owner' => $ticket['Owner'],
+                    'Priority' => $ticket['Priority'],
+                    'Changed' => $ticket['Changed'],
+                    'Lock' => $ticket['Lock'],
+                    'Queue' => $ticket['Queue'],
+                    'Responsible' => $ticket['Responsible'],
+                ];
+            });
+            $tickets->each(function($ticket){
+                $t= new Ticket();
+                $t-> ticket_id = $ticket["TicketID"];
+                $t-> title = $ticket["Title"];
+                $t-> age = $ticket["Age"];
+                $t-> ticket_number = $ticket["TicketNumber"];
+                $t-> state_type = $ticket["StateType"];
+                $t-> created = $ticket["Created"];
+                $t-> owner = $ticket["Owner"];
+                $t-> priority = $ticket["Priority"];
+                $t-> changed = $ticket["Changed"];
+                $t-> lock = $ticket["Lock"];
+                $t-> queue = $ticket["Queue"];
+                $t-> responsible = $ticket["Responsible"];
+                $t-> save();
+            });
+
+        }
     }
      // retorna o ticket number, age e title dos tickets new
      public function getAllTicketsNew2(){
@@ -115,7 +135,6 @@ class FetchTickets extends Command
             $t-> save();
         });
     }
-    
 
     // retorna os tickets dependendo do parametro state que pode ser "new" ou "closed successful"
     public function getState($state){

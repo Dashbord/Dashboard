@@ -14,18 +14,16 @@ class CreateTicketsTable extends Migration
     public function up()
     {
         Schema::create('tickets', function (Blueprint $table) {
-            $table->id();
-            $table->string('ticket_id');
+            $table->id('ticket_id');
             $table->string('title');
-            $table->string('queue')->nullable();
-            $table->string('priority')->nullable();
-            $table->string('responsible')->nullable();
-            $table->string('type')->nullable();
-            $table->string('lock')->nullable();
-            $table->string('state')->nullable();
-            $table->string('changed')->nullable();
-            $table->string('state_type')->nullable();
-            $table->integer('owner_id')->nullable();
+            $table->string('queue');
+            $table->string('priority');
+            $table->string('responsible');
+            $table->string('lock');
+            $table->timestamp('created');
+            $table->string('changed');
+            $table->string('state_type');
+            $table->string('owner');
             $table->string('age');
             $table->string('ticket_number');
             $table->timestamps();

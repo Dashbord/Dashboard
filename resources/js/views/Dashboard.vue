@@ -27,39 +27,39 @@
                 <tbody v-if="this.i == 1">
                   <tr v-for="ticket in tickets" :key="ticket.id">
                     <td>
-                      <a :href="`/Details/${ticket.TicketID}`">{{ ticket.TicketNumber}}</a>
+                      <a :href="`/Details/${ticket.ticket_id}`">{{ ticket.ticket_number}}</a>
                     </td>
                     <td>
-                      {{ ((ticket.Age * 0.000116) / 10).toFixed(1) }} Dias.Horas
+                      {{ new Date(ticket.age).toTimeString() }} Dias.Horas
                     </td>
                     <td>
-                      {{ ticket.Title }}
+                      {{ ticket.title }}
                     </td>
                   </tr>
                 </tbody>
                 <tbody v-if="this.i == 2">
                   <tr v-for="ticket in tickets2" :key="ticket.id">
                     <td>
-                      <a :href="`/Details/${ticket.TicketID}`">{{ ticket.TicketNumber}}</a>
+                      <a :href="`/Details/${ticket.ticket_id}`">{{ ticket.ticket_number}}</a>
                     </td>
                     <td>
-                      {{ ((ticket.Age * 0.000116) / 10).toFixed(1) }} Dias.Horas
+                      {{ ((ticket.age * 0.000116) / 10).toFixed(1) }} Dias.Horas
                     </td>
                     <td>
-                      {{ ticket.Title }}
+                      {{ ticket.title }}
                     </td>
                   </tr>
                 </tbody>
                 <tbody v-if="this.i == 3">
                   <tr v-for="ticket in tickets3" :key="ticket.id">
                     <td>
-                      <a :href="`/Details/${ticket.TicketID}`">{{ ticket.TicketNumber}}</a>
+                      <a :href="`/Details/${ticket.ticket_id}`">{{ ticket.ticket_number}}</a>
                     </td>
                     <td>
-                      {{ ((ticket.Age * 0.000116) / 10).toFixed(1) }} Dias.Horas
+                      {{ ((ticket.age * 0.000116) / 10).toFixed(1) }} Dias.Horas
                     </td>
                     <td>
-                      {{ ticket.Title }}
+                      {{ ticket.title }}
                     </td>
                   </tr>
                 </tbody>
@@ -330,122 +330,127 @@ export default {
     ticketQueueNew13: [],
     ticketQueueOpen13: [],
     ticketQueuePending13: [],
+    calls:[],
   }),
   mounted() {
-    axios.get("/ticket/new").then((res) => {
-      this.ticketNew = res.data.TicketID;
-    });
-    axios.get("/ticket/closed successful").then((res) => {
-      this.ticketClosed = res.data.TicketID;
-    });
     axios.get("/ticket").then((res) => {
       this.tickets = res.data;
     });
-    axios.get("/ticket2").then((res) => {
-      this.tickets2 = res.data;
+    axios.get("/call").then((res) => {
+      this.calls = res.data;
     });
-    axios.get("/ticket3").then((res) => {
-      this.tickets3 = res.data;
-    });
-    axios.get("/ticket/2/new").then((res) => {
-      this.ticketQueueNew2 = res.data.TicketID;
-    });
-    axios.get("/ticket/2/open").then((res) => {
-      this.ticketQueueOpen2 = res.data.TicketID;
-    });
-    axios.get("/ticket/2/pending reminder").then((res) => {
-      this.ticketQueuePending2 = res.data.TicketID;
-    });
-    axios.get("/ticket/3/new").then((res) => {
-      this.ticketQueueNew3 = res.data.TicketID;
-    });
-    axios.get("/ticket/3/open").then((res) => {
-      this.ticketQueueOpen3 = res.data.TicketID;
-    });
-    axios.get("/ticket/3/pending reminder").then((res) => {
-      this.ticketQueuePending3 = res.data.TicketID;
-    });
-    axios.get("/ticket/5/new").then((res) => {
-      this.ticketQueueNew5 = res.data.TicketID;
-    });
-    axios.get("/ticket/5/open").then((res) => {
-      this.ticketQueueOpen5 = res.data.TicketID;
-    });
-    axios.get("/ticket/5/pending reminder").then((res) => {
-      this.ticketQueuePending5 = res.data.TicketID;
-    });
-    axios.get("/ticket/6/new").then((res) => {
-      this.ticketQueueNew6 = res.data.TicketID;
-    });
-    axios.get("/ticket/6/open").then((res) => {
-      this.ticketQueueOpen6 = res.data.TicketID;
-    });
-    axios.get("/ticket/6/pending reminder").then((res) => {
-      this.ticketQueuePending6 = res.data.TicketID;
-    });
-    axios.get("/ticket/7/new").then((res) => {
-      this.ticketQueueNew7 = res.data.TicketID;
-    });
-    axios.get("/ticket/7/open").then((res) => {
-      this.ticketQueueOpen7 = res.data.TicketID;
-    });
-    axios.get("/ticket/7/pending reminder").then((res) => {
-      this.ticketQueuePending7 = res.data.TicketID;
-    });
-    axios.get("/ticket/8/new").then((res) => {
-      this.ticketQueueNew8 = res.data.TicketID;
-    });
-    axios.get("/ticket/8/open").then((res) => {
-      this.ticketQueueOpen8 = res.data.TicketID;
-    });
-    axios.get("/ticket/8/pending reminder").then((res) => {
-      this.ticketQueuePending8 = res.data.TicketID;
-    });
-    axios.get("/ticket/9/new").then((res) => {
-      this.ticketQueueNew9 = res.data.TicketID;
-    });
-    axios.get("/ticket/9/open").then((res) => {
-      this.ticketQueueOpen9 = res.data.TicketID;
-    });
-    axios.get("/ticket/9/pending reminder").then((res) => {
-      this.ticketQueuePending9 = res.data.TicketID;
-    });
-    axios.get("/ticket/10/new").then((res) => {
-      this.ticketQueueNew10 = res.data.TicketID;
-    });
-    axios.get("/ticket/10/open").then((res) => {
-      this.ticketQueueOpen10 = res.data.TicketID;
-    });
-    axios.get("/ticket/10/pending reminder").then((res) => {
-      this.ticketQueuePending10 = res.data.TicketID;
-    });
-    axios.get("/ticket/11/new").then((res) => {
-      this.ticketQueueNew11 = res.data.TicketID;
-    });
-    axios.get("/ticket/11/open").then((res) => {
-      this.ticketQueueOpen11 = res.data.TicketID;
-    });
-    axios.get("/ticket/11/pending reminder").then((res) => {
-      this.ticketQueuePending11 = res.data.TicketID;
-    });
-    axios.get("/ticket/12/new").then((res) => {
-      this.ticketQueueNew12 = res.data.TicketID;
-    });
-    axios.get("/ticket/12/open").then((res) => {
-      this.ticketQueueOpen12 = res.data.TicketID;
-    });
-    axios.get("/ticket/12/pending reminder").then((res) => {
-      this.ticketQueuePending12 = res.data.TicketID;
-    });
-    axios.get("/ticket/13/new").then((res) => {
-      this.ticketQueueNew13 = res.data.TicketID;
-    });
-    axios.get("/ticket/13/open").then((res) => {
-      this.ticketQueueOpen13 = res.data.TicketID;
-    });
-    axios.get("/ticket/13/pending reminder").then((res) => {
-      this.ticketQueuePending13 = res.data.TicketID;
-    });
+    // axios.get("/ticket/new").then((res) => {
+    //   this.ticketNew = res.data.ticket_id;
+    // });
+    // axios.get("/ticket/closed successful").then((res) => {
+    //   this.ticketClosed = res.data.ticket_id;
+    // });
+    
+    // axios.get("/ticket2").then((res) => {
+    //   this.tickets2 = res.data;
+    // });
+    // axios.get("/ticket3").then((res) => {
+    //   this.tickets3 = res.data;
+    // });
+    // axios.get("/ticket/2/new").then((res) => {
+    //   this.ticketQueueNew2 = res.data.ticket_id;
+    // });
+    // axios.get("/ticket/2/open").then((res) => {
+    //   this.ticketQueueOpen2 = res.data.ticket_id;
+    // });
+    // axios.get("/ticket/2/pending reminder").then((res) => {
+    //   this.ticketQueuePending2 = res.data.ticket_id;
+    // });
+    // axios.get("/ticket/3/new").then((res) => {
+    //   this.ticketQueueNew3 = res.data.ticket_id;
+    // });
+    // axios.get("/ticket/3/open").then((res) => {
+    //   this.ticketQueueOpen3 = res.data.ticket_id;
+    // });
+    // axios.get("/ticket/3/pending reminder").then((res) => {
+    //   this.ticketQueuePending3 = res.data.ticket_id;
+    // });
+    // axios.get("/ticket/5/new").then((res) => {
+    //   this.ticketQueueNew5 = res.data.ticket_id;
+    // });
+    // axios.get("/ticket/5/open").then((res) => {
+    //   this.ticketQueueOpen5 = res.data.ticket_id;
+    // });
+    // axios.get("/ticket/5/pending reminder").then((res) => {
+    //   this.ticketQueuePending5 = res.data.ticket_id;
+    // });
+    // axios.get("/ticket/6/new").then((res) => {
+    //   this.ticketQueueNew6 = res.data.ticket_id;
+    // });
+    // axios.get("/ticket/6/open").then((res) => {
+    //   this.ticketQueueOpen6 = res.data.ticket_id;
+    // });
+    // axios.get("/ticket/6/pending reminder").then((res) => {
+    //   this.ticketQueuePending6 = res.data.ticket_id;
+    // });
+    // axios.get("/ticket/7/new").then((res) => {
+    //   this.ticketQueueNew7 = res.data.ticket_id;
+    // });
+    // axios.get("/ticket/7/open").then((res) => {
+    //   this.ticketQueueOpen7 = res.data.ticket_id;
+    // });
+    // axios.get("/ticket/7/pending reminder").then((res) => {
+    //   this.ticketQueuePending7 = res.data.ticket_id;
+    // });
+    // axios.get("/ticket/8/new").then((res) => {
+    //   this.ticketQueueNew8 = res.data.ticket_id;
+    // });
+    // axios.get("/ticket/8/open").then((res) => {
+    //   this.ticketQueueOpen8 = res.data.ticket_id;
+    // });
+    // axios.get("/ticket/8/pending reminder").then((res) => {
+    //   this.ticketQueuePending8 = res.data.ticket_id;
+    // });
+    // axios.get("/ticket/9/new").then((res) => {
+    //   this.ticketQueueNew9 = res.data.ticket_id;
+    // });
+    // axios.get("/ticket/9/open").then((res) => {
+    //   this.ticketQueueOpen9 = res.data.ticket_id;
+    // });
+    // axios.get("/ticket/9/pending reminder").then((res) => {
+    //   this.ticketQueuePending9 = res.data.ticket_id;
+    // });
+    // axios.get("/ticket/10/new").then((res) => {
+    //   this.ticketQueueNew10 = res.data.ticket_id;
+    // });
+    // axios.get("/ticket/10/open").then((res) => {
+    //   this.ticketQueueOpen10 = res.data.ticket_id;
+    // });
+    // axios.get("/ticket/10/pending reminder").then((res) => {
+    //   this.ticketQueuePending10 = res.data.ticket_id;
+    // });
+    // axios.get("/ticket/11/new").then((res) => {
+    //   this.ticketQueueNew11 = res.data.ticket_id;
+    // });
+    // axios.get("/ticket/11/open").then((res) => {
+    //   this.ticketQueueOpen11 = res.data.ticket_id;
+    // });
+    // axios.get("/ticket/11/pending reminder").then((res) => {
+    //   this.ticketQueuePending11 = res.data.ticket_id;
+    // });
+    // axios.get("/ticket/12/new").then((res) => {
+    //   this.ticketQueueNew12 = res.data.ticket_id;
+    // });
+    // axios.get("/ticket/12/open").then((res) => {
+    //   this.ticketQueueOpen12 = res.data.ticket_id;
+    // });
+    // axios.get("/ticket/12/pending reminder").then((res) => {
+    //   this.ticketQueuePending12 = res.data.ticket_id;
+    // });
+    // axios.get("/ticket/13/new").then((res) => {
+    //   this.ticketQueueNew13 = res.data.ticket_id;
+    // });
+    // axios.get("/ticket/13/open").then((res) => {
+    //   this.ticketQueueOpen13 = res.data.ticket_id;
+    // });
+    // axios.get("/ticket/13/pending reminder").then((res) => {
+    //   this.ticketQueuePending13 = res.data.ticket_id;
+    // });
   },
   methods: {
     muda1: function () {

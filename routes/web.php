@@ -8,6 +8,7 @@ use App\Http\Controllers\QueueViewController;
 use App\Http\Controllers\DetailsController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\SeachController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,11 +26,14 @@ Route::get('/details/{id}',[DetailsController::class,'getId'])->name('details.ge
 // search
 Route::get('/search1',[SeachController::class,'getallTickets'])->name('SeachController.getallTickets');
 // Rotas tickets
-Route::get('/ticket',[TicketController::class,'getAllTicketsNew'])->name('ticket.getAllTicketsNew');
-Route::get('/ticket2',[TicketController::class,'getAllTicketsNew2'])->name('ticket.getAllTicketsNew2');
-Route::get('/ticket3',[TicketController::class,'getAllTicketsNew3'])->name('ticket.getAllTicketsNew3');
-Route::get('/ticket/{state}',[TicketController::class,'getState'])->name('ticket.getState');
-Route::get('/ticket/{QueueIDs}/{state}',[TicketController::class,'getQueueStatee'])->name('ticket.getQueueStatee');
+// Route::get('/ticket',[TicketController::class,'getAllTicketsNew'])->name('ticket.getAllTicketsNew');
+// Route::get('/ticket2',[TicketController::class,'getAllTicketsNew2'])->name('ticket.getAllTicketsNew2');
+// Route::get('/ticket3',[TicketController::class,'getAllTicketsNew3'])->name('ticket.getAllTicketsNew3');
+// Route::get('/ticket/{state}',[TicketController::class,'getState'])->name('ticket.getState');
+// Route::get('/ticket/{QueueIDs}/{state}',[TicketController::class,'getQueueStatee'])->name('ticket.getQueueStatee');
+
+Route::get('/ticket',[TicketController::class,'index'])->name('ticket.getAllTicketsNew');
+Route::get('/call',[CallController::class,'index'])->name('call.all');
 
 //Status view
 Route::get('/ticketOpen',[StatusViewControllerOpen::class,'getStatusViewNew'])->name('ticket.getStatusViewNew');

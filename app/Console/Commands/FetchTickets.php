@@ -40,8 +40,8 @@ class FetchTickets extends Command
     public function handle()
     {
         $this->getAllTicketsNew();
-        // $this->getAllTicketsNew2();
-        // $this->getAllTicketsNew3();
+        $this->getAllTicketsNew2();
+        $this->getAllTicketsNew3();
         // $this->getState();
         // $this->getQueueStatee();
     }
@@ -83,7 +83,14 @@ class FetchTickets extends Command
                 'TicketNumber' => $ticket['TicketNumber'],
             ];
         });
-        return $tickets;
+        $tickets->each(function($ticket){
+            $t= new Ticket();
+            $t-> ticket_id = $ticket["TicketID"];
+            $t-> title = $ticket["Title"];
+            $t-> age = $ticket["Age"];
+            $t-> ticket_number = $ticket["TicketNumber"];
+            $t-> save();
+        });
     }
      // retorna o ticket number, age e title dos tickets new
      public function getAllTicketsNew3(){
@@ -99,7 +106,14 @@ class FetchTickets extends Command
                 'TicketNumber' => $ticket['TicketNumber'],
             ];
         });
-        return $tickets;
+        $tickets->each(function($ticket){
+            $t= new Ticket();
+            $t-> ticket_id = $ticket["TicketID"];
+            $t-> title = $ticket["Title"];
+            $t-> age = $ticket["Age"];
+            $t-> ticket_number = $ticket["TicketNumber"];
+            $t-> save();
+        });
     }
     
 

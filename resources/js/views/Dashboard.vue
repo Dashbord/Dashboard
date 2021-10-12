@@ -346,12 +346,12 @@ export default {
     //   this.ticketClosed = res.data.ticket_id;
     // });
     
-    // axios.get("/ticket2").then((res) => {
-    //   this.tickets2 = res.data;
-    // });
-    // axios.get("/ticket3").then((res) => {
-    //   this.tickets3 = res.data;
-    // });
+    axios.get("/ticket2").then((res) => {
+      this.tickets2 = res.data;
+    });
+    axios.get("/ticket3").then((res) => {
+      this.tickets3 = res.data;
+    });
     // axios.get("/ticket/2/new").then((res) => {
     //   this.ticketQueueNew2 = res.data.ticket_id;
     // });

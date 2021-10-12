@@ -6,15 +6,30 @@
         <div class="card">
           <div class="card-header">
             <h4 class="card-title">Reminder Tickets</h4>
-            <button style='float: right;' class="butt butt1" v-on:click="muda3()" type="submit">
-                3
-              </button>
-              <button style='float: right;' class="butt butt1" v-on:click="muda2()" type="submit">
-                2
-              </button>
-              <button style='float: right;' class="butt butt1" v-on:click="muda1()" type="submit">
-                1
-              </button>
+            <button
+              style="float: right"
+              class="butt butt1"
+              v-on:click="muda3()"
+              type="submit"
+            >
+              3
+            </button>
+            <button
+              style="float: right"
+              class="butt butt1"
+              v-on:click="muda2()"
+              type="submit"
+            >
+              2
+            </button>
+            <button
+              style="float: right"
+              class="butt butt1"
+              v-on:click="muda1()"
+              type="submit"
+            >
+              1
+            </button>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -27,7 +42,9 @@
                 <tbody v-if="this.i == 1">
                   <tr v-for="ticket in tickets" :key="ticket.id">
                     <td>
-                      <a :href="`/Details/${ticket.ticket_id}`">{{ ticket.ticket_number}}</a>
+                      <a :href="`/Details/${ticket.ticket_id}`">{{
+                        ticket.ticket_number
+                      }}</a>
                     </td>
                     <td>
                       {{ new Date(ticket.age).toTimeString() }} Dias.Horas
@@ -40,7 +57,9 @@
                 <tbody v-if="this.i == 2">
                   <tr v-for="ticket in tickets2" :key="ticket.id">
                     <td>
-                      <a :href="`/Details/${ticket.ticket_id}`">{{ ticket.ticket_number}}</a>
+                      <a :href="`/Details/${ticket.ticket_id}`">{{
+                        ticket.ticket_number
+                      }}</a>
                     </td>
                     <td>
                       {{ ((ticket.age * 0.000116) / 10).toFixed(1) }} Dias.Horas
@@ -53,7 +72,9 @@
                 <tbody v-if="this.i == 3">
                   <tr v-for="ticket in tickets3" :key="ticket.id">
                     <td>
-                      <a :href="`/Details/${ticket.ticket_id}`">{{ ticket.ticket_number}}</a>
+                      <a :href="`/Details/${ticket.ticket_id}`">{{
+                        ticket.ticket_number
+                      }}</a>
                     </td>
                     <td>
                       {{ ((ticket.age * 0.000116) / 10).toFixed(1) }} Dias.Horas
@@ -65,8 +86,7 @@
                 </tbody>
               </table>
             </div>
-            <div class="card-footer">
-            </div>
+            <div class="card-footer"></div>
           </div>
         </div>
       </div>
@@ -127,7 +147,7 @@
                     <td v-else>{{ ticketQueuePending6.length }}</td>
                   </tr>
                   <tr>
-                     <td>
+                    <td>
                       <a :href="`/Seguranca`">SEGURANÇA</a>
                     </td>
                     <td>{{ ticketQueueNew7.length }}</td>
@@ -137,7 +157,7 @@
                     <td v-else>{{ ticketQueuePending7.length }}</td>
                   </tr>
                   <tr>
-                     <td>
+                    <td>
                       <a :href="`/AdSistemas`">Administração de Sistemas</a>
                     </td>
                     <td>{{ ticketQueueNew8.length }}</td>
@@ -146,7 +166,7 @@
                     <td v-else>{{ ticketQueuePending8.length }}</td>
                   </tr>
                   <tr>
-                     <td>
+                    <td>
                       <a :href="`/core`">CORE</a>
                     </td>
                     <td>{{ ticketQueueNew9.length }}</td>
@@ -155,7 +175,7 @@
                     <td>{{ ticketQueuePending9.length }}</td>
                   </tr>
                   <tr>
-                     <td>
+                    <td>
                       <a :href="`/SupInformatico`">Suporte Informático</a>
                     </td>
                     <td>{{ ticketQueueNew10.length }}</td>
@@ -165,7 +185,7 @@
                     <td v-else>{{ ticketQueuePending10.length }}</td>
                   </tr>
                   <tr>
-                     <td>
+                    <td>
                       <a :href="`/Helpdesk`">Helpdesk</a>
                     </td>
                     <td>{{ ticketQueueNew11.length }}</td>
@@ -174,7 +194,7 @@
                     <td>{{ ticketQueuePending11.length }}</td>
                   </tr>
                   <tr>
-                     <td>
+                    <td>
                       <a :href="`/Monitorizacao`">Monitorização</a>
                     </td>
                     <td>{{ ticketQueueNew12.length }}</td>
@@ -184,7 +204,7 @@
                     <td v-else>{{ ticketQueuePending12.length }}</td>
                   </tr>
                   <tr>
-                     <td>
+                    <td>
                       <a :href="`/Servicos`">Serviços</a>
                     </td>
                     <td>{{ ticketQueueNew13.length }}</td>
@@ -196,8 +216,7 @@
                 </tbody>
               </table>
             </div>
-            <div class="card-footer">
-            </div>
+            <div class="card-footer"></div>
           </div>
         </div>
       </div>
@@ -235,8 +254,7 @@
                 </tbody>
               </table>
             </div>
-            <div class="card-footer">
-            </div>
+            <div class="card-footer"></div>
           </div>
         </div>
       </div>
@@ -253,7 +271,7 @@
             ]"
           >
           </pie-chart>
-          <br><br>
+          <br /><br />
         </div>
       </div>
       <!-- Segundo grafico -->
@@ -277,7 +295,12 @@
               ['RAW', ticketQueueNew2.length],
             ]"
           ></pie-chart>
-          <br><br>
+          <br /><br  />
+          <line-chart v-for="call in calls" :key="call.id"
+            :data ="[ 
+              [call.collaborator, call.duration],
+            ]">
+          </line-chart >
         </div>
       </div>
     </div>
@@ -330,7 +353,7 @@ export default {
     ticketQueueNew13: [],
     ticketQueueOpen13: [],
     ticketQueuePending13: [],
-    calls:[],
+    calls: [],
   }),
   mounted() {
     axios.get("/ticket").then((res) => {
@@ -345,13 +368,13 @@ export default {
     // axios.get("/ticket/closed successful").then((res) => {
     //   this.ticketClosed = res.data.ticket_id;
     // });
-    
-    axios.get("/ticket2").then((res) => {
-      this.tickets2 = res.data;
-    });
-    axios.get("/ticket3").then((res) => {
-      this.tickets3 = res.data;
-    });
+
+    // axios.get("/ticket2").then((res) => {
+    //   this.tickets2 = res.data;
+    // });
+    // axios.get("/ticket3").then((res) => {
+    //   this.tickets3 = res.data;
+    // });
     // axios.get("/ticket/2/new").then((res) => {
     //   this.ticketQueueNew2 = res.data.ticket_id;
     // });

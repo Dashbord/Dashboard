@@ -8,6 +8,7 @@ use App\Http\Controllers\QueueViewController;
 use App\Http\Controllers\DetailsController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\SeachController;
+use App\Http\Controllers\CallController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -31,6 +32,8 @@ Route::get('/ticket2',[TicketController::class,'index'])->name('ticket.getAllTic
 Route::get('/ticket3',[TicketController::class,'index'])->name('ticket.getAllTicketsNew3');
 // Route::get('/ticket/{state}',[TicketController::class,'getState'])->name('ticket.getState');
 // Route::get('/ticket/{QueueIDs}/{state}',[TicketController::class,'getQueueStatee'])->name('ticket.getQueueStatee');
+
+Route::get('/ticket',[TicketController::class,'index'])->name('ticket.getAllTicketsNew');
 
 Route::get('/call',[CallController::class,'index'])->name('call.all');
 

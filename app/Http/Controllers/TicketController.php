@@ -11,4 +11,7 @@ class TicketController extends Controller
     public function index(){
         return Ticket::all();
     }
+    public function queueSate($queue){
+        return Ticket::find($queue);
+    }
 }

@@ -37,7 +37,8 @@ use  Illuminate\Support\Facades\Http;
                 'TicketNumber' => $ticket['TicketNumber'],
                 'Priority' => $ticket['Priority'],
                 'StateType' => $ticket['StateType'],
-                'Queue' => $ticket['Queue'],            ];
+                'Queue' => $ticket['Queue'],            
+            ];
         });
         return $tickets;
     }

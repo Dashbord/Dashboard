@@ -13,7 +13,6 @@ class CallFactory extends Factory
      * @var string
      */
     protected $model = Call::class;
-
     /**
      * Define the model's default state.
      *
@@ -21,11 +20,15 @@ class CallFactory extends Factory
      */
     public function definition()
     {
+        $min=30;
+        $max=1000;
+        $um=1;
+        $dois=2;
         return [
             'time'=> $this->faker->dateTime(),
-            'duration'=> $this->faker->time(),
-            'reply_time'=> $this->faker->time(),
-            'satisfaction_score'=> $this->faker->randomDigitNot(3,4,5,6,7,8,9,0),
+            'duration'=> $this->faker->numberBetween($min, $max),
+            'reply_time'=> $this->faker->numberBetween($min, $max),
+            'satisfaction_score'=> $this->faker->numberBetween($um, $dois),
             'collaborator'=> $this->faker->name(),
         ];
     }

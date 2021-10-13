@@ -27,6 +27,14 @@ class CallController extends Controller
     {
         return DB::table('calls')->select('duration')->where($call->call)->get();
     }
+    public function somaDuration()
+    {
+        return DB::table("calls")->get()->sum("duration");
+    }
+    public function somaReplyTime()
+    {
+        return DB::table("calls")->get()->sum("reply_time");
+    }
     /**
      * Store a newly created resource in storage.
      *

@@ -16,8 +16,8 @@ class CreateCallsTable extends Migration
         Schema::create('calls', function (Blueprint $table) {
             $table->id();
             $table->dateTime('time');
-            $table->time('duration');
-            $table->time('reply_time');
+            $table->integer('duration');
+            $table->integer('reply_time');
             $table->integer('satisfaction_score');
             $table->string('collaborator');
             $table->timestamps();

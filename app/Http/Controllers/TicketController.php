@@ -13,9 +13,8 @@ class TicketController extends Controller
     public function index(){
         return Ticket::all();
     }
-    // retorna os tickets dependendo do parametro state e QueueIDs
-    public function getQueueStatee($QueueIDs,$state){
-        $response = Http::get('http://10.175.146.2/otrs/nph-genericinterface.pl/Webservice/GenericTicketConnectorREST/Ticket?UserLogin=sluis&Password=Szb6gwzEaEUAzsGj&QueueIDs='.$QueueIDs.'&States='.$state.'');       
-        return $response->json();
+    // retorna os tickets dependendo do parametro state e state_type
+    public function getQueueState(Ticket $queue,Ticket $state_type){
+        return DB::table('ticket')->select('queue')->groupBy('queue')->where($queue->queue,$state_type->state_type)->count();
     }
 }

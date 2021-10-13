@@ -60,7 +60,46 @@
         <option>C</option>
       </select>
       <span>Selected: {{ selected }}</span>            -->
-      
+
+      <!-- Primeiro grafico -->
+      <div class="col-lg-6">
+        <div class="card card-chart">
+          <div class="card-header">
+            <h4 class="card-title">Ticket Resolution</h4>
+          </div>
+          <pie-chart
+            :data="[
+              ['Opened Tickets', ticketNew.length],
+              ['Resolved Tickets', ticketClosed.length],
+            ]"
+          >
+          </pie-chart>
+          <br /><br />
+        </div>
+      </div>
+      <!-- Segundo grafico -->
+      <div class="col-lg-6">
+        <div class="card card-chart">
+          <div class="card-header">
+            <h4 class="card-title">Ticket Overview Queue (open)</h4>
+          </div>
+          <pie-chart
+            :data="[
+              ['Serviços', ticketQueueNew13.length],
+              ['Monitorização', ticketQueueNew12.length],
+              ['Helpdesk', ticketQueueNew11.length],
+              ['Suporte Informático', ticketQueueNew10.length],
+              ['CORE', ticketQueueNew9.length],
+              ['Administração de Sistemas ', ticketQueueNew8.length],
+              ['SEGURANÇA', ticketQueueNew7.length],
+              ['SERVICE DESK', ticketQueueNew6.length],
+              ['COMUNICAÇÕES', ticketQueueNew5.length],
+              ['JUNK', ticketQueueNew3.length],
+              ['RAW', ticketQueueNew2.length],
+            ]"
+          ></pie-chart>
+        </div>
+      </div>
       <!-- tempo médio -->
       <div class="col-md-6">
         <div class="card">
@@ -69,7 +108,8 @@
           </div>
           <div class="card-body">
             <div class="card-footer">
-              <h4>{{  }}</h4>
+              <h4>{{new Date(somaReplyTime/calls.length).toTimeString()}}</h4>
+              <h4>{{somaReplyTime}}</h4>
             </div>
           </div>
         </div>
@@ -82,7 +122,8 @@
           </div>
           <div class="card-body">
             <div class="card-footer">
-              <h4>{{  }}</h4>
+              <h4>{{new Date(somaDuration/calls.length).toTimeString()}}</h4> 
+              <h4>{{somaDuration}}</h4>
             </div>
           </div>
         </div>
@@ -152,51 +193,7 @@
           </div>
         </div> 
       </div>-->
-      <!-- Primeiro grafico -->
-      <div class="col-lg-6">
-        <div class="card card-chart">
-          <div class="card-header">
-            <h4 class="card-title">Ticket Resolution</h4>
-          </div>
-          <pie-chart
-            :data="[
-              ['Opened Tickets', ticketNew.length],
-              ['Resolved Tickets', ticketClosed.length],
-            ]"
-          >
-          </pie-chart>
-          <br /><br />
-        </div>
-      </div>
-      <!-- Segundo grafico -->
-      <div class="col-lg-6">
-        <div class="card card-chart">
-          <div class="card-header">
-            <h4 class="card-title">Ticket Overview Queue (open)</h4>
-          </div>
-          <pie-chart
-            :data="[
-              ['Serviços', ticketQueueNew13.length],
-              ['Monitorização', ticketQueueNew12.length],
-              ['Helpdesk', ticketQueueNew11.length],
-              ['Suporte Informático', ticketQueueNew10.length],
-              ['CORE', ticketQueueNew9.length],
-              ['Administração de Sistemas ', ticketQueueNew8.length],
-              ['SEGURANÇA', ticketQueueNew7.length],
-              ['SERVICE DESK', ticketQueueNew6.length],
-              ['COMUNICAÇÕES', ticketQueueNew5.length],
-              ['JUNK', ticketQueueNew3.length],
-              ['RAW', ticketQueueNew2.length],
-            ]"
-          ></pie-chart>
-          <br /><br />
-          <line-chart v-for="call in calls" :key="call.id" 
-            :data="[
-              [call.collaborator,call.duration]
-            ]">
-          </line-chart>
-        </div>
-      </div>
+      <!-- Tempo de chamada por cliente -->
       <div class="col-lg-6">
         <div class="card card-chart">
           <div class="card-header">
@@ -207,25 +204,29 @@
               [call.collaborator,call.duration]
             ]">
           </line-chart> -->
-          <line-chart  
-            :data="[
-              [1,2]
-            ]">
-          </line-chart>
+          <line-chart :data="[[collaborator, duration]]"> </line-chart>
+          <!-- <line-chart :data="[[1, 2]]"> </line-chart> -->
         </div>
       </div>
+      <!-- Satisfação do cliente -->
       <div class="col-lg-6">
         <div class="card card-chart">
           <div class="card-header">
             <h4 class="card-title">Satisfação do cliente</h4>
           </div>
+          <!-- <pie-chart   
+                :data="[
+                  [calls.collaborator, calls.satisfaction_score]]">
+              </pie-chart
+              > -->
           <pie-chart
             :data="[
-              ['Good', 5],
-              ['Bad', 6],
+              ['bom', 1],
+              ['mau', 2],
             ]"
-          ></pie-chart>        
-          </div>
+          >
+          </pie-chart>
+        </div>
       </div>
     </div>
   </div>
@@ -240,9 +241,9 @@ export default {
     ticketsQueueStateClose: [],
     collaborator: [],
     duration: [],
-    calls:[],
-    i: 1,
-    Queue: [],
+    calls: [],
+    somaDuration: [],
+    somaReplyTime: [],
     //Ticket Resolution percentage
     ticketNew: [],
     ticketClosed: [],
@@ -286,12 +287,18 @@ export default {
     ticketQueuePending13: [],
   }),
   mounted() {
-    axios.get("/queueSate/CORE/open").then((res) => {
-      this.teste = res.data;
-    });
-    // axios.get("/calls").then((res) => {
-    //   this.calls = res.data;
+    // axios.get("/queueSate/CORE/open").then((res) => {
+    //   this.teste = res.data;
     // });
+    axios.get("/calls").then((res) => {
+      this.calls = res.data;
+    });
+     axios.get("/somaDuration").then((res) => {
+      this.somaDuration = res.data;
+    });
+    axios.get("/somaReplyTime").then((res) => {
+      this.somaReplyTime = res.data;
+    });
     // axios.get("/queueSate/CORE/open").then((res) => {
     //   this.ticketsQueueStateOpen = res.data;
     // });
@@ -305,17 +312,7 @@ export default {
     //   this.collaborator = res.data;
     // });
   },
-  methods: {
-    muda1: function () {
-      this.i = 1;
-    },
-    muda2: function () {
-      this.i = 2;
-    },
-    muda3: function () {
-      this.i = 3;
-    },
-  },
+  methods: {},
 };
 </script>
     

@@ -18,15 +18,18 @@ class CallController extends Controller
         return Call::all();
     }
 
-    public function collaborator(Call $call)
+    public function satisfaction_score()
     {
-        return DB::table('calls')->select('collaborator')->where($call->call)->get();
+        return [
+            DB::table('calls')->select('satisfaction_score')->where('satisfaction_score',1)->get()->count(),
+            DB::table('calls')->select('satisfaction_score')->where('satisfaction_score',2)->get()->count(),
+        ];
     }
    
-    public function duration(Call $call)
-    {
-        return DB::table('calls')->select('duration')->where($call->call)->get();
-    }
+    // public function duration(Call $call)
+    // {
+    //     return DB::table('calls')->select('duration')->where($call->call)->get();
+    // }
     public function somaDuration()
     {
         return DB::table("calls")->get()->sum("duration");

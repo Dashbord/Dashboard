@@ -14,4 +14,15 @@ class TicketController extends Controller
     public function getQueueState($queue,$state_type){
         return DB::table('tickets')->select('queue')->groupBy('queue')->where('queue',$queue)->where('state_type',$state_type)->count();
     }
+    public function ResolutionScore()
+    {
+        return [
+            DB::table('tickets')->select('state_type')->where('state_type',"open")->orWhere('state_type',"new")->get()->count(),
+            DB::table('tickets')->select('state_type')->where('state_type',"closed")->get()->count(),
+        ];
+    }
+    public function TicketQueue()
+    {
+        return DB::table('tickets')->select('queue', DB::raw('count(*) as total'))->groupBy('queue')->get();
+    }
 }

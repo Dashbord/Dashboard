@@ -53,13 +53,15 @@
           </div>
         </div>
       </div>
-      <!-- <select v-model="selected">
+      <select v-model="queue">
         <option disabled value="">Please select one</option>
-        <option>A</option>
-        <option>B</option>
-        <option>C</option>
+        <option value= "CORE">Core</option>
+        <option value= "Helpdesk">Helpdesk</option>
+        <!-- <option value= "CORE">Core</option>
+        <option value= "CORE">Core</option>
+        <option value= "CORE">Core</option> -->
       </select>
-      <span>Selected: {{ selected }}</span>            -->
+      <span>Selected: {{ queue }}</span>            -->
 
       <!-- Primeiro grafico -->
       <div class="col-lg-6">
@@ -236,7 +238,7 @@
 import axios from "axios";
 export default {
   data: () => ({
-    teste: [],
+    teste: null,
     ticketsQueueStateOpen: [],
     ticketsQueueStateClose: [],
     collaborator: [],
@@ -285,10 +287,12 @@ export default {
     ticketQueueNew13: [],
     ticketQueueOpen13: [],
     ticketQueuePending13: [],
+    queue:'CORE',
   }),
   mounted() {
-    // axios.get("/queueSate/CORE/open").then((res) => {
-    //   this.teste = res.data;
+    this.updatequeue();
+    // axios.get("/calls").then((res) => {
+    //   this.calls = res.data;
     // });
     axios.get("/calls").then((res) => {
       this.calls = res.data;
@@ -312,7 +316,27 @@ export default {
     //   this.collaborator = res.data;
     // });
   },
-  methods: {},
+  watch:{
+    queue(){
+      this.updatequeue();
+    }
+  },
+  methods: {
+    updatequeue(){
+      axios.get("/queueSate/"+this.queue+"/new").then((res) => {
+      this.teste = res.data;
+    });
+    },
+    muda1: function () {
+      this.i = 1;
+    },
+    muda2: function () {
+      this.i = 2;
+    },
+    muda3: function () {
+      this.i = 3;
+    },
+  },
 };
 </script>
     

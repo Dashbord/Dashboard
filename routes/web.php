@@ -33,7 +33,7 @@ Route::get('/ticket3',[TicketController::class,'index'])->name('ticket.getAllTic
 // Route::get('/ticket/{QueueIDs}/{state}',[TicketController::class,'getQueueStatee'])->name('ticket.getQueueStatee');
 
 Route::get('/ticket',[TicketController::class,'index'])->name('ticket.getAllTicketsNew');
-Route::get('/queueSate/{Queue}/{state}',[TicketController::class,'getQueueState'])->name('ticket.getQueueState');
+Route::get('/queueSate/{queue}/{state_type}',[TicketController::class,'getQueueState']);
 Route::get('/calls',[CallController::class,'index'])->name('call.id');
 Route::get('/collaborator',[CallController::class,'collaborator'])->name('call.collaborator');
 Route::get('/duration',[CallController::class,'duration'])->name('call.duration');

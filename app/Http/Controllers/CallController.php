@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Call;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CallController extends Controller
 {
@@ -17,6 +18,15 @@ class CallController extends Controller
         return Call::all();
     }
 
+    public function collaborator(Call $call)
+    {
+        return DB::table('calls')->select('collaborator')->where($call->call)->get();
+    }
+   
+    public function duration(Call $call)
+    {
+        return DB::table('calls')->select('duration')->where($call->call)->get();
+    }
     /**
      * Store a newly created resource in storage.
      *

@@ -21,21 +21,21 @@
                 <tbody>
                   <tr v-for="ticket in filteredTicket1" :key="ticket.id">
                     <td>
-                      <a :href="`/Details/${ticket.TicketID}`">{{
-                        ticket.TicketNumber
+                      <a :href="`/Details/${ticket.ticket_id}`">{{
+                        ticket.ticket_number
                       }}</a>
                     </td>
                     <td>
-                      {{ ticket.Title }}
+                      {{ ticket.title }}
                     </td>
                     <td>
-                      {{ ticket.StateType }}
+                      {{ ticket.state_type }}
                     </td>
                     <td>
-                      {{ ticket.Queue }}
+                      {{ ticket.queue }}
                     </td>
                     <td>
-                      {{ ticket.Priority }}
+                      {{ ticket.priority }}
                     </td>
                   </tr>
                 </tbody>
@@ -56,14 +56,14 @@ export default {
     tickets: [],
   }),
   mounted() {
-    axios.get("/search1").then((res) => {
+    axios.get("/ticket").then((res) => {
       this.tickets = res.data;
     });
   },
   computed: {
     filteredTicket1: function () {
       return this.tickets.filter((ticket) => {
-        return ticket.Title.match(this.search);
+        return ticket.ticket_number.match(this.search);
       });
     },
   },

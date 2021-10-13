@@ -2,46 +2,93 @@
   <div class="content">
     <div class="row">
       <!-- NEW -->
-      <div class="col-md-2">
+      <div class="col-md-3">
         <div class="card">
           <div class="card-header">
             <h4 class="card-title">New</h4>
           </div>
           <div class="card-body">
             <div class="card-footer">
-              <h1>{{ ticketsQueueStateNew.length}} </h1>
+              <h4>{{ teste }}</h4>
             </div>
           </div>
         </div>
-      </div> 
+      </div>
       <!-- Open -->
-      <div class="col-md-2">
+      <div class="col-md-3">
         <div class="card">
           <div class="card-header">
             <h4 class="card-title">Open</h4>
           </div>
           <div class="card-body">
             <div class="card-footer">
-              <h1>{{ ticketsQueueStateOpen.length }} </h1>
+              <h4>{{ ticketsQueueStateOpen }}</h4>
             </div>
           </div>
         </div>
-      </div> 
+      </div>
       <!-- close -->
-      <div class="col-md-2">
+      <div class="col-md-3">
         <div class="card">
           <div class="card-header">
             <h4 class="card-title">close</h4>
           </div>
           <div class="card-body">
             <div class="card-footer">
-              <h1>{{ ticketsQueueStateClose.length }} </h1>
+              <h4>{{ ticketsQueueStateClose.length }}</h4>
             </div>
           </div>
         </div>
-      </div>       
+      </div>
+      <!-- Total -->
+      <div class="col-md-3">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title">Total</h4>
+          </div>
+          <div class="card-body">
+            <div class="card-footer">
+              <h4>{{ ticketsQueueStateClose.length }}</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <select v-model="selected">
+        <option disabled value="">Please select one</option>
+        <option>A</option>
+        <option>B</option>
+        <option>C</option>
+      </select>
+      <span>Selected: {{ selected }}</span>            -->
+      
+      <!-- tempo médio -->
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title">Average first reply time</h4>
+          </div>
+          <div class="card-body">
+            <div class="card-footer">
+              <h4>{{  }}</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- tempo médio -->
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title">Average full resolve time</h4>
+          </div>
+          <div class="card-body">
+            <div class="card-footer">
+              <h4>{{  }}</h4>
+            </div>
+          </div>
+        </div>
+      </div>
       <!-- terceiro tabela -->
-      <div class="col-md-12">
+      <!-- <div class="col-md-12">
         <div class="card">
           <div class="card-header">
             <h4 class="card-title">Ticket Overview Queue</h4>
@@ -56,11 +103,9 @@
                   <th>Pending Reminder</th>
                 </thead>
                 <tbody>
+                  <tr></tr>
                   <tr>
-                  <tr>
-                    <td>
-                      CORE
-                    </td>
+                    <td>CORE</td>
                   </tr>
                 </tbody>
               </table>
@@ -68,9 +113,9 @@
             <div class="card-footer"></div>
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- Quarta tabela -->
-      <div class="col-md-12">
+      <!-- <div class="col-md-12">
         <div class="card">
           <div class="card-header">
             <h4 class="card-title">Ticket Resolution percentage</h4>
@@ -105,8 +150,8 @@
             </div>
             <div class="card-footer"></div>
           </div>
-        </div>
-      </div>
+        </div> 
+      </div>-->
       <!-- Primeiro grafico -->
       <div class="col-lg-6">
         <div class="card card-chart">
@@ -145,12 +190,42 @@
             ]"
           ></pie-chart>
           <br /><br />
-          <line-chart v-for="call in calls" :key="call.id"
-            :data ="[ 
-              [call.collaborator, call.duration],
+          <line-chart v-for="call in calls" :key="call.id" 
+            :data="[
+              [call.collaborator,call.duration]
             ]">
-          </line-chart >
+          </line-chart>
         </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="card card-chart">
+          <div class="card-header">
+            <h4 class="card-title">Tempo de chamada por cliente</h4>
+          </div>
+          <!-- <line-chart v-for="call in calls" :key="call.id" 
+            :data="[
+              [call.collaborator,call.duration]
+            ]">
+          </line-chart> -->
+          <line-chart  
+            :data="[
+              [1,2]
+            ]">
+          </line-chart>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="card card-chart">
+          <div class="card-header">
+            <h4 class="card-title">Satisfação do cliente</h4>
+          </div>
+          <pie-chart
+            :data="[
+              ['Good', 5],
+              ['Bad', 6],
+            ]"
+          ></pie-chart>        
+          </div>
       </div>
     </div>
   </div>
@@ -160,10 +235,12 @@
 import axios from "axios";
 export default {
   data: () => ({
-    ticketsCORES: [],
-    ticketsQueueStateNew: [],
+    teste: [],
     ticketsQueueStateOpen: [],
     ticketsQueueStateClose: [],
+    collaborator: [],
+    duration: [],
+    calls:[],
     i: 1,
     Queue: [],
     //Ticket Resolution percentage
@@ -207,21 +284,26 @@ export default {
     ticketQueueNew13: [],
     ticketQueueOpen13: [],
     ticketQueuePending13: [],
-    calls: [],
   }),
   mounted() {
-     axios.get("/queueSate/CORE").then((res) => {
-      this.ticketsQueueStateNew = res.data;
+    axios.get("/queueSate/CORE/open").then((res) => {
+      this.teste = res.data;
     });
+    // axios.get("/calls").then((res) => {
+    //   this.calls = res.data;
+    // });
     // axios.get("/queueSate/CORE/open").then((res) => {
     //   this.ticketsQueueStateOpen = res.data;
     // });
     // axios.get("/queueSate/CORE/close").then((res) => {
     //   this.ticketsQueueStateClose = res.data;
     // });
-    axios.get("/call").then((res) => {
-      this.calls = res.data;
-    });
+    // axios.get("/collaborator").then((res) => {
+    //   this.collaborator = res.data;
+    // });
+    // axios.get("/duration").then((res) => {
+    //   this.collaborator = res.data;
+    // });
   },
   methods: {
     muda1: function () {

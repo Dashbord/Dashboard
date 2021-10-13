@@ -24,6 +24,8 @@ class CallFactory extends Factory
         return [
             'time'=> $this->faker->dateTime(),
             'duration'=> $this->faker->time(),
+            'reply_time'=> $this->faker->time(),
+            'satisfaction_score'=> $this->faker->randomDigitNot(3,4,5,6,7,8,9,0),
             'collaborator'=> $this->faker->name(),
         ];
     }

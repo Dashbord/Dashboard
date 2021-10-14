@@ -1,6 +1,11 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Dashboard from './views/Dashboard';
+<<<<<<< Updated upstream
+=======
+import StatusView from './views/StatusView/StatusView';
+import StatusViewClose from './views/StatusView/StatusViewClose';
+>>>>>>> Stashed changes
 import Details from './views/Details';
 import Search1 from './views/Search/Search1';
 
@@ -26,6 +31,17 @@ export default new VueRouter({
             meta: { title: 'Dashboard' }
         },
         {
+<<<<<<< Updated upstream
+=======
+            path: '/StatusView', name: 'StatusView', component: StatusView,
+            meta: { title: 'StatusView' }
+        },
+        {
+            path: '/StatusViewClose', name: 'StatusViewClose', component: StatusViewClose,
+            meta: { title: 'StatusViewClose' }
+        },
+        {
+>>>>>>> Stashed changes
             path: '/Details/:id', name: 'Details', component: Details, props:true,
             
         },

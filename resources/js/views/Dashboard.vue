@@ -50,6 +50,7 @@
                 <i class="now-ui-icons loader_gear"></i>
               </button>
               <div class="dropdown-menu dropdown-menu-right">
+                <!-- <button class="dropdown-item" @click="queue = Todos" >{{todos}}</button> -->
                 <button v-for="q in queues" :key="q" :value="q" class="dropdown-item" @click="queue = q" >{{q}}</button>
               </div>
             </div>

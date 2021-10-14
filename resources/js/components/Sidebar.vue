@@ -29,7 +29,7 @@
           </a>
         </li>
 
-        <li class="">
+        <li v-if="allowed" class="">
           <a href="http://localhost:8000/admin/users">
             <i class="now-ui-icons users_circle-08"></i>
             <p>Users</p>
@@ -41,7 +41,16 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data: ()=>({
+    allowed:false,
+  }),
+  mounted(){
+    axios.get("/allowed").then((res) => {
+      this.allowed = res.data;
+    });
+  }
+};
 </script>
 
 <style>

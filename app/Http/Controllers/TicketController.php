@@ -7,18 +7,27 @@ use Illuminate\Support\Facades\DB;
 
 class TicketController extends Controller
 {
-    public function index(){
-        return Ticket::all();
+    public function index($search){
+        if($search=='*'){
+            return Ticket::orderBy('changed','DESC')->paginate(20);
+        }
+        return Ticket::where('title','LIKE','%'.$search.'%')->orderBy('changed','DESC')->paginate(20);
     }
     // retorna os tickets dependendo do parametro state e state_type
     public function getQueueState($queue,$state_type){
         return DB::table('tickets')->select('queue')->groupBy('queue')->where('queue',$queue)->where('state_type',$state_type)->count();
     }
-    public function ResolutionScore()
+    public function ResolutionScore($queue2)
     {
+        if($queue2 == 'total'){
+            return [
+                DB::table('tickets')->select('state_type')->where('state_type',"open")->orWhere('state_type',"new")->get()->count(),
+                DB::table('tickets')->select('state_type')->where('state_type',"closed")->get()->count(),
+            ];
+        }
         return [
-            DB::table('tickets')->select('state_type')->where('state_type',"open")->orWhere('state_type',"new")->get()->count(),
-            DB::table('tickets')->select('state_type')->where('state_type',"closed")->get()->count(),
+            DB::table('tickets')->select('state_type')->where('queue',$queue2)->where('state_type',"open")->orWhere('state_type',"new")->get()->count(),
+            DB::table('tickets')->select('state_type')->where('queue',$queue2)->where('state_type',"closed")->get()->count(),
         ];
     }
     public function TicketQueue($state_type)
@@ -35,6 +44,6 @@ class TicketController extends Controller
         return DB::table('tickets')->select('state_type')->groupBy('state_type')->get()->pluck('state_type');
     }
     public function getID($ticket_id){
-        return DB::table('tickets')->select('*')->where('ticket_id',$ticket_id)->get();
+        return DB::table('tickets')->select('*')->where('ticket_id',$ticket_id)->get()->first();
     }
 }

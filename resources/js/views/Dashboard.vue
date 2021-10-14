@@ -1,46 +1,28 @@
 <template>
   <div class="content">
-    <div class="row">
-      <!-- NEW
+    <div class="row position-absolute" style="margin-top: -56px; width: 80%;">
       <div class="col-md-3">
-        <div class="card">
+        <div class="card card-chart">
           <div class="card-header">
-            <h4 class="card-title">New</h4>
+            Average first reply time
           </div>
           <div class="card-body">
-            <div class="card-footer">
-              <h4>{{ ticketsQueueStateNew }}</h4>
-            </div>
+              <h3>{{new Date((somaReplyTime/calls.length)*1000).toISOString().substr(14,5)}} min</h3>
           </div>
         </div>
-      </div>-->
-      <!-- Open -->
-      <!-- <div class="col-md-3">
-        <div class="card">
+      </div>
+      <div class="col-md-3">
+        <div class="card card-chart">
           <div class="card-header">
-            <h4 class="card-title">Open</h4>
+            Average full resolve time
           </div>
           <div class="card-body">
-            <div class="card-footer">
-              <h4>{{ ticketsQueueStateOpen }}</h4>
-            </div>
+              <h3>{{new Date((somaDuration/calls.length)*1000).toISOString().substr(14,5)}} min</h3>
           </div>
         </div>
-      </div> -->
-      <!-- close -->
-      <!-- <div class="col-md-3">
-        <div class="card">
-          <div class="card-header">
-            <h4 class="card-title">close</h4>
-          </div>
-          <div class="card-body">
-            <div class="card-footer">
-              <h4>{{ ticketsQueueStateClose }}</h4>
-            </div>
-          </div>
-        </div>
-      </div> -->
-      <!-- Total -->
+      </div>
+    </div>
+    <div class="row" style="padding-top: 96px;">
       <div class="col-md-12">
             <div class="card card-chart">
           <div class="card-header">
@@ -50,7 +32,6 @@
                 <i class="now-ui-icons loader_gear"></i>
               </button>
               <div class="dropdown-menu dropdown-menu-right">
-                <!-- <button class="dropdown-item" @click="queue = Todos" >{{todos}}</button> -->
                 <button v-for="q in queues" :key="q" :value="q" class="dropdown-item" @click="queue = q" >{{q}}</button>
               </div>
             </div>
@@ -123,7 +104,8 @@
                 <i class="now-ui-icons loader_gear"></i>
               </button>
               <div class="dropdown-menu dropdown-menu-right">
-                <button v-for="q in queues" :key="q" :value="q" class="dropdown-item" @click="queue = q" >{{q}}</button>
+                <button v-for="q in queues" :key="q" :value="q" class="dropdown-item" @click="queue2 = q" >{{q}}</button>
+                <button value="total" class="dropdown-item" @click="queue2 = 'total'" >Total</button>
               </div>
             </div>
           <pie-chart
@@ -154,32 +136,6 @@
             :data="TicketQueue.map(ticket=>[ticket.queue,ticket.total])">
           </column-chart>
           <br /><br />
-        </div>
-      </div>
-      <!-- tempo médio -->
-      <div class="col-md-6">
-        <div class="card">
-          <div class="card-header">
-            <h4 class="card-title">Average first reply time</h4>
-          </div>
-          <div class="card-body">
-            <div class="card-footer">
-              <h4>{{new Date((somaReplyTime/calls.length)*1000).toISOString().substr(14,5)}} min</h4>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- tempo médio -->
-      <div class="col-md-6">
-        <div class="card">
-          <div class="card-header">
-            <h4 class="card-title">Average full resolve time</h4>
-          </div>
-          <div class="card-body">
-            <div class="card-footer">
-              <h4>{{new Date((somaDuration/calls.length)*1000).toISOString().substr(14,5)}} min</h4>
-            </div>
-          </div>
         </div>
       </div>
       <!-- Tempo de chamada por cliente -->
@@ -223,6 +179,7 @@ export default {
     ticketsQueueStateClose: null,
     ticketsQueueStateTotal: null,
     ticketsQueueStatePending:null,
+    queue2:'CORE',
     queues: null,
     queue:'CORE',
     stateType: 'new',
@@ -236,12 +193,10 @@ export default {
   }),
   mounted() {
     this.updatequeue();
+    this.updatequeue2();
     this.updatestate();
     axios.get("/satisfaction_score").then((res) => {
       this.satisfaction = res.data;
-    });
-     axios.get("/ResolutionScore").then((res) => {
-      this.resolutionPercentage = res.data;
     });
     axios.get("/calls").then((res) => {
       this.calls = res.data;
@@ -271,7 +226,10 @@ export default {
     },
     stateType(){
       this.updatestate();
-    }
+    },
+    queue2(){
+      this.updatequeue2();
+    },
   },
   methods: {
     updatestate(){
@@ -295,6 +253,12 @@ export default {
       axios.get("/queueTotal/"+this.queue).then((res) => {
         this.ticketsQueueStateTotal = res.data;
       });
+      
+    },
+    updatequeue2(){
+      axios.get("/ResolutionScore/"+this.queue2).then((res) => {
+      this.resolutionPercentage = res.data;
+    });
     },
   },
 };

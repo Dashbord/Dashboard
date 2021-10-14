@@ -30,7 +30,7 @@ Route::get('/ticket3',[TicketController::class,'index'])->name('ticket.getAllTic
 // Route::get('/ticket/{state}',[TicketController::class,'getState'])->name('ticket.getState');
 // Route::get('/ticket/{QueueIDs}/{state}',[TicketController::class,'getQueueStatee'])->name('ticket.getQueueStatee');
 
-Route::get('/ticket',[TicketController::class,'index'])->name('ticket.getAllTicketsNew');
+Route::get('/ticket/{search}',[TicketController::class,'index'])->name('ticket.getAllTicketsNew');
 Route::get('/queueSate/{queue}/{state_type}',[TicketController::class,'getQueueState']);
 Route::get('/queueTotal/{queue}',[TicketController::class,'getQueueTotal']);
 Route::get('/queues',[TicketController::class,'getQueues']);
@@ -38,12 +38,13 @@ Route::get('/stateTypes',[TicketController::class,'getStateTypes']);
 Route::get('/calls',[CallController::class,'index'])->name('call.id');
 Route::get('/collaborator',[CallController::class,'clientes'])->name('call.clientes');
 Route::get('/duration',[CallController::class,'duration'])->name('call.duration');
-Route::get('/ResolutionScore',[TicketController::class,'ResolutionScore'])->name('ticket.ResolutionScore');
+Route::get('/ResolutionScore/{queue2}',[TicketController::class,'ResolutionScore'])->name('ticket.ResolutionScore');
 Route::get('/TicketQueue/{state_type}',[TicketController::class,'TicketQueue'])->name('ticket.TicketQueue');
 Route::get('/satisfaction_score',[CallController::class,'satisfaction_score'])->name('call.satisfaction_score');
 Route::get('/duration',[CallController::class,'duration'])->name('call.duration');
 Route::get('/somaDuration',[CallController::class,'somaDuration'])->name('call.somad');
 Route::get('/somaReplyTime',[CallController::class,'somaReplyTime'])->name('call.somar');
+Route::get('/allowed',[UserController::class,'allowed'])->name('user.allowed');
 
 
 Route::prefix('admin')->middleware('auth')->name('admin.')->group(function(){
@@ -60,10 +61,6 @@ Route::get('/', function () {
     }
     return view('auth/login');
 });
-
-// rotas autenticação
-Route::get('register', [RegisteredUserController::class, 'create']);
-
 
 // Rotas calendario
 Route::get('/full-calender', [FullCalenderController::class, 'index']);

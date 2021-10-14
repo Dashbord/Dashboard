@@ -65,6 +65,9 @@ class UserController extends Controller
         
     }
 
+    public function allowed(){
+        return Gate::allows('is-admin');
+    }
     /**
      * Display the specified resource.
      *

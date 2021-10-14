@@ -24,7 +24,6 @@ class TicketController extends Controller
     public function TicketQueue($state_type)
     {   
         return DB::table('tickets')->select('queue', DB::raw('count(*) as total'))->where('state_type',$state_type)->groupBy('queue')->get();
-
     }
     public function getQueueTotal($queue){
         return DB::table('tickets')->select('queue')->groupBy('queue')->where('queue',$queue)->count();
@@ -34,5 +33,8 @@ class TicketController extends Controller
     }
     public function getStateTypes(){
         return DB::table('tickets')->select('state_type')->groupBy('state_type')->get()->pluck('state_type');
+    }
+    public function getID($ticket_id){
+        return DB::table('tickets')->select('*')->where('ticket_id',$ticket_id)->get();
     }
 }

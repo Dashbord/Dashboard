@@ -16,18 +16,6 @@
             <p>Dashboard</p>
           </a>
         </router-link>
-        <router-link tag="li" to="/StatusView" active-class="active">
-          <a>
-            <i class="now-ui-icons design_bullet-list-67"></i>
-            <p>Status View</p>
-          </a>
-        </router-link>
-        <router-link tag="li" to="/Raw" active-class="active">
-          <a>
-            <i class="now-ui-icons design_bullet-list-67"></i>
-            <p>Queue View</p>
-          </a>
-        </router-link>
         <router-link tag="li" to="/Search1" active-class="active">
           <a>
             <i class="now-ui-icons design_bullet-list-67"></i>

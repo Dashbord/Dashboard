@@ -44,7 +44,7 @@
       <div class="col-md-12">
             <div class="card card-chart">
           <div class="card-header">
-            <h4 class="card-title">Tickets {{queue}}</h4>
+            <h4 class="card-title">{{queue}}</h4>
             <div class="dropdown">
               <button type="button" class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
                 <i class="now-ui-icons loader_gear"></i>
@@ -152,6 +152,7 @@
           <column-chart 
             :data="TicketQueue.map(ticket=>[ticket.queue,ticket.total])">
           </column-chart>
+          <br /><br />
         </div>
       </div>
       <!-- tempo médio -->
@@ -162,7 +163,7 @@
           </div>
           <div class="card-body">
             <div class="card-footer">
-              <h4>{{new Date((somaReplyTime/calls.length)*1000).toISOString().substr(14,5)}}</h4>
+              <h4>{{new Date((somaReplyTime/calls.length)*1000).toISOString().substr(14,5)}} min</h4>
             </div>
           </div>
         </div>
@@ -175,7 +176,7 @@
           </div>
           <div class="card-body">
             <div class="card-footer">
-              <h4>{{new Date((somaDuration/calls.length)*1000).toISOString().substr(14,5)}}</h4>
+              <h4>{{new Date((somaDuration/calls.length)*1000).toISOString().substr(14,5)}} min</h4>
             </div>
           </div>
         </div>
@@ -187,7 +188,7 @@
             <h4 class="card-title">Tempo de chamada por cliente</h4>
           </div>
           <br>
-          <line-chart :data="calls.map(call=>[call.collaborator,call.duration])"> </line-chart>
+          <line-chart :data="calls.map(call=>[call.collaborator,new Date((call.duration)*1000).toISOString().substr(14,5)])"> </line-chart>
         </div>
       </div>
       <!-- Satisfação do cliente -->
@@ -203,6 +204,7 @@
             ]"
           >
           </pie-chart>
+          <br>
         </div>
       </div>
     </div>
@@ -225,6 +227,8 @@ export default {
     stateType: 'new',
     stateTypes: null,
     calls: [],
+    collaborators:null,
+    duration:null,
     somaDuration: [],
     somaReplyTime: [],
     TicketQueue:[],
@@ -252,6 +256,12 @@ export default {
     });
     axios.get("/stateTypes").then((res) => {
         this.stateTypes = res.data;
+      });
+    axios.get("/collaborator").then((res) => {
+        this.collaborators = res.data;
+      });
+    axios.get("/duration").then((res) => {
+        this.duration = res.data;
       });
   },
   watch:{

@@ -17,7 +17,14 @@ class CallController extends Controller
     {
         return Call::all();
     }
-
+    public function duration()
+    {
+        return DB::table("calls")->select("duration")->orderBy("duration")->get();
+    }
+    public function clientes()
+    {
+        return DB::table("calls")->select("collaborator")->groupBy("collaborator")->get();
+    }
     public function satisfaction_score()
     {
         return [
@@ -25,11 +32,6 @@ class CallController extends Controller
             DB::table('calls')->select('satisfaction_score')->where('satisfaction_score',2)->get()->count(),
         ];
     }
-   
-    // public function duration(Call $call)
-    // {
-    //     return DB::table('calls')->select('duration')->where($call->call)->get();
-    // }
     public function somaDuration()
     {
         return DB::table("calls")->get()->sum("duration");

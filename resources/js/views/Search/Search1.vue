@@ -63,7 +63,7 @@ export default {
   computed: {
     filteredTicket1: function () {
       return this.tickets.filter((ticket) => {
-        return ticket.ticket_number.match(this.search);
+        return ticket.title.match(this.search);
       });
     },
   },

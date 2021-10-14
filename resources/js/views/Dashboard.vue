@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <div class="row">
-      <!-- NEW -->
+      <!-- NEW
       <div class="col-md-3">
         <div class="card">
           <div class="card-header">
@@ -13,9 +13,9 @@
             </div>
           </div>
         </div>
-      </div>
+      </div>-->
       <!-- Open -->
-      <div class="col-md-3">
+      <!-- <div class="col-md-3">
         <div class="card">
           <div class="card-header">
             <h4 class="card-title">Open</h4>
@@ -26,9 +26,9 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- close -->
-      <div class="col-md-3">
+      <!-- <div class="col-md-3">
         <div class="card">
           <div class="card-header">
             <h4 class="card-title">close</h4>
@@ -39,7 +39,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- Total -->
       <div class="col-md-12">
             <div class="card card-chart">
@@ -56,7 +56,44 @@
           </div>
           <div class="card-body">
             <div class="card-footer">
-              <h4>{{ ticketsQueueStateTotal }}</h4>
+              <table class="table">
+                    <thead class=" text-primary">
+                      <th>
+                        New
+                      </th>
+                      <th>
+                        Open
+                      </th>
+                      <th>
+                        Closed
+                      </th>
+                      <th>
+                        Pending Reminder
+                      </th>
+                      <th class="text-right">
+                        Total
+                      </th>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          {{ ticketsQueueStateNew }}
+                        </td>
+                        <td>
+                          {{ ticketsQueueStateOpen }}
+                        </td>
+                        <td>
+                          {{ ticketsQueueStateClose }}
+                        </td>
+                        <td>
+                          {{ ticketsQueueStatePending }}
+                        </td>
+                        <td class="text-right">
+                          {{ ticketsQueueStateTotal }}
+                        </td>
+                      </tr>                      
+                    </tbody>
+                  </table>
             </div>
           </div>
         </div>
@@ -80,6 +117,14 @@
           <div class="card-header">
             <h4 class="card-title">Ticket Resolution</h4>
           </div>
+          <div class="dropdown">
+              <button type="button" class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
+                <i class="now-ui-icons loader_gear"></i>
+              </button>
+              <div class="dropdown-menu dropdown-menu-right">
+                <button v-for="q in queues" :key="q" :value="q" class="dropdown-item" @click="queue = q" >{{q}}</button>
+              </div>
+            </div>
           <pie-chart
             :data="[
               ['Opened Tickets', resolutionPercentage[0]],
@@ -94,8 +139,16 @@
       <div class="col-lg-6">
         <div class="card card-chart">
           <div class="card-header">
-            <h4 class="card-title">Ticket Overview Queue (open)</h4>
+            <h4 class="card-title">Ticket Overview Queue ({{queue}})</h4>
           </div>
+          <div class="dropdown">
+              <button type="button" class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
+                <i class="now-ui-icons loader_gear"></i>
+              </button>
+              <div class="dropdown-menu dropdown-menu-right">
+                <button v-for="q in queues" :key="q" :value="q" class="dropdown-item" @click="queue = q" >{{q}}</button>
+              </div>
+            </div>
           <column-chart 
             :data="TicketQueue.map(ticket=>[ticket.queue,ticket.total])">
           </column-chart>
@@ -166,6 +219,7 @@ export default {
     ticketsQueueStateOpen: null,
     ticketsQueueStateClose: null,
     ticketsQueueStateTotal: null,
+    ticketsQueueStatePending:null,
     queues: null,
     collaborator: [],
     duration: [],
@@ -221,6 +275,9 @@ export default {
       });
       axios.get("/queueSate/"+this.queue+"/closed").then((res) => {
         this.ticketsQueueStateClose = res.data;
+      });
+      axios.get("/queueSate/"+this.queue+"/pending reminder").then((res) => {
+        this.ticketsQueueStatePending = res.data;
       });
       axios.get("/queueTotal/"+this.queue).then((res) => {
         this.ticketsQueueStateTotal = res.data;

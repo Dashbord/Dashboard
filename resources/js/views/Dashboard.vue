@@ -139,14 +139,14 @@
       <div class="col-lg-6">
         <div class="card card-chart">
           <div class="card-header">
-            <h4 class="card-title">Ticket Overview Queue ({{queue}})</h4>
+            <h4 class="card-title">Ticket Overview Queue ({{stateType}})</h4>
           </div>
           <div class="dropdown">
               <button type="button" class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
                 <i class="now-ui-icons loader_gear"></i>
               </button>
               <div class="dropdown-menu dropdown-menu-right">
-                <button v-for="q in queues" :key="q" :value="q" class="dropdown-item" @click="queue = q" >{{q}}</button>
+                <button v-for="s in stateTypes" :key="s" :value="s" class="dropdown-item" @click="stateType = s" >{{s}}</button>
               </div>
             </div>
           <column-chart 
@@ -221,16 +221,17 @@ export default {
     ticketsQueueStateTotal: null,
     ticketsQueueStatePending:null,
     queues: null,
-    collaborator: [],
-    duration: [],
+    queue:'CORE',
+    stateType: 'new',
+    stateTypes: null,
     calls: [],
     somaDuration: [],
     somaReplyTime: [],
     TicketQueue:[],
-    queue:'CORE',
   }),
   mounted() {
     this.updatequeue();
+    this.updatestate();
     axios.get("/satisfaction_score").then((res) => {
       this.satisfaction = res.data;
     });
@@ -246,26 +247,27 @@ export default {
     axios.get("/somaReplyTime").then((res) => {
       this.somaReplyTime = res.data;
     });
-    axios.get("/TicketQueue").then((res) => {
-      this.TicketQueue = res.data;
-    });
-    
     axios.get("/queues").then((res) => {
       this.queues = res.data;
     });
-    // axios.get("/collaborator").then((res) => {
-    //   this.collaborator = res.data;
-    // });
-    // axios.get("/duration").then((res) => {
-    //   this.collaborator = res.data;
-    // });
+    axios.get("/stateTypes").then((res) => {
+        this.stateTypes = res.data;
+      });
   },
   watch:{
     queue(){
       this.updatequeue();
+    },
+    stateType(){
+      this.updatestate();
     }
   },
   methods: {
+    updatestate(){
+      axios.get("/TicketQueue/"+this.stateType).then((res) => {
+        this.TicketQueue = res.data;
+      });
+    },
     updatequeue(){
       axios.get("/queueSate/"+this.queue+"/new").then((res) => {
         this.ticketsQueueStateNew = res.data;

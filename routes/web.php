@@ -36,9 +36,10 @@ Route::get('/ticket',[TicketController::class,'index'])->name('ticket.getAllTick
 Route::get('/queueSate/{queue}/{state_type}',[TicketController::class,'getQueueState']);
 Route::get('/queueTotal/{queue}',[TicketController::class,'getQueueTotal']);
 Route::get('/queues',[TicketController::class,'getQueues']);
+Route::get('/stateTypes',[TicketController::class,'getStateTypes']);
 Route::get('/calls',[CallController::class,'index'])->name('call.id');
 Route::get('/ResolutionScore',[TicketController::class,'ResolutionScore'])->name('ticket.ResolutionScore');
-Route::get('/TicketQueue',[TicketController::class,'TicketQueue'])->name('ticket.TicketQueue');
+Route::get('/TicketQueue/{state_type}',[TicketController::class,'TicketQueue'])->name('ticket.TicketQueue');
 Route::get('/satisfaction_score',[CallController::class,'satisfaction_score'])->name('call.satisfaction_score');
 Route::get('/duration',[CallController::class,'duration'])->name('call.duration');
 Route::get('/somaDuration',[CallController::class,'somaDuration'])->name('call.somad');

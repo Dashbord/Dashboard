@@ -25,4 +25,10 @@ class TicketController extends Controller
     {
         return DB::table('tickets')->select('queue', DB::raw('count(*) as total'))->groupBy('queue')->get();
     }
+    public function getQueueTotal($queue){
+        return DB::table('tickets')->select('queue')->groupBy('queue')->where('queue',$queue)->count();
+    }
+    public function getQueues(){
+        return DB::table('tickets')->select('queue')->groupBy('queue')->get()->pluck('queue');
+    }
 }

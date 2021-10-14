@@ -34,6 +34,8 @@ Route::get('/ticket3',[TicketController::class,'index'])->name('ticket.getAllTic
 
 Route::get('/ticket',[TicketController::class,'index'])->name('ticket.getAllTicketsNew');
 Route::get('/queueSate/{queue}/{state_type}',[TicketController::class,'getQueueState']);
+Route::get('/queueTotal/{queue}',[TicketController::class,'getQueueTotal']);
+Route::get('/queues',[TicketController::class,'getQueues']);
 Route::get('/calls',[CallController::class,'index'])->name('call.id');
 Route::get('/ResolutionScore',[TicketController::class,'ResolutionScore'])->name('ticket.ResolutionScore');
 Route::get('/TicketQueue',[TicketController::class,'TicketQueue'])->name('ticket.TicketQueue');

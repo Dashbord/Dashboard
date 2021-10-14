@@ -9,7 +9,7 @@
           </div>
           <div class="card-body">
             <div class="card-footer">
-              <h4>{{ teste }}</h4>
+              <h4>{{ ticketsQueueStateNew }}</h4>
             </div>
           </div>
         </div>
@@ -35,33 +35,44 @@
           </div>
           <div class="card-body">
             <div class="card-footer">
-              <h4>{{ ticketsQueueStateClose.length }}</h4>
+              <h4>{{ ticketsQueueStateClose }}</h4>
             </div>
           </div>
         </div>
       </div>
       <!-- Total -->
-      <div class="col-md-3">
-        <div class="card">
+      <div class="col-md-12">
+            <div class="card card-chart">
           <div class="card-header">
-            <h4 class="card-title">Total</h4>
+            <h4 class="card-title">Tickets {{queue}}</h4>
+            <div class="dropdown">
+              <button type="button" class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
+                <i class="now-ui-icons loader_gear"></i>
+              </button>
+              <div class="dropdown-menu dropdown-menu-right">
+                <button v-for="q in queues" :key="q" :value="q" class="dropdown-item" @click="queue = q" >{{q}}</button>
+              </div>
+            </div>
           </div>
           <div class="card-body">
             <div class="card-footer">
-              <h4>{{ ticketsQueueStateClose.length }}</h4>
+              <h4>{{ ticketsQueueStateTotal }}</h4>
             </div>
           </div>
         </div>
       </div>
-      <select v-model="queue">
+          <!--<div class="dropdown">
+            <button type="button" class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
+              <i class="now-ui-icons loader_gear"></i>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right">
+              <button v-for="q in queues" :key="q" :value="q" class="dropdown-item" @click="queue = q" >{{q}}</button>
+            </div>
+          </div> -->
+      <!-- <select v-model="queue" class="dropdown">
         <option disabled value="">Please select one</option>
-        <option value= "CORE">Core</option>
-        <option value= "Helpdesk">Helpdesk</option>
-        <!-- <option value= "CORE">Core</option>
-        <option value= "CORE">Core</option>
-        <option value= "CORE">Core</option> -->
-      </select>
-      <span>Selected: {{ queue }}</span>            -->
+        <option v-for="queue in queues" :key="queue" :value="queue">{{queue}}</option>
+      </select> -->
 
       <!-- Primeiro grafico -->
       <div class="col-lg-6">
@@ -149,11 +160,15 @@
 import axios from "axios";
 export default {
   data: () => ({
-    teste: null,
-    ticketsQueueStateOpen: [],
-    ticketsQueueStateClose: [],
     resolutionPercentage:[],
     satisfaction: [],
+    ticketsQueueStateNew: null,
+    ticketsQueueStateOpen: null,
+    ticketsQueueStateClose: null,
+    ticketsQueueStateTotal: null,
+    queues: null,
+    collaborator: [],
+    duration: [],
     calls: [],
     somaDuration: [],
     somaReplyTime: [],
@@ -181,6 +196,15 @@ export default {
       this.TicketQueue = res.data;
     });
     
+    axios.get("/queues").then((res) => {
+      this.queues = res.data;
+    });
+    // axios.get("/collaborator").then((res) => {
+    //   this.collaborator = res.data;
+    // });
+    // axios.get("/duration").then((res) => {
+    //   this.collaborator = res.data;
+    // });
   },
   watch:{
     queue(){
@@ -190,8 +214,17 @@ export default {
   methods: {
     updatequeue(){
       axios.get("/queueSate/"+this.queue+"/new").then((res) => {
-      this.teste = res.data;
-    });
+        this.ticketsQueueStateNew = res.data;
+      });
+      axios.get("/queueSate/"+this.queue+"/open").then((res) => {
+        this.ticketsQueueStateOpen = res.data;
+      });
+      axios.get("/queueSate/"+this.queue+"/closed").then((res) => {
+        this.ticketsQueueStateClose = res.data;
+      });
+      axios.get("/queueTotal/"+this.queue).then((res) => {
+        this.ticketsQueueStateTotal = res.data;
+      });
     },
   },
 };

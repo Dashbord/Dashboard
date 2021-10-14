@@ -24,16 +24,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        //$schedule->command('inspire')->hourly();
-        // $schedule->call(getAllNewQueues())
-        // ->everyMinute();
-        // ->sendOutputTo($filePath);
-
-         // $schedule->call(getAllQueues () {
-        //     DB::table('recent_users')->delete();
-        // })
-        // ->everyFiveMinutes()
-        // ->sendOutputTo($filePath);
+        $schedule->command('ticket:fetch')
+         ->timezone('Portugal/Lisbon')
+         ->at('2:00');
     }
 
     /**

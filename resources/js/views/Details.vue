@@ -4,7 +4,7 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
-            <h4 class="card-title">Details:Ticket{{id}}ID </h4>
+            <h4 class="card-title">Details:Ticket{{ticket_id}}ID </h4>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -25,37 +25,37 @@
                 <tbody>
                   <tr>
                     <td>
-                      {{ tickets.TicketNumber}}
+                      {{ tickets.ticket_number}}
                     </td>
                     <td>
-                      {{ tickets.Title }}
+                      {{ tickets.title }}
                     </td>
                     <td>
-                      {{ tickets.Created }}
+                      {{ tickets.created }}
                     </td>
                     <td>
-                      {{ tickets.Changed }}
+                      {{ tickets.changed }}
                     </td>
                     <td>
-                      {{ tickets.StateType }}
+                      {{ tickets.state_type }}
                     </td>
                     <td>
-                      {{ tickets.Queue }}
+                      {{ tickets.queue }}
                     </td>
                     <td>
-                      {{ tickets.Owner }}
+                      {{ tickets.owner }}
                     </td>
                     <td>
-                      {{ tickets.Priority }}
+                      {{ tickets.priority }}
                     </td>
                     <td>
-                      {{ tickets.Lock }}
+                      {{ tickets.lock }}
                     </td>
                     <td>
-                      {{ ((tickets.Age * 0.000116) / 10).toFixed(1) }} D.H
+                      {{ ((tickets.age * 0.000116) / 10).toFixed(1) }} D.H
                     </td>
                     <td>
-                      {{ tickets.Responsible }}
+                      {{ tickets.responsible }}
                     </td>
                   </tr>
                 </tbody>
@@ -73,7 +73,7 @@
 export default {
   props:['id'],
   data: () => ({
-    tickets: null,
+    tickets: [],
   }),
     mounted() {
     axios.get('/details/'+ this.id).then((res) => {

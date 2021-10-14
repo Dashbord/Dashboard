@@ -16,18 +16,6 @@
             <p>Dashboard</p>
           </a>
         </router-link>
-        <router-link tag="li" to="/StatusView" active-class="active">
-          <a>
-            <i class="now-ui-icons design_bullet-list-67"></i>
-            <p>Status View</p>
-          </a>
-        </router-link>
-        <router-link tag="li" to="/Raw" active-class="active">
-          <a>
-            <i class="now-ui-icons design_bullet-list-67"></i>
-            <p>Queue View</p>
-          </a>
-        </router-link>
         <router-link tag="li" to="/Search1" active-class="active">
           <a>
             <i class="now-ui-icons design_bullet-list-67"></i>
@@ -41,7 +29,7 @@
           </a>
         </li>
 
-        <li class="">
+        <li v-if="allowed" class="">
           <a href="http://localhost:8000/admin/users">
             <i class="now-ui-icons users_circle-08"></i>
             <p>Users</p>
@@ -53,7 +41,16 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data: ()=>({
+    allowed:false,
+  }),
+  mounted(){
+    axios.get("/allowed").then((res) => {
+      this.allowed = res.data;
+    });
+  }
+};
 </script>
 
 <style>

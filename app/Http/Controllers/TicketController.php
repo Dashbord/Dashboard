@@ -2,69 +2,48 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use  Illuminate\Support\Facades\Http;
+use App\Models\Ticket;
+use Illuminate\Support\Facades\DB;
 
 class TicketController extends Controller
 {
-    // retorna o ticket number, age e title dos tickets new
-    public function getAllTicketsNew(){
-        $response = Http::get('http://10.175.146.2/otrs/nph-genericinterface.pl/Webservice/GenericTicketConnectorREST/Ticket?UserLogin=sluis&Password=Szb6gwzEaEUAzsGj&States=pending reminder');
-        $res = $response->json();
-        $tickets=collect($res['TicketID'])->skip(0)->take(10)->map(function($id){
-            $response = Http::get('http://10.175.146.2/otrs/nph-genericinterface.pl/Webservice/GenericTicketConnectorREST/Ticket/'.$id.'?UserLogin=sluis&Password=Szb6gwzEaEUAzsGj&AllArticles=1&DynamicFields=1');
-            $ticket = $response->json()['Ticket'][0];           
+    public function index($search){
+        if($search=='*'){
+            return Ticket::orderBy('changed','DESC')->paginate(20);
+        }
+        return Ticket::where('title','LIKE','%'.$search.'%')->orderBy('changed','DESC')->paginate(20);
+    }
+    // retorna os tickets dependendo do parametro state e state_type
+    public function getQueueState($queue,$state_type){
+        return DB::table('tickets')->select('queue')->groupBy('queue')->where('queue',$queue)->where('state_type',$state_type)->count();
+    }
+    public function ResolutionScore($queue2)
+    {
+        if($queue2 == 'total'){
             return [
-                'TicketID' => $ticket['TicketID'],
-                'Title' => $ticket ['Title'],                
-                'Age' => $ticket['Age'],
-                'TicketNumber' => $ticket['TicketNumber'],
+                DB::table('tickets')->select('state_type')->where('state_type',"open")->orWhere('state_type',"new")->get()->count(),
+                DB::table('tickets')->select('state_type')->where('state_type',"closed")->get()->count(),
             ];
-        });
-        return $tickets;
+        }
+        return [
+            DB::table('tickets')->select('state_type')->where('queue',$queue2)->where('state_type',"open")->orWhere('state_type',"new")->get()->count(),
+            DB::table('tickets')->select('state_type')->where('queue',$queue2)->where('state_type',"closed")->get()->count(),
+        ];
     }
-     // retorna o ticket number, age e title dos tickets new
-     public function getAllTicketsNew2(){
-        $response = Http::get('http://10.175.146.2/otrs/nph-genericinterface.pl/Webservice/GenericTicketConnectorREST/Ticket?UserLogin=sluis&Password=Szb6gwzEaEUAzsGj&States=pending reminder');
-        $res = $response->json();
-        $tickets=collect($res['TicketID'])->skip(10)->take(10)->map(function($id){
-            $response = Http::get('http://10.175.146.2/otrs/nph-genericinterface.pl/Webservice/GenericTicketConnectorREST/Ticket/'.$id.'?UserLogin=sluis&Password=Szb6gwzEaEUAzsGj&AllArticles=1&DynamicFields=1');
-            $ticket = $response->json()['Ticket'][0];           
-            return [
-                'TicketID' => $ticket['TicketID'],
-                'Title' => $ticket ['Title'],                
-                'Age' => $ticket['Age'],
-                'TicketNumber' => $ticket['TicketNumber'],
-            ];
-        });
-        return $tickets;
+    public function TicketQueue($state_type)
+    {   
+        return DB::table('tickets')->select('queue', DB::raw('count(*) as total'))->where('state_type',$state_type)->groupBy('queue')->get();
     }
-     // retorna o ticket number, age e title dos tickets new
-     public function getAllTicketsNew3(){
-        $response = Http::get('http://10.175.146.2/otrs/nph-genericinterface.pl/Webservice/GenericTicketConnectorREST/Ticket?UserLogin=sluis&Password=Szb6gwzEaEUAzsGj&States=pending reminder');
-        $res = $response->json();
-        $tickets=collect($res['TicketID'])->skip(20)->take(10)->map(function($id){
-            $response = Http::get('http://10.175.146.2/otrs/nph-genericinterface.pl/Webservice/GenericTicketConnectorREST/Ticket/'.$id.'?UserLogin=sluis&Password=Szb6gwzEaEUAzsGj&AllArticles=1&DynamicFields=1');
-            $ticket = $response->json()['Ticket'][0];           
-            return [
-                'TicketID' => $ticket['TicketID'],
-                'Title' => $ticket ['Title'],                
-                'Age' => $ticket['Age'],
-                'TicketNumber' => $ticket['TicketNumber'],
-            ];
-        });
-        return $tickets;
+    public function getQueueTotal($queue){
+        return DB::table('tickets')->select('queue')->groupBy('queue')->where('queue',$queue)->count();
     }
-    
-
-    // retorna os tickets dependendo do parametro state que pode ser "new" ou "closed successful"
-    public function getState($state){
-        $response = Http::get('http://10.175.146.2/otrs/nph-genericinterface.pl/Webservice/GenericTicketConnectorREST/Ticket?UserLogin=pvinha&Password=sET4s7JyFBaDDmQa&States='.$state.'');       
-        return $response->json();
+    public function getQueues(){
+        return DB::table('tickets')->select('queue')->groupBy('queue')->get()->pluck('queue');
     }
-    // retorna os tickets dependendo do parametro state e QueueIDs
-    public function getQueueStatee($QueueIDs,$state){
-        $response = Http::get('http://10.175.146.2/otrs/nph-genericinterface.pl/Webservice/GenericTicketConnectorREST/Ticket?UserLogin=sluis&Password=Szb6gwzEaEUAzsGj&QueueIDs='.$QueueIDs.'&States='.$state.'');       
-        return $response->json();
+    public function getStateTypes(){
+        return DB::table('tickets')->select('state_type')->groupBy('state_type')->get()->pluck('state_type');
+    }
+    public function getID($ticket_id){
+        return DB::table('tickets')->select('*')->where('ticket_id',$ticket_id)->get()->first();
     }
 }

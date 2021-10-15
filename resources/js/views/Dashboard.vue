@@ -97,7 +97,8 @@
       <div class="col-lg-6">
         <div class="card card-chart">
           <div class="card-header">
-            <h4 class="card-title">Ticket Resolution</h4>
+            <!-- <h5 class="card-category">open: {{resolutionPercentage[0]/(resolutionPercentage[1]+)}}  </h5> -->
+            <h4 class="card-title">Ticket Resolution {{queue2}}</h4>
           </div>
           <div class="dropdown">
               <button type="button" class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
@@ -110,8 +111,10 @@
             </div>
           <pie-chart
             :data="[
-              ['Opened Tickets', resolutionPercentage[0]],
-              ['Resolved Tickets', resolutionPercentage[1]],
+              ['Opened Tickets', (resolutionPercentage[0]*100/(resolutionPercentage[0]+resolutionPercentage[1]+resolutionPercentage[2]+resolutionPercentage[3])).toFixed(1)],
+              ['Resolved Tickets', (resolutionPercentage[1]*100/(resolutionPercentage[0]+resolutionPercentage[1]+resolutionPercentage[2]+resolutionPercentage[3])).toFixed(1)],
+              ['New Tickets', (resolutionPercentage[2]*100/(resolutionPercentage[0]+resolutionPercentage[1]+resolutionPercentage[2]+resolutionPercentage[3])).toFixed(1)],
+              ['Pending Reminder Tickets', (resolutionPercentage[3]*100/(resolutionPercentage[0]+resolutionPercentage[1]+resolutionPercentage[2]+resolutionPercentage[3])).toFixed(1)],              
             ]"
           >
           </pie-chart>

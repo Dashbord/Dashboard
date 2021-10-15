@@ -21,13 +21,18 @@ class TicketController extends Controller
     {
         if($queue2 == 'total'){
             return [
-                DB::table('tickets')->select('state_type')->where('state_type',"open")->orWhere('state_type',"new")->get()->count(),
+                DB::table('tickets')->select('state_type')->where('state_type',"open")->get()->count(),
                 DB::table('tickets')->select('state_type')->where('state_type',"closed")->get()->count(),
+                DB::table('tickets')->select('state_type')->where('state_type',"new")->get()->count(),
+                DB::table('tickets')->select('state_type')->where('state_type',"pending reminder")->get()->count(),
             ];
         }
         return [
-            DB::table('tickets')->select('state_type')->where('queue',$queue2)->where('state_type',"open")->orWhere('state_type',"new")->get()->count(),
+            DB::table('tickets')->select('state_type')->where('queue',$queue2)->where('state_type',"open")->get()->count(),
             DB::table('tickets')->select('state_type')->where('queue',$queue2)->where('state_type',"closed")->get()->count(),
+            DB::table('tickets')->select('state_type')->where('queue',$queue2)->where('state_type',"new")->get()->count(),
+            DB::table('tickets')->select('state_type')->where('queue',$queue2)->where('state_type',"pending reminder")->get()->count(),
+
         ];
     }
     public function TicketQueue($state_type)

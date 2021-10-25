@@ -44,8 +44,10 @@ Route::get('/satisfaction_score',[CallController::class,'satisfaction_score'])->
 Route::get('/duration',[CallController::class,'duration'])->name('call.duration');
 Route::get('/somaDuration',[CallController::class,'somaDuration'])->name('call.somad');
 Route::get('/somaReplyTime',[CallController::class,'somaReplyTime'])->name('call.somar');
-Route::get('/allowed',[UserController::class,'allowed'])->name('user.allowed');
-
+Route::get('/allowed',[UserController::class,'allowed']);
+Route::get('/data',[TicketController::class,'Datas']);
+Route::get('/dataCount/{ano}',[TicketController::class,'DatasCount']);
+Route::get('/tickets',[TicketController::class,'index2']);
 
 Route::prefix('admin')->middleware('auth')->name('admin.')->group(function(){
     Route::resource('/users',UserController::class);
